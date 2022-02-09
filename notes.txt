@@ -1,0 +1,22 @@
+scores and stats initialized
+
+play again hiden
+
+
+
+click rock, paper, or scissors
+	results revealed
+
+		Determine Winner
+			Get CPU choice
+			Get Player choice
+			Determine Winner
+			Display Winner
+		Update stats
+		add to GameHistory
+
+	play buttons disabled
+	play again shown
+
+currentGame[]
+GameHistory[]
