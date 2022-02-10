@@ -1,3 +1,4 @@
+incorporate Tailwind
 
 Show pretty results:
 	You Win {Award icon} (Green)
@@ -8,13 +9,14 @@ lock shot buttons that were not clicked
 
 handle reset button
 	unlocks all shot buttons
-	clears results
+	clear: player shot, cpu shot, results
+
 
 
 
 convert shoot buttons to components
 
-incorporate Tailwind
+
 
 
 handle Games data

@@ -31,7 +31,7 @@ const RockPaperScissors = () => {
 	// 	console.log(playerShot);
 	// };
 
-	const { playerShoot, game } = useGlobalContext();
+	const { playerShoot, game, games, gamesPlayed } = useGlobalContext();
 
 
 
@@ -40,7 +40,8 @@ const RockPaperScissors = () => {
 	<article className="rock-paper-scissors">
 
 		<h1>Rock, Paper, Scissors</h1>
-
+		<div className="games-played">Games Played: {	gamesPlayed } </div>
+{/*
 		<div className="scoreboard">
 			<h2>Scoreboard</h2>
 			<div className="streak">Streak: </div>
@@ -65,7 +66,7 @@ const RockPaperScissors = () => {
 				<div className="paper">Paper: </div>
 				<div className="scissors">Scissors: </div>
 			</div>
-		</div>
+		</div> */}
 
 		<div className="results">
 			<h2>Results</h2>

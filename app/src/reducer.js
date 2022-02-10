@@ -37,45 +37,70 @@ const reducer = (state, action) => {
 	};
 
 	if ( 'PLAYER_SHOOT' === action.type ) {
-		switch (action.payload) {
-			case 'rock':
-				console.log('Reducer. SHOOT:rock');
-				break;
 
-			case 'paper':
-				console.log('Reducer. SHOOT:paper');
-				break;
-
-			case 'scissors':
-				console.log('Reducer. SHOOT:scissors');
-				break;
-
-			default:
-				throw new Error( 'Invalid shot type.' );
+		if ( ! shots.includes( action.payload ) ) {
+			throw new Error( 'Invalid shot type.' );
 		}
 
-		state.game.playerShot = action.payload;
-		state.game.cpuShot    = cpuShoot();
-		state.game.winner     = getGameResult(
-			state.game.playerShot,
-			state.game.cpuShot
-		);
+		// state.game.cpuShot = cpuShoot();
+		// state.game.playerShot = action.payload;
+		// state.game.winner = getGameResult( state.game.playerShot, state.game.cpuShot );
 
-		return { // Always return state.
-			...state
+		const newcpuShot = cpuShoot();
+		const newplayerShot = action.payload;
+		const newgameWinner = getGameResult( newcpuShot, newplayerShot );
+
+		//const updatedGames = [...state.games, state.game];
+
+
+		//state.gamesPlayed += 1;
+
+		console.log('PLAYER_SHOOT');
+
+		//console.log(`state.games`);
+		//console.log(state.games);
+		//state.games.push( [	state.game.winner] );
+		// const updatedGames = state.games;
+		// state.games.push(state.game.winner);
+		return {
+			...state,
+			game: {
+				cpuShot: newcpuShot,
+				playerShot: newplayerShot,
+				winner: newgameWinner
+			},
+			//games: updatedGames
 		};
 	}
 
-	// if ( 'CPU_SHOOT' === action.type ) {
+	if ( 'UPDATE_GAMES' === action.type ) {
+		const updatedGames = [...state.games, action.payload];
+		return { // always return state.
+			...state,
+			games: updatedGames
+		};
+	}
 
-	// 	state.game.cpuShot = action.payload;
+	if ( 'UPDATE_GAMES_PLAYED' === action.type ) {
+		//const gamesUpdated = state.games;
+		//state.games.push( action.payload );
+		// const gamesUpdated = action.payload.games;
 
-	// 	return { // Always return state.
-	// 		...state
-	// 	};
-	// }
+		// gamesUpdated.push(action.payload.game );
 
-	return state;
+		//state.gamesPlayed += 1;
+
+
+		return { // always return state.
+			...state,
+			gamesPlayed: state.gamesPlayed + 1
+		};
+	}
+
+
+	return {
+		...state
+	};
 };
 
 export default reducer;
