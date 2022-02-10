@@ -1,7 +1,44 @@
+
+Show pretty results:
+	You Win {Award icon} (Green)
+	You Lose {Trash icon} (Red)
+	Tie Game {FaRegWindowClose} (Black)
+
+lock shot buttons that were not clicked
+
+handle reset button
+	unlocks all shot buttons
+	clears results
+
+
+
+convert shoot buttons to components
+
+incorporate Tailwind
+
+
+handle Games data
+
+
+
+----
+Done
+----
+Determine and display winner
+display CPU shot
+handle CPU result calculation
+display player shot
+Handle player shot
+Rough out app structure
+Rough out markup
+
+
+
+
+---------------------------------------------------
 scores and stats initialized
 
 play again hiden
-
 
 
 click rock, paper, or scissors

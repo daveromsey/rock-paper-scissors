@@ -1,15 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useReducer, useEffect } from 'react'
+import { useGlobalContext } from '../context'
+import reducer from '../reducer'
+
+import { IconContext } from "react-icons";
+import {
+	FaMedal,
+	FaAward,
+	FaTrophy,
+	FaRegSadCry,
+	FaCat,
+	FaRegWindowClose,
+	FaWindowClose,
+	FaRegTrashAlt,
+	FaRegHandRock,
+	FaRegHandPaper,
+	FaRegHandScissors,
+	FaHandRock,
+	FaHandPaper,
+	FaHandScissors,
+	FaRedoAlt,
+	FaRedo
+} from "react-icons/fa";
+
 
 const RockPaperScissors = () => {
-	const [shot, setShot] = useState(null);
+	//const [shot, setShot] = useState(null);
 
-	const handleShot = (playerShot) => {
-		setShot(playerShot);
-		console.log(playerShot);
-	};
+	// const handleShot = (playerShot) => {
+	// 	setShot(playerShot);
+	// 	console.log(playerShot);
+	// };
+
+	const { playerShoot, game } = useGlobalContext();
+
+
 
   return (
+
 	<article className="rock-paper-scissors">
+
 		<h1>Rock, Paper, Scissors</h1>
 
 		<div className="scoreboard">
@@ -40,25 +69,49 @@ const RockPaperScissors = () => {
 
 		<div className="results">
 			<h2>Results</h2>
-			<h3>Winner: </h3>
-			<div className="player-value">
-				Your Choice:
+			<h3>Winner: {game.winner}</h3>
+			<div className="player-shot">
+				Your Shot: {game.playerShot}
 			</div>
-			<div className="cpu-value">
-				CPU Choice:
+			<div className="cpu-shot">
+				CPU Shot: {game.cpuShot}
 			</div>
 		</div>
 
 		<hr />
 
 		<div className="player-controls">
-			<button className="shoot rock" onClick={ () => handleShot('rock') }>Rock</button>
-			<button className="shoot paper">Paper</button>
-			<button className="shoot scissors">Scissors</button>
+			<IconContext.Provider value={{ color: "blue", className: "react-icons" }}>
+			{/* <button className="shoot rock" onClick={ () => handleShot('rock') }>Rock</button> */}
+			<button
+				className="player-shoot rock"
+				onClick={ () => playerShoot( 'rock' ) }
+			>
+				Rock <FaRegHandRock/>
+			</button>
+
+			<button
+				className="player-shoot paper"
+				onClick={ () => playerShoot( 'paper' ) }
+			>
+				Paper <FaRegHandPaper/>
+			</button>
+
+			<button
+				className="player-shoot scissors"
+				onClick={ () => playerShoot( 'scissors' ) }
+			>
+				Scissors <FaRegHandScissors/>
+			</button>
+
 
 			<div className="game-actions">
-				<button className="play-again">Play Again</button>
+				<button className="play-again">
+					Play Again <FaRedo/>
+				</button>
 			</div>
+
+			</IconContext.Provider>
 		</div>
 
 	 </article>

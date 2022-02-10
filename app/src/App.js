@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-import RockPaperScissors from './components/rock-paper-scissors.js'
+import RockPaperScissors from './components/rock-paper-scissors.js';
+
 function App() {
+
+
   return (
     <div className='container'>
 			<RockPaperScissors />
