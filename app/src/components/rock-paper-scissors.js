@@ -3,6 +3,7 @@ import { useGlobalContext } from '../context'
 import reducer from '../reducer'
 
 import { IconContext } from "react-icons";
+
 import {
 	FaMedal,
 	FaAward,
@@ -24,16 +25,8 @@ import {
 
 
 const RockPaperScissors = () => {
-	//const [shot, setShot] = useState(null);
 
-	// const handleShot = (playerShot) => {
-	// 	setShot(playerShot);
-	// 	console.log(playerShot);
-	// };
-
-	const { playerShoot, game, games, gamesPlayed } = useGlobalContext();
-
-
+	const { playerShoot, game, gamesPlayed } = useGlobalContext();
 
   return (
 
@@ -44,7 +37,7 @@ const RockPaperScissors = () => {
 {/*
 		<div className="scoreboard">
 			<h2>Scoreboard</h2>
-			<div className="streak">Streak: </div>
+			<div className="current-streak">Streak: </div>
 			<div className="longest-streak">Longest Streak: </div>
 			<div className="win-percentage">Win Percentage </div>
 			<div className="games-played">Games Played: </div>

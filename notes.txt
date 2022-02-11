@@ -1,16 +1,4 @@
-
-
-Update readme.md
-	useRef
-	useReducer
-	useContext
-	React Icons
-	tailwind
-
 add a context for Rock Paper Scissor component instead of using the global context. Keep global context for theming.
-
-
-clean up warnings
 
 incorporate Tailwind
 
@@ -26,6 +14,15 @@ handle reset button
 	clear: player shot, cpu shot, results
 
 convert shoot buttons to components
+
+clean up warnings
+
+Update readme.md
+	useRef
+	useReducer
+	useContext
+	React Icons
+	tailwind
 
 
 
@@ -54,6 +51,12 @@ https://javascript.plainenglish.io/how-to-make-the-useeffect-hook-not-run-on-ini
 
 
 ---------------------------------------------------
+allow keyboard controlls
+	A,S,D
+	Space to reset
+
+
+
 scores and stats initialized
 
 play again hiden

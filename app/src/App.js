@@ -5,7 +5,6 @@ import RockPaperScissors from './components/rock-paper-scissors.js';
 
 function App() {
 
-
   return (
     <div className='container rps-container'>
 			<RockPaperScissors />
