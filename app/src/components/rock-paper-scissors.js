@@ -39,7 +39,7 @@ const RockPaperScissors = () => {
 
 	<article className="rock-paper-scissors">
 
-		<h1>Rock, Paper, Scissors</h1>
+		<h1 className="rps-heading">Rock Paper Scissors</h1>
 		<div className="games-played">Games Played: {	gamesPlayed } </div>
 {/*
 		<div className="scoreboard">
@@ -83,38 +83,34 @@ const RockPaperScissors = () => {
 
 		<div className="player-controls">
 			<IconContext.Provider value={{ color: "blue", className: "react-icons" }}>
-			{/* <button className="shoot rock" onClick={ () => handleShot('rock') }>Rock</button> */}
-			<button
-				className="player-shoot rock"
-				onClick={ () => playerShoot( 'rock' ) }
-			>
-				Rock <FaRegHandRock/>
-			</button>
-
-			<button
-				className="player-shoot paper"
-				onClick={ () => playerShoot( 'paper' ) }
-			>
-				Paper <FaRegHandPaper/>
-			</button>
-
-			<button
-				className="player-shoot scissors"
-				onClick={ () => playerShoot( 'scissors' ) }
-			>
-				Scissors <FaRegHandScissors/>
-			</button>
-
-
-			<div className="game-actions">
-				<button className="play-again">
-					Play Again <FaRedo/>
+				<button
+					className="player-shoot rock"
+					onClick={ () => playerShoot( 'rock' ) }
+				>
+					Rock <FaRegHandRock/>
 				</button>
-			</div>
 
+				<button
+					className="player-shoot paper"
+					onClick={ () => playerShoot( 'paper' ) }
+				>
+					Paper <FaRegHandPaper/>
+				</button>
+
+				<button
+					className="player-shoot scissors"
+					onClick={ () => playerShoot( 'scissors' ) }
+				>
+					Scissors <FaRegHandScissors/>
+				</button>
+
+				<div className="game-actions">
+					<button className="play-again">
+						Play Again <FaRedo/>
+					</button>
+				</div>
 			</IconContext.Provider>
 		</div>
-
 	 </article>
   )
 }
