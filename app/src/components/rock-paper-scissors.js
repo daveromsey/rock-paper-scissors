@@ -1,6 +1,10 @@
 import React, { useState, useContext, useReducer, useEffect } from 'react'
-import { useGlobalContext } from '../context'
-import reducer from '../reducer'
+//import { RPSContext } from '../RPSContext';
+
+
+import { useRPSContext } from '../RPSContext';
+
+// import reducer from '../reducer'
 
 import { IconContext } from "react-icons";
 
@@ -26,27 +30,29 @@ import {
 
 const RockPaperScissors = () => {
 
-	const { playerShoot, game, gamesPlayed } = useGlobalContext();
+	const { playerShoot, game, gamesPlayed } = useRPSContext();
 
   return (
 
 	<article className="rock-paper-scissors">
 
 		<h1 className="rps-heading">Rock Paper Scissors</h1>
+
 		<div className="games-played">Games Played: {	gamesPlayed } </div>
 {/*
 		<div className="scoreboard">
 			<h2>Scoreboard</h2>
-			<div className="current-streak">Streak: </div>
-			<div className="longest-streak">Longest Streak: </div>
-			<div className="win-percentage">Win Percentage </div>
 			<div className="games-played">Games Played: </div>
 			<div className="wins">Wins: </div>
 			<div className="losses">Losses: </div>
 			<div className="ties">Ties: </div>
+			<div className="current-streak">Win Streak: </div>
+			<div className="longest-streak">Longest Win Streak: </div>
+			<div className="win-percentage">Win Percentage </div>
 		</div>
 
-		<div className="stats">
+		<div className="plstats">
+			<h2>Stats</h2>
 			<div className="cpu-stats">
 				<h2>CPU Stats</h2>
 				<div className="rock">Rock: </div>

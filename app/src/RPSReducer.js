@@ -30,10 +30,12 @@ const reducer = (state, action) => {
 	 * @return string|null tie|player|cpu or null on error.
 	 */
 	const getGameResult = ( playerShot, cpuShot ) => {
+		// Handle a tie.
 		if ( playerShot === cpuShot ) {
 			return 'tie';
 		}
 
+		// Handle Player wins.
 		if (
 		  ( 'rock' === playerShot && 'scissors' === cpuShot ) ||
 			( 'paper' === playerShot && 'rock' === cpuShot ) ||
@@ -42,10 +44,11 @@ const reducer = (state, action) => {
 			return 'player';
 		}
 
+		// Handle CPU wins.
 		if (
-			( 'scissors' === playerShot && 'rock' === cpuShot ) ||
-			( 'rock' === playerShot && 'paper' === cpuShot ) ||
-			( 'paper' === playerShot && 'scissors' === cpuShot )
+			( 'rock' === cpuShot && 'scissors' === playerShot ) ||
+			( 'paper' === cpuShot && 'rock' === playerShot ) ||
+			( 'scissors' === cpuShot && 'paper' === playerShot )
 		) {
 			return 'cpu';
 		}
@@ -66,11 +69,12 @@ const reducer = (state, action) => {
 
 		const newcpuShot = cpuShoot();
 		const newplayerShot = action.payload;
-		const newgameWinner = getGameResult( newcpuShot, newplayerShot );
+		const newgameWinner = getGameResult( newplayerShot, newcpuShot );
 
 		return {
 			...state,
 			game: {
+				startTime: new Date().getTime().toString(),
 				cpuShot: newcpuShot,
 				playerShot: newplayerShot,
 				winner: newgameWinner
@@ -89,19 +93,17 @@ const reducer = (state, action) => {
 	}
 
 	/**
-	 * Handle updating games - the game history.
+	 * Handle updating games (the game history).
 	 */
 	if ( 'UPDATE_GAMES' === action.type ) {
-		// payload is the game.
-
 		// If the game has not finished, don't add it to the history.
-		if ( null === action.payload.winner ) {
+		if ( null === state.game.winner ) {
 			return {
 				...state,
 			};
 		}
 
-		const updatedGames = [ ...state.games, action.payload ];
+		const updatedGames = [ ...state.games, state.game ];
 
 		return {
 			...state,

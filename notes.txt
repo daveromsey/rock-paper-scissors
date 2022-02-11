@@ -1,4 +1,25 @@
-add a context for Rock Paper Scissor component instead of using the global context. Keep global context for theming.
+add a context for Rock Paper Scissor component instead of using the global context.
+Keep global context for theming.
+
+test global context
+	light/dark
+
+add app reducer/
+
+organize files better
+	/src
+		/components
+			/RockPaperScissors
+				RockPaperScissors.js
+				ShootButton.js
+				context.js
+				reducer.js
+
+		context.js
+		reducer.js
+
+
+
 
 incorporate Tailwind
 
@@ -7,24 +28,40 @@ Show pretty results:
 	You Lose {Trash icon} (Red)
 	Tie Game {FaRegWindowClose} (Black)
 
-lock shot buttons that were not clicked
+
+Shot buttons
+	When shot button is clicked, show it in clicked state
+	lock shot buttons that were not clicked
 
 handle reset button
+	hide until game ends
 	unlocks all shot buttons
 	clear: player shot, cpu shot, results
 
-convert shoot buttons to components
+convert shot buttons to components
+
+
 
 clean up warnings
 
 Update readme.md
-	useRef
-	useReducer
-	useContext
-	React Icons
-	tailwind
-
-
+	Uses:
+		useRef()
+		useEffect()
+		useReducer() - One for the App and one for the RPS component.
+		useContext() - One for the App and one for the RPS component.
+		React Icons
+		tailwind
+	Acknowledgements:
+		favicon
+	Possible Future Enhancements
+		Local Storage
+		Reset Data to clear Local Storage
+		Timing based clicks with style points for accuracy and timeout for fault.
+		Achievements
+		Opponents with ladder like Mortal Kombat.
+		Oppenents with various strategies.
+		Opponents that talk smack.
 
 
 Coding standards
@@ -35,14 +72,18 @@ Done
 ----
 Update games played with useEffect
 Handle saving Game to Games data
+
 Determine and display winner
 display CPU shot
 handle CPU result calculation
 display player shot
+
 Handle player shot
 Rough out app structure
+
 Rough out markup
 
+---------------------
 Helpful Links:
 Make the useEffect Hook Not Run on Initial Render
 https://javascript.plainenglish.io/how-to-make-the-useeffect-hook-not-run-on-initial-render-e42bc3389724

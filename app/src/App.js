@@ -1,13 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { RPSProvider } from './RPSContext';
+
+import { useGlobalContext } from './context';
+
 import RockPaperScissors from './components/rock-paper-scissors.js';
 
 function App() {
 
+	const { updateTheme } = useGlobalContext();
+
   return (
-    <div className='container rps-container'>
-			<RockPaperScissors />
+    <div className="app">
+			<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Update Theme</button>
+
+			<RPSProvider>
+				<RockPaperScissors />
+			</RPSProvider>
     </div>
   )
 }
