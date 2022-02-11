@@ -1,6 +1,5 @@
 import React, { useRef, useContext, useReducer, useEffect } from 'react'
-
-import reducer from './RPSReducer'
+import RPSReducer from './RPSReducer'
 
 const RPSContext = React.createContext();
 
@@ -16,7 +15,7 @@ const initialState = {
 }
 
 const RPSProvider = ({ children }) => {
-  const [state, dispatch] = useReducer( reducer, initialState );
+  const [state, dispatch] = useReducer( RPSReducer, initialState );
 
 	// Used to determine if this is the original render or not.
 	const firstUpdate = useRef(true);
@@ -35,7 +34,6 @@ const RPSProvider = ({ children }) => {
   }, [ state.game.startTime ] );
 
 	useEffect( () => {
-		//dispatch( { type: 'UPDATE_GAMES', payload: state.game } );
 		dispatch( { type: 'UPDATE_GAMES' } );
 	}, [ state.gamesPlayed ] );
 

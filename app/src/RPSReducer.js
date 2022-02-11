@@ -13,7 +13,7 @@ const reducer = (state, action) => {
 	 *
 	 * @author Dave Romsey <david.romsey@webdevstudios.com>
 	 *
-	 * @return srting
+	 * @return string rock|paper|scissors
 	 */
 	const cpuShoot = () => {
 		return shots[ Math.floor( Math.random() * shots.length ) ];
@@ -111,9 +111,7 @@ const reducer = (state, action) => {
 		};
 	}
 
-	return {
-		...state
-	};
+	return state;
 };
 
 export default reducer;

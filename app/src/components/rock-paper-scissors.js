@@ -1,11 +1,5 @@
-import React, { useState, useContext, useReducer, useEffect } from 'react'
-//import { RPSContext } from '../RPSContext';
-
-
+import React from 'react'
 import { useRPSContext } from '../RPSContext';
-
-// import reducer from '../reducer'
-
 import { IconContext } from "react-icons";
 
 import {
@@ -39,7 +33,7 @@ const RockPaperScissors = () => {
 		<h1 className="rps-heading">Rock Paper Scissors</h1>
 
 		<div className="games-played">Games Played: {	gamesPlayed } </div>
-{/*
+
 		<div className="scoreboard">
 			<h2>Scoreboard</h2>
 			<div className="games-played">Games Played: </div>
@@ -65,7 +59,7 @@ const RockPaperScissors = () => {
 				<div className="paper">Paper: </div>
 				<div className="scissors">Scissors: </div>
 			</div>
-		</div> */}
+		</div>
 
 		<div className="results">
 			<h2>Results</h2>

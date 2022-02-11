@@ -3,17 +3,18 @@ import './App.css';
 
 import { RPSProvider } from './RPSContext';
 
-import { useGlobalContext } from './context';
+import { useAppContext } from './AppContext';
 
 import RockPaperScissors from './components/rock-paper-scissors.js';
 
 function App() {
 
-	const { updateTheme } = useGlobalContext();
+	const { updateTheme } = useAppContext();
 
   return (
     <div className="app">
-			<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Update Theme</button>
+			<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Use Dark Theme</button>
+			<button className="update-theme" onClick={ () => updateTheme( 'light' ) }>Use Light Theme</button>
 
 			<RPSProvider>
 				<RockPaperScissors />
