@@ -1,3 +1,16 @@
+Update games played with useEffect
+
+Update readme.md
+	useReducer
+	useContext
+	React Icons
+	tailwind
+
+add a context for Rock Paper Scissor component instead of using the global context. Keep global context for theming.
+
+
+clean up warnings
+
 incorporate Tailwind
 
 Show pretty results:
@@ -11,21 +24,18 @@ handle reset button
 	unlocks all shot buttons
 	clear: player shot, cpu shot, results
 
-
-
-
 convert shoot buttons to components
 
 
 
 
-handle Games data
-
-
+Coding standards
+Pretier
 
 ----
 Done
 ----
+Handle saving Game to Games data
 Determine and display winner
 display CPU shot
 handle CPU result calculation

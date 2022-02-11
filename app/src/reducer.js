@@ -42,61 +42,44 @@ const reducer = (state, action) => {
 			throw new Error( 'Invalid shot type.' );
 		}
 
-		// state.game.cpuShot = cpuShoot();
-		// state.game.playerShot = action.payload;
-		// state.game.winner = getGameResult( state.game.playerShot, state.game.cpuShot );
-
 		const newcpuShot = cpuShoot();
 		const newplayerShot = action.payload;
 		const newgameWinner = getGameResult( newcpuShot, newplayerShot );
 
-		//const updatedGames = [...state.games, state.game];
-
-
-		//state.gamesPlayed += 1;
-
-		console.log('PLAYER_SHOOT');
-
-		//console.log(`state.games`);
-		//console.log(state.games);
-		//state.games.push( [	state.game.winner] );
-		// const updatedGames = state.games;
-		// state.games.push(state.game.winner);
 		return {
 			...state,
 			game: {
 				cpuShot: newcpuShot,
 				playerShot: newplayerShot,
 				winner: newgameWinner
-			},
-			//games: updatedGames
-		};
-	}
-
-	if ( 'UPDATE_GAMES' === action.type ) {
-		const updatedGames = [...state.games, action.payload];
-		return { // always return state.
-			...state,
-			games: updatedGames
+			}
 		};
 	}
 
 	if ( 'UPDATE_GAMES_PLAYED' === action.type ) {
-		//const gamesUpdated = state.games;
-		//state.games.push( action.payload );
-		// const gamesUpdated = action.payload.games;
-
-		// gamesUpdated.push(action.payload.game );
-
-		//state.gamesPlayed += 1;
-
-
-		return { // always return state.
+		return {
 			...state,
 			gamesPlayed: state.gamesPlayed + 1
 		};
 	}
 
+	if ( 'UPDATE_GAMES' === action.type ) {
+		// payload is the game.
+
+		// If the game has not finished, don't add it to the history.
+		if ( null === action.payload.winner ) {
+			return {
+				...state,
+			};
+		}
+
+		const updatedGames = [ ...state.games, action.payload ];
+
+		return {
+			...state,
+			games: updatedGames
+		};
+	}
 
 	return {
 		...state
