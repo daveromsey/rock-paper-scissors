@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRPSContext } from '../RPSContext';
+import { useRPSContext } from './RPSContext';
 import { IconContext } from "react-icons";
 
 import {

@@ -1,13 +1,3 @@
-Improve file naming and organization
-	/src
-		/components
-			/RockPaperScissors
-				RockPaperScissors.js
-				ShootButton.js
-				RPSContext.js
-				RPSReducer.js
-		AppContext.js
-		AppReducer.js
 
 Incorporate Tailwind
 
@@ -53,6 +43,10 @@ Update readme.md
 	Possible Future Enhancements
 		Local Storage
 		Reset Data to clear Local Storage
+		Allow keyboard controlls
+			A,S,D
+			Space to reset
+		Hack mode to force computer's shot
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements
 		Opponents with ladder like Mortal Kombat.
@@ -88,6 +82,20 @@ VscSymbolBoolean
 ----
 Done
 ----
+Move general RPS functions out of RPSReducer.js and into a separate file.
+
+Improve file naming and organization
+	/src
+		/global
+			AppContext.js
+			AppReducer.js
+		/components
+			/RockPaperScissors
+				RockPaperScissors.js
+				ShootButton.js
+				RPSContext.js
+				RPSReducer.js
+
 Clean up warnings
 Use AppContext/RPSContext and AppReducer/RPSReducer
 Implement theme switcher using AppConext/AppReducer
@@ -112,34 +120,7 @@ Helpful Links:
 	Dark Mode in React
 		https://levelup.gitconnected.com/dark-mode-in-react-533faaee3c6e
 
+Exports in JavaScript
+	https://stackoverflow.com/a/38469257/3059883
 
 
-
----------------------------------------------------
-allow keyboard controlls
-	A,S,D
-	Space to reset
-
-
-
-scores and stats initialized
-
-play again hiden
-
-
-click rock, paper, or scissors
-	results revealed
-
-		Determine Winner
-			Get CPU choice
-			Get Player choice
-			Determine Winner
-			Display Winner
-		Update stats
-		add to GameHistory
-
-	play buttons disabled
-	play again shown
-
-currentGame[]
-GameHistory[]

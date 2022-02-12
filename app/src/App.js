@@ -1,11 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { RPSProvider } from './RPSContext';
+import { useAppContext } from './global/AppContext';
+import { RPSProvider } from './components/RockPaperScissors/RPSContext';
 
-import { useAppContext } from './AppContext';
-
-import RockPaperScissors from './components/rock-paper-scissors.js';
+import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors.js';
 
 function App() {
 
