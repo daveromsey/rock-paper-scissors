@@ -36,7 +36,9 @@ const RockPaperScissors = () => {
 			&nbsp;Scissors
 		</h1>
 
-		<div className="games-played">Games Played: {	gamesPlayed } </div>
+		<div className="games-played text-4xl">Games Played:&nbsp;
+			<span className="font-digital-italic">{gamesPlayed}</span>
+		</div>
 
 		<div className="scoreboard">
 			<h2>Scoreboard</h2>

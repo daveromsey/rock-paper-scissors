@@ -11,7 +11,7 @@ function App() {
 	const { updateTheme } = useAppContext();
 
   return (
-    <div className="app p-6 bg-royalpurple-50">
+    <div className="app p-6">
 			<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Use Dark Theme</button>
 			<button className="update-theme" onClick={ () => updateTheme( 'light' ) }>Use Light Theme</button>
 

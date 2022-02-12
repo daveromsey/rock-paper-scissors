@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "~@fontsource/paytone-one/index.css"; // Defaults to weight 400 with all styles included.
+@import "./assets/sass/fonts.scss";
 
 @function calculateRem($size) {
   $remSize: $size / 16px;

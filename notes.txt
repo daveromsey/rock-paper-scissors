@@ -46,27 +46,37 @@ Update readme.md
 		Local Storage
 		Tailwind
 		Sass
+		Self-hosted fonts
 		Google Fonts (self-hosted)
 		React Icons
 
 	Acknowledgements:
 		favicon
+		Fonts:
+			Paytone One: https://fonts.google.com/specimen/Paytone+One#standard-styles
+			Digital-7: https://www.1001fonts.com/digital-7-font.html
+
 	Possible Future Enhancements
 		Local Storage
 		Reset Data to clear Local Storage
 		Allow keyboard controlls
 			A,S,D
 			Space to reset
+		Rounds per game (best of): 1, 3, 5
+			Ties don't count towards winning.
+			Games
+				Game
+					Rounds
 		Hack mode to force computer's shot
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements
 		Opponents with ladder like Mortal Kombat.
-		Oppenents with various strategies.
-		Opponents that talk smack.
+		Oppenents with various strategies (always same shot, random, based on player's last shot, etc)
+		Opponents that talk smack
 
 
 Coding standards
-Pretier
+Prettier
 
 Icons
 --------
@@ -143,3 +153,5 @@ Helpful Links:
 	Self-hosting Google Fonts
 		https://dev.to/danwalsh/self-host-google-fonts-in-your-next-react-project-with-fontsource-1n07
 
+	Adding Local Fonts or Google Fonts In Tailwind CSS With WordPress
+		https://imranhsayed.medium.com/adding-local-fonts-or-google-fonts-in-tailwind-css-with-wordpress-2850aac843fd
