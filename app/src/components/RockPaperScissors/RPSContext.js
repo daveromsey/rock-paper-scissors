@@ -3,7 +3,7 @@ import RPSReducer from './RPSReducer'
 
 const RPSContext = React.createContext();
 
-const initialState = {
+const initialStateRPS = {
 	game: {
 		startTime: null,
 		playerShot: null,
@@ -15,7 +15,7 @@ const initialState = {
 }
 
 const RPSProvider = ({ children }) => {
-  const [state, dispatch] = useReducer( RPSReducer, initialState );
+  const [state, dispatch] = useReducer( RPSReducer, initialStateRPS );
 
 	// Used to determine if this is the original render or not.
 	const firstUpdate = useRef(true);

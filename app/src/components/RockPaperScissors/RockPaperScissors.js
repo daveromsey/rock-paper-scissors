@@ -30,7 +30,11 @@ const RockPaperScissors = () => {
 
 	<article className="rock-paper-scissors">
 
-		<h1 className="rps-heading">Rock Paper Scissors</h1>
+		<h1 className="rps-heading font-brand text-5xl">
+			Rock <span className="brand-dot font-sans text-8xl leading-none">&#183;</span>
+			&nbsp;Paper <span className="brand-dot font-sans text-8xl leading-none">&#183;</span>
+			&nbsp;Scissors
+		</h1>
 
 		<div className="games-played">Games Played: {	gamesPlayed } </div>
 

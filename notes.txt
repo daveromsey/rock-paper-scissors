@@ -1,5 +1,11 @@
+Styling
+	Basic structure
+	Responsiveness
+	Basic colors
+	Light/Dark Mode
 
-Incorporate Tailwind
+
+convert shot buttons to components
 
 Add some basic styling
 
@@ -17,7 +23,7 @@ handle reset button
 	unlocks all shot buttons
 	clear: player shot, cpu shot, results
 
-convert shot buttons to components
+
 
 Handle Player/CPU stats
 
@@ -25,19 +31,24 @@ Handle scoreboard
 
 Handle light/dark theme styles
 
-replace default files
+clean up
 
 Host and deploy to github pages
 	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
 
 Update readme.md
 	Uses:
-		useRef()
-		useEffect()
-		useReducer() - One for the App and one for the RPS component.
-		useContext() - One for the App and one for the RPS component.
+		React APIs:
+			useRef()
+			useEffect()
+			useReducer() - One for the App and one for the RPS component.
+			useContext() - One for the App and one for the RPS component.
+		Local Storage
+		Tailwind
+		Sass
+		Google Fonts (self-hosted)
 		React Icons
-		tailwind
+
 	Acknowledgements:
 		favicon
 	Possible Future Enhancements
@@ -82,6 +93,12 @@ VscSymbolBoolean
 ----
 Done
 ----
+Add local Google Fonts:
+	Fancy text
+	regular text
+
+Add SCSS support
+Add Tailwind support
 Move general RPS functions out of RPSReducer.js and into a separate file.
 
 Improve file naming and organization
@@ -120,7 +137,9 @@ Helpful Links:
 	Dark Mode in React
 		https://levelup.gitconnected.com/dark-mode-in-react-533faaee3c6e
 
-Exports in JavaScript
-	https://stackoverflow.com/a/38469257/3059883
+	Exports in JavaScript
+		https://stackoverflow.com/a/38469257/3059883
 
+	Self-hosting Google Fonts
+		https://dev.to/danwalsh/self-host-google-fonts-in-your-next-react-project-with-fontsource-1n07
 

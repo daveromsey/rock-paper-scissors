@@ -4,12 +4,12 @@ import AppReducer from './AppReducer'
 
 const AppContext = React.createContext();
 
-const initialState = {
+const initialStateApp = {
 	theme: 'light'
 }
 
 const AppProvider = ( { children } ) => {
-  const [state, dispatch] = useReducer( AppReducer, initialState );
+  const [state, dispatch] = useReducer( AppReducer, initialStateApp );
 
 	const updateTheme = ( theme ) => {
 		dispatch( {type: 'UPDATE_THEME', payload: theme } );
