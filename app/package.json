@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/open-sans": "^4.5.5",
     "@fontsource/paytone-one": "^4.5.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",

@@ -1,8 +1,24 @@
 @tailwind base;
+
+// Extend Preflight styles.
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 
-@import "~@fontsource/paytone-one/index.css"; // Defaults to weight 400 with all styles included.
 @import "./assets/sass/fonts.scss";
 
 @function calculateRem($size) {
@@ -38,11 +54,4 @@
 		background-color: gray;
 		color: red;
 	}
-}
-
-.brand-dot {
-	line-height: 0;
-	position: relative;
-	//top: remCalc(15px);
-	top: 15px;
 }

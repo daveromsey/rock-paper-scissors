@@ -1,23 +1,24 @@
 import React from 'react'
 import { useRPSContext } from './RPSContext';
+import RPSHeading from './RPSHeading';
 import { IconContext } from "react-icons";
 
 import {
-	FaMedal,
-	FaAward,
-	FaTrophy,
-	FaRegSadCry,
-	FaCat,
-	FaRegWindowClose,
-	FaWindowClose,
-	FaRegTrashAlt,
+	// FaMedal,
+	// FaAward,
+	// FaTrophy,
+	// FaRegSadCry,
+	// FaCat,
+	// FaRegWindowClose,
+	// FaWindowClose,
+	// FaRegTrashAlt,
 	FaRegHandRock,
 	FaRegHandPaper,
 	FaRegHandScissors,
-	FaHandRock,
-	FaHandPaper,
-	FaHandScissors,
-	FaRedoAlt,
+	// FaHandRock,
+	// FaHandPaper,
+	// FaHandScissors,
+	// FaRedoAlt,
 	FaRedo
 } from "react-icons/fa";
 
@@ -30,11 +31,7 @@ const RockPaperScissors = () => {
 
 	<article className="rock-paper-scissors">
 
-		<h1 className="rps-heading font-brand text-5xl">
-			Rock <span className="brand-dot font-sans text-8xl leading-none">&#183;</span>
-			&nbsp;Paper <span className="brand-dot font-sans text-8xl leading-none">&#183;</span>
-			&nbsp;Scissors
-		</h1>
+		<RPSHeading/>
 
 		<div className="games-played text-4xl">Games Played:&nbsp;
 			<span className="font-digital-italic">{gamesPlayed}</span>
@@ -46,25 +43,58 @@ const RockPaperScissors = () => {
 			<div className="wins">Wins: </div>
 			<div className="losses">Losses: </div>
 			<div className="ties">Ties: </div>
-			<div className="current-streak">Win Streak: </div>
-			<div className="longest-streak">Longest Win Streak: </div>
-			<div className="win-percentage">Win Percentage </div>
 		</div>
 
-		<div className="plstats">
+		<div class="relative flex py-5 items-center">
+			<div class="flex-grow border-t border-gray-400"></div>
+			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandRock/></span>
+			<div class="flex-grow border-t border-gray-400"></div>
+		</div>
+
+		<div className="stats">
 			<h2>Stats</h2>
-			<div className="cpu-stats">
-				<h2>CPU Stats</h2>
-				<div className="rock">Rock: </div>
-				<div className="paper">Paper: </div>
-				<div className="scissors">Scissors: </div>
+
+			<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
+
+				<div className="player-stats">
+					<h2>Player Stats</h2>
+					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+						<div className="player-stats-1">
+							<div className="current-streak">Win Streak: </div>
+							<div className="longest-streak">Longest Streak: </div>
+							<div className="win-percentage">Win Percentage </div>
+						</div>
+						<div className="player-stats-2">
+							<div className="rock">Rock: </div>
+							<div className="paper">Paper: </div>
+							<div className="scissors">Scissors: </div>
+						</div>
+					</div>
+				</div>
+
+				<div className="cpu-stats">
+					<h2>CPU Stats</h2>
+					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+						<div className="cpu-stats-1">
+							<div className="current-streak">Win Streak: </div>
+							<div className="longest-streak">Longest Streak: </div>
+							<div className="win-percentage">Win Percentage </div>
+						</div>
+						<div className="cpu-stats-2">
+							<div className="rock">Rock: </div>
+							<div className="paper">Paper: </div>
+							<div className="scissors">Scissors: </div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-			<div className="player-stats">
-				<h2>Player Stats</h2>
-				<div className="rock">Rock: </div>
-				<div className="paper">Paper: </div>
-				<div className="scissors">Scissors: </div>
-			</div>
+		</div>
+
+		<div class="relative flex py-5 items-center">
+			<div class="flex-grow border-t border-gray-400"></div>
+			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandPaper/></span>
+			<div class="flex-grow border-t border-gray-400"></div>
 		</div>
 
 		<div className="results">
@@ -78,7 +108,11 @@ const RockPaperScissors = () => {
 			</div>
 		</div>
 
-		<hr />
+		<div class="relative flex py-5 items-center">
+			<div class="flex-grow border-t border-gray-400"></div>
+			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandScissors/></span>
+			<div class="flex-grow border-t border-gray-400"></div>
+		</div>
 
 		<div className="player-controls">
 			<IconContext.Provider value={{ color: "blue", className: "react-icons" }}>
@@ -114,4 +148,4 @@ const RockPaperScissors = () => {
   )
 }
 
-export default RockPaperScissors
+export default RockPaperScissors;

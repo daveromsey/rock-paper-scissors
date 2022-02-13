@@ -24,12 +24,12 @@
 	 * @param string playerShot The player's shot.
 	 * @param string cpuShot    The CPU's shot.
 	 *
-	 * @return string|null tie|player|cpu or null on error.
+	 * @return string|null player|cpu|draw or null on error.
 	 */
 	export const getGameResult = ( playerShot, cpuShot ) => {
-		// Handle a tie.
+		// Handle a draw.
 		if ( playerShot === cpuShot ) {
-			return 'tie';
+			return 'draw';
 		}
 
 		// Handle Player wins.

@@ -1,13 +1,18 @@
 Styling
-	Basic structure
+	Basic grid structure
 	Responsiveness
 	Basic colors
 	Light/Dark Mode
 
-
-convert shot buttons to components
-
-Add some basic styling
+Convert elements to components
+	Theme
+	Scoreboard
+	Stats
+		Player
+		CPU
+	Results
+	Play again
+	Shot buttons
 
 Show pretty results:
 	You Win {Award icon} (Green)
@@ -46,8 +51,8 @@ Update readme.md
 		Local Storage
 		Tailwind
 		Sass
-		Self-hosted fonts
 		Google Fonts (self-hosted)
+		Self-hosted fonts
 		React Icons
 
 	Acknowledgements:
@@ -56,10 +61,13 @@ Update readme.md
 			Paytone One: https://fonts.google.com/specimen/Paytone+One#standard-styles
 			Digital-7: https://www.1001fonts.com/digital-7-font.html
 
+	RPS instuctions
+	https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
+
 	Possible Future Enhancements
 		Local Storage
 		Reset Data to clear Local Storage
-		Allow keyboard controlls
+		Allow keyboard controls
 			A,S,D
 			Space to reset
 		Rounds per game (best of): 1, 3, 5
@@ -103,9 +111,14 @@ VscSymbolBoolean
 ----
 Done
 ----
+
+
+Add local font
 Add local Google Fonts:
 	Fancy text
-	regular text
+	npm install @fontsource/paytone-one
+	Regular text
+	npm install @fontsource/open-sans
 
 Add SCSS support
 Add Tailwind support

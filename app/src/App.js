@@ -3,7 +3,6 @@ import './App.scss';
 
 import { useAppContext } from './global/AppContext';
 import { RPSProvider } from './components/RockPaperScissors/RPSContext';
-
 import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors.js';
 
 function App() {
@@ -11,20 +10,18 @@ function App() {
 	const { updateTheme } = useAppContext();
 
   return (
-    <div className="app p-6">
-			<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Use Dark Theme</button>
-			<button className="update-theme" onClick={ () => updateTheme( 'light' ) }>Use Light Theme</button>
+    <div className="app p-6 flex items-center justify-center">
+			<div className="app-container grid grid-cols-1 max-w-none lg:max-w-[800px] flex-grow">
 
-			<div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-				<div>
-					<div className="text-xl font-medium text-black">ChitChat</div>
-					<p className="text-slate-500">You have a new message!</p>
+				<div className="app-controls-container">
+					<button className="update-theme" onClick={ () => updateTheme( 'dark' ) }>Use Dark Theme</button>
+					<button className="update-theme" onClick={ () => updateTheme( 'light' ) }>Use Light Theme</button>
 				</div>
-			</div>
 
-			<RPSProvider>
-				<RockPaperScissors />
-			</RPSProvider>
+				<RPSProvider>
+					<RockPaperScissors />
+				</RPSProvider>
+			</div>
     </div>
   )
 }
