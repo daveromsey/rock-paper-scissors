@@ -25,13 +25,22 @@ import {
 
 const RockPaperScissors = () => {
 
-	const { playerShoot, resetGame, game, stats, gamesPlayed, winTotal, lossTotal, drawTotal } = useRPSContext();
+	const {
+		playerShoot,
+		resetGame,
+		game,
+		stats,
+		gamesPlayed,
+		winTotal,
+		lossTotal,
+		drawTotal
+	} = useRPSContext();
 
   return (
-
 	<article className="rock-paper-scissors">
-		<IconContext.Provider value={{ /*color: "blue",*/ className: "icon react-icon" }}>
+		<IconContext.Provider value={{ className: "react-icon icon" }}>
 			<RPSHeading/>
+
 
 			<div className="fancy-hr relative flex py-5 items-center">
 				<div className="flex-grow border-t border-gray-400"></div>
@@ -43,6 +52,8 @@ const RockPaperScissors = () => {
 				<div className="flex-grow border-t border-gray-400"></div>
 			</div>
 			{/* <FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/> */}
+
+
 			<div className="scoreboard">
 				{/* <h2>Scoreboard</h2> */}
 				<div className="games-played text-4xl">Games Played:&nbsp;

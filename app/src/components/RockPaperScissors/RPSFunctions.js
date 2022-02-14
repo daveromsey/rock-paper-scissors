@@ -61,7 +61,7 @@ export const getGameResult = ( playerShot, cpuShot ) => {
  *
  * @return string resultType win|lose|draw
  * @return array games Games data
- * @return integer Number of wins,losses,f
+ * @return integer Number of wins, losses, or draws.
  */
 export const getGameResultCount = ( resultType, games ) => {
 	let resultCount = 0;

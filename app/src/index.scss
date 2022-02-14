@@ -52,14 +52,17 @@
 	min-width: 90px;
 	position: relative;
 
+
 	&.rock {
 		color: black;
 	}
 
 	.icon {
+
 		&.stroke {
 			z-index: 10;
 			position: relative;
+
 		}
 
 		&.fill {

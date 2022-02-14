@@ -1,11 +1,19 @@
+Move into stats:
+	winTotal: 0,
+	lossTotal: 0,
+	drawTotal: 0,
 
+getGameResultCount() should return all data for player and CPU
+
+Game count should count games.
 
 Handle Player/CPU stats
-
-Handle scoreboard
-
-Local Storage
-	Reset Data to clear Local Storage
+	- Win/Lose/Draw totals
+	- Win streak
+	- Longest streak
+	- Win percentage
+	---
+	- Shot counts
 
 
 Styling
@@ -30,6 +38,10 @@ Convert elements to components
 	Shot buttons
 	Fancy hr
 
+Local Storage
+Reset Data to clear Local Storage
+
+
 Show pretty results:
 	You Win {Award icon} (Green)
 	You Lose {Trash icon} (Red)
@@ -37,8 +49,6 @@ Show pretty results:
 		Or
 			Winner <robot icon> CPU
 			Winner <person icon> Player
-
-
 
 Handle light/dark theme styles
 

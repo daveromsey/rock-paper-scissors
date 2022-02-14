@@ -1,4 +1,10 @@
-import { shots, cpuShoot, getGameResult, getGameResultCount, getShotCountStats } from './RPSFunctions.js';
+import {
+	shots,
+	cpuShoot,
+	getGameResult,
+	getGameResultCount,
+	getShotCountStats
+} from './RPSFunctions.js';
 
 // Rock Paper Scissors Reducer function.
 const RPSReducer = ( state, action ) => {
