@@ -9,13 +9,23 @@ const reducer = ( state, action ) => {
 	 * action.payload string The shot type rock|paper|scissors.
 	 */
 	if ( 'PLAYER_SHOOT' === action.type ) {
-		if ( ! shots.includes( action.payload ) ) {
+		if ( ! shots.includes( action.payload.playerShot ) ) {
 			throw new Error( 'Invalid shot type.' );
 		}
 
 		const newCpuShot = cpuShoot();
-		const newPlayerShot = action.payload;
+		const newPlayerShot = action.payload.playerShot;
 		const newWinner = getGameResult( newPlayerShot, newCpuShot );
+
+		//console.log( action.payload.event);
+
+		action.payload.event.target.classList.add('clicked');
+
+		// const playerShootButtons = document.querySelectorAll('.player-shoot');
+		// playerShootButtons.forEach((button) => {
+		// 	//button.classList.add('clicked');
+		// 	button.disabled = true;
+		// });
 
 		return {
 			...state,

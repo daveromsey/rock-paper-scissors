@@ -1,11 +1,34 @@
+Shot buttons
+	When shot button is clicked, show it in clicked state
+	disable all shot buttons
+
+handle reset button
+	hidden on initial state
+	shown when round completes
+		enables all shot buttons
+		clear: player shot, cpu shot, results
+
+Handle Player/CPU stats
+
+Handle scoreboard
+
+Local Storage
+	Reset Data to clear Local Storage
+
+
 Styling
-	Basic grid structure
+	Layout
+		Scoreboard
+		Stats
+		Results
+		Buttons
+	Grid structure
 	Responsiveness
-	Basic colors
+	Colors
 	Light/Dark Mode
 
 Convert elements to components
-	Theme
+	Light/dark mode
 	Scoreboard
 	Stats
 		Player
@@ -13,30 +36,23 @@ Convert elements to components
 	Results
 	Play again
 	Shot buttons
+	Fancy hr
 
 Show pretty results:
 	You Win {Award icon} (Green)
 	You Lose {Trash icon} (Red)
 	Tie Game {FaRegWindowClose} (Black)
-
-Shot buttons
-	When shot button is clicked, show it in clicked state
-	lock shot buttons that were not clicked
-
-handle reset button
-	hide until game ends
-	unlocks all shot buttons
-	clear: player shot, cpu shot, results
+		Or
+			Winner <robot icon> CPU
+			Winner <person icon> Player
 
 
-
-Handle Player/CPU stats
-
-Handle scoreboard
 
 Handle light/dark theme styles
 
 clean up
+JSDOC inline docs
+	https://jsdoc.app/about-getting-started.html
 
 Host and deploy to github pages
 	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
@@ -64,9 +80,10 @@ Update readme.md
 	RPS instuctions
 	https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
 
+	Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
+	SVG to icon: https://cloudconvert.com/svg-to-ico
+
 	Possible Future Enhancements
-		Local Storage
-		Reset Data to clear Local Storage
 		Allow keyboard controls
 			A,S,D
 			Space to reset
@@ -79,7 +96,7 @@ Update readme.md
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements
 		Opponents with ladder like Mortal Kombat.
-		Oppenents with various strategies (always same shot, random, based on player's last shot, etc)
+		Oppenents with various strategies (always same shot, random, based on player's shot patterns, etc)
 		Opponents that talk smack
 
 

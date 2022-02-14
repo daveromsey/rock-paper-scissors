@@ -20,9 +20,20 @@ const RPSProvider = ({ children }) => {
 	// Used to determine if this is the original render or not.
 	const firstUpdate = useRef(true);
 
-	const playerShoot = ( playerShot ) => {
-		dispatch( {type: 'PLAYER_SHOOT', payload: playerShot } );
+	const playerShoot = ( playerShot, event ) => {
+
+		dispatch({
+			type: 'PLAYER_SHOOT',
+			payload: {
+				playerShot,
+				event,
+			},
+		});
 	};
+
+	// useEffect( () => {
+	// 	dispatch( { type: 'UPDATE_GAMES' } );
+	// }, [ state.game.playerShot ] );
 
   useEffect( () => {
     if ( firstUpdate.current ) {

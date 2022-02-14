@@ -45,13 +45,58 @@
 //     monospace;
 // }
 
+
 .player-shoot {
-	background-color: lightgray;
+	//background-color: lightgray;
 	padding: 10px;
-	margin: 10px;
+	min-width: 90px;
+	position: relative;
 
 	&.rock {
-		background-color: gray;
-		color: red;
+		color: black;
 	}
+
+	.react-icon {
+		&.stroke {
+			z-index: 10;
+			position: relative;
+		}
+
+		&.fill {
+			position: absolute;
+			top: 15%;
+			right: calc(50% - 29px);
+			fill: yellowgreen;
+			z-index: 1;
+		}
+	}
+}
+
+
+button svg.react-icon {
+	display: inline;
+}
+
+
+// Prevent icons from triggering events.
+// https://stackoverflow.com/a/54430159/3059883
+button .react-icon {
+  pointer-events: none;
+}
+
+
+
+.player-shoot-text {
+	display: block;
+}
+
+.fancy-hr svg {
+	display: inline;
+}
+
+
+.lcd {
+	background: black;
+	color: red;
+	padding: 1px 5px;
 }

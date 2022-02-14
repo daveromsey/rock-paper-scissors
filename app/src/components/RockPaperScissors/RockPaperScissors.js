@@ -15,7 +15,7 @@ import {
 	FaRegHandRock,
 	FaRegHandPaper,
 	FaRegHandScissors,
-	// FaHandRock,
+	FaHandRock,
 	// FaHandPaper,
 	// FaHandScissors,
 	// FaRedoAlt,
@@ -30,120 +30,138 @@ const RockPaperScissors = () => {
   return (
 
 	<article className="rock-paper-scissors">
+		<IconContext.Provider value={{ /*color: "blue",*/ className: "icon react-icon" }}>
+			<RPSHeading/>
 
-		<RPSHeading/>
+			<div className="fancy-hr relative flex py-5 items-center">
+				<div className="flex-grow border-t border-gray-400"></div>
+				<span className="flex-shrink mx-4 text-gray-400 text-3xl flex items-center">
+					<FaRegHandRock/>
+					<span className="text">&nbsp;&nbsp;Scoreboard&nbsp;&nbsp;</span>
+					<FaRegHandRock/>
+				</span>
+				<div className="flex-grow border-t border-gray-400"></div>
+			</div>
+			{/* <FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/> */}
+			<div className="scoreboard">
+				{/* <h2>Scoreboard</h2> */}
+				<div className="games-played text-4xl">Games Played:&nbsp;
+					<span className="font-digital-italic">{gamesPlayed}</span>
+				</div>
+				<div className="games-results grid grid-cols-1 xs:grid-cols-3">
+					<div className="wins">Wins: </div>
+					<div className="losses">Losses: </div>
+					<div className="draws">Draws: </div>
+				</div>
+			</div>
 
-		<div className="games-played text-4xl">Games Played:&nbsp;
-			<span className="font-digital-italic">{gamesPlayed}</span>
-		</div>
+			<div className="relative flex py-5 items-center">
+				<div className="flex-grow border-t border-gray-400"></div>
+				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandRock/></span>
+				<div className="flex-grow border-t border-gray-400"></div>
+			</div>
 
-		<div className="scoreboard">
-			<h2>Scoreboard</h2>
-			<div className="games-played">Games Played: </div>
-			<div className="wins">Wins: </div>
-			<div className="losses">Losses: </div>
-			<div className="ties">Ties: </div>
-		</div>
+			<div className="stats">
+				<h2>Stats</h2>
 
-		<div class="relative flex py-5 items-center">
-			<div class="flex-grow border-t border-gray-400"></div>
-			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandRock/></span>
-			<div class="flex-grow border-t border-gray-400"></div>
-		</div>
+				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
 
-		<div className="stats">
-			<h2>Stats</h2>
-
-			<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
-
-				<div className="player-stats">
-					<h2>Player Stats</h2>
-					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
-						<div className="player-stats-1">
-							<div className="current-streak">Win Streak: </div>
-							<div className="longest-streak">Longest Streak: </div>
-							<div className="win-percentage">Win Percentage </div>
-						</div>
-						<div className="player-stats-2">
-							<div className="rock">Rock: </div>
-							<div className="paper">Paper: </div>
-							<div className="scissors">Scissors: </div>
+					<div className="player-stats">
+						<h2>Player Stats</h2>
+						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+							<div className="player-stats-1">
+								<div className="current-streak">Win Streak: </div>
+								<div className="longest-streak">Longest Streak: </div>
+								<div className="win-percentage">Win Percentage </div>
+							</div>
+							<div className="player-stats-2">
+								<div className="rock">Rock: </div>
+								<div className="paper">Paper: </div>
+								<div className="scissors">Scissors: </div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div className="cpu-stats">
-					<h2>CPU Stats</h2>
-					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
-						<div className="cpu-stats-1">
-							<div className="current-streak">Win Streak: </div>
-							<div className="longest-streak">Longest Streak: </div>
-							<div className="win-percentage">Win Percentage </div>
-						</div>
-						<div className="cpu-stats-2">
-							<div className="rock">Rock: </div>
-							<div className="paper">Paper: </div>
-							<div className="scissors">Scissors: </div>
+					<div className="cpu-stats">
+						<h2>CPU Stats</h2>
+						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+							<div className="cpu-stats-1">
+								<div className="current-streak">Win Streak: </div>
+								<div className="longest-streak">Longest Streak: </div>
+								<div className="win-percentage">Win Percentage </div>
+							</div>
+							<div className="cpu-stats-2">
+								<div className="rock">Rock: </div>
+								<div className="paper">Paper: </div>
+								<div className="scissors">Scissors: </div>
+							</div>
 						</div>
 					</div>
+
 				</div>
-
 			</div>
-		</div>
 
-		<div class="relative flex py-5 items-center">
-			<div class="flex-grow border-t border-gray-400"></div>
-			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandPaper/></span>
-			<div class="flex-grow border-t border-gray-400"></div>
-		</div>
-
-		<div className="results">
-			<h2>Results</h2>
-			<h3>Winner: {game.winner}</h3>
-			<div className="player-shot">
-				Your Shot: {game.playerShot}
+			<div className="relative flex py-5 items-center">
+				<div className="flex-grow border-t border-gray-400"></div>
+				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandPaper/></span>
+				<div className="flex-grow border-t border-gray-400"></div>
 			</div>
-			<div className="cpu-shot">
-				CPU Shot: {game.cpuShot}
-			</div>
-		</div>
 
-		<div class="relative flex py-5 items-center">
-			<div class="flex-grow border-t border-gray-400"></div>
-			<span class="flex-shrink mx-4 text-gray-400"><FaRegHandScissors/></span>
-			<div class="flex-grow border-t border-gray-400"></div>
-		</div>
-
-		<div className="player-controls">
-			<IconContext.Provider value={{ color: "blue", className: "react-icons" }}>
-				<button
-					className="player-shoot rock"
-					onClick={ () => playerShoot( 'rock' ) }
-				>
-					Rock <FaRegHandRock/>
-				</button>
-
-				<button
-					className="player-shoot paper"
-					onClick={ () => playerShoot( 'paper' ) }
-				>
-					Paper <FaRegHandPaper/>
-				</button>
-
-				<button
-					className="player-shoot scissors"
-					onClick={ () => playerShoot( 'scissors' ) }
-				>
-					Scissors <FaRegHandScissors/>
-				</button>
-
-				<div className="game-actions">
-					<button className="play-again">
-						Play Again <FaRedo/>
-					</button>
+			<div className="results">
+				<h2>Results</h2>
+				<div className="results-grid grid grid-cols-1 xs:grid-cols-3">
+					<div className="game-winner">
+						<h3>Winner: {game.winner}</h3>
+					</div>
+					<div className="player-shot">
+						Your Shot: {game.playerShot}
+					</div>
+					<div className="cpu-shot">
+						CPU Shot: {game.cpuShot}
+					</div>
 				</div>
-			</IconContext.Provider>
-		</div>
+			</div>
+
+			<div className="relative flex py-5 items-center">
+				<div className="flex-grow border-t border-gray-400"></div>
+				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandScissors/></span>
+				<div className="flex-grow border-t border-gray-400"></div>
+			</div>
+
+			<div className="player-shot-controls grid grid-cols-3 gap-4 items-center max-w-2xl mx-auto">
+				<button
+					className="player-shoot rock items-center
+					text-gray-900 bg-white border border-gray-300 hover:bg-gray-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
+					onClick={ (event) => playerShoot( 'rock', event ) }
+				>
+					<FaRegHandRock size={70} className="stroke inline-block"/>
+					<FaHandRock size={58} className="fill inline-block"/>
+					<span className="player-shoot-text">Rock</span>
+				</button>
+
+				<button
+					className="player-shoot paper inline-block"
+					onClick={ (event) => playerShoot( 'paper', event ) }
+				>
+					<FaRegHandPaper size={70} className="stroke inline-block"/>
+					<span className="player-shoot-text">Paper</span>
+				</button>
+
+				<button
+					className="player-shoot scissors inline-block"
+					onClick={ (event) => playerShoot( 'scissors', event ) }
+				>
+					<FaRegHandScissors size={70} className="stroke inline-block"/>
+					<span className="player-shoot-text">Scissors</span>
+				</button>
+			</div>
+
+			<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
+				<button className="play-again flex-grow  mt-4  _mw-[250px] b_asis-1/4  py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+					<span className="play-again-text">Play Again</span> <FaRedo/>
+				</button>
+			</div>
+		</IconContext.Provider>
 	 </article>
   )
 }
