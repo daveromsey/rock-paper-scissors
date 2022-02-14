@@ -21,11 +21,15 @@ const reducer = ( state, action ) => {
 
 		action.payload.event.target.classList.add('clicked');
 
-		// const playerShootButtons = document.querySelectorAll('.player-shoot');
-		// playerShootButtons.forEach((button) => {
-		// 	//button.classList.add('clicked');
-		// 	button.disabled = true;
-		// });
+		const playerShootButtons = document.querySelectorAll('.player-shoot');
+
+		playerShootButtons.forEach((button) => {
+			//button.classList.add('clicked');
+			button.disabled = true;
+		});
+
+		const playAgainButton = document.querySelector('.play-again');
+		playAgainButton.classList.remove( 'invisible');
 
 		return {
 			...state,
@@ -37,6 +41,37 @@ const reducer = ( state, action ) => {
 			}
 		};
 	}
+
+	/**
+	 * Handle resetting the game.
+	 */
+	 if ( 'RESET_GAME' === action.type ) {
+
+		// Reset shoot buttons.
+		const playerShootButtons = document.querySelectorAll('.player-shoot');
+
+		playerShootButtons.forEach((button) => {
+			button.classList.remove('clicked');
+			button.disabled = false;
+		});
+
+		// Clear: Winner, Your shot, CPU Shot
+
+		// Hide Reset Game button.
+		const playAgainButton = document.querySelector('.play-again');
+		playAgainButton.classList.add( 'invisible');
+
+		return {
+			...state,
+			game: { // Initailize game state.
+				startTime: null,
+				cpuShot: null,
+				playerShot: null,
+				winner: null
+			}
+		};
+	}
+
 
 	/**
 	 * Handle updating the number of games played.

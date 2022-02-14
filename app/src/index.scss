@@ -56,7 +56,7 @@
 		color: black;
 	}
 
-	.react-icon {
+	.icon {
 		&.stroke {
 			z-index: 10;
 			position: relative;
@@ -72,28 +72,22 @@
 	}
 }
 
-
-button svg.react-icon {
-	display: inline;
-}
-
-
 // Prevent icons from triggering events.
 // https://stackoverflow.com/a/54430159/3059883
-button .react-icon {
-  pointer-events: none;
-}
+button {
+	svg.icon {
+		display: inline;
+	}
 
-
-
-.player-shoot-text {
-	display: block;
+	.icon,
+	.button-text {
+	  pointer-events: none;
+	}
 }
 
 .fancy-hr svg {
 	display: inline;
 }
-
 
 .lcd {
 	background: black;

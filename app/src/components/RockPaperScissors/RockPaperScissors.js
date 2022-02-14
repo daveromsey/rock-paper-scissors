@@ -25,7 +25,7 @@ import {
 
 const RockPaperScissors = () => {
 
-	const { playerShoot, game, gamesPlayed } = useRPSContext();
+	const { playerShoot, resetGame, game, gamesPlayed } = useRPSContext();
 
   return (
 
@@ -136,7 +136,7 @@ const RockPaperScissors = () => {
 				>
 					<FaRegHandRock size={70} className="stroke inline-block"/>
 					<FaHandRock size={58} className="fill inline-block"/>
-					<span className="player-shoot-text">Rock</span>
+					<span className="button-text block">Rock</span>
 				</button>
 
 				<button
@@ -144,7 +144,7 @@ const RockPaperScissors = () => {
 					onClick={ (event) => playerShoot( 'paper', event ) }
 				>
 					<FaRegHandPaper size={70} className="stroke inline-block"/>
-					<span className="player-shoot-text">Paper</span>
+					<span className="button-text block">Paper</span>
 				</button>
 
 				<button
@@ -152,13 +152,13 @@ const RockPaperScissors = () => {
 					onClick={ (event) => playerShoot( 'scissors', event ) }
 				>
 					<FaRegHandScissors size={70} className="stroke inline-block"/>
-					<span className="player-shoot-text">Scissors</span>
+					<span className="button-text block">Scissors</span>
 				</button>
 			</div>
 
 			<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
-				<button className="play-again flex-grow  mt-4  _mw-[250px] b_asis-1/4  py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-					<span className="play-again-text">Play Again</span> <FaRedo/>
+				<button onClick={ () => resetGame() } className="play-again hidden_ invisible flex-grow  mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+					<span className="button-text">Play Again</span> <FaRedo/>
 				</button>
 			</div>
 		</IconContext.Provider>

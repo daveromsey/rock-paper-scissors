@@ -1,12 +1,4 @@
-Shot buttons
-	When shot button is clicked, show it in clicked state
-	disable all shot buttons
 
-handle reset button
-	hidden on initial state
-	shown when round completes
-		enables all shot buttons
-		clear: player shot, cpu shot, results
 
 Handle Player/CPU stats
 
@@ -128,7 +120,14 @@ VscSymbolBoolean
 ----
 Done
 ----
-
+Shot buttons
+	When shot button is clicked, show it in clicked state
+	disable all shot buttons
+handle reset button
+	hidden on initial state
+	shown when round completes
+		enables all shot buttons
+		clear: player shot, cpu shot, results
 
 Add local font
 Add local Google Fonts:

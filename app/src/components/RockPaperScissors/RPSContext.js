@@ -20,8 +20,8 @@ const RPSProvider = ({ children }) => {
 	// Used to determine if this is the original render or not.
 	const firstUpdate = useRef(true);
 
+	// Handle Player Shot.
 	const playerShoot = ( playerShot, event ) => {
-
 		dispatch({
 			type: 'PLAYER_SHOOT',
 			payload: {
@@ -31,19 +31,28 @@ const RPSProvider = ({ children }) => {
 		});
 	};
 
-	// useEffect( () => {
-	// 	dispatch( { type: 'UPDATE_GAMES' } );
-	// }, [ state.game.playerShot ] );
+	// Reset the game state.
+	const resetGame = () => {
+		dispatch({
+			type: 'RESET_GAME'
+		});
+	};
 
+	// Update "Games Played".
   useEffect( () => {
     if ( firstUpdate.current ) {
       firstUpdate.current = false;
       return;
     }
 
+		if ( null === state.game.startTime ) {
+			return;
+		}
+
 		dispatch( { type: 'UPDATE_GAMES_PLAYED' } );
   }, [ state.game.startTime ] );
 
+	// Update Games (game history).
 	useEffect( () => {
 		dispatch( { type: 'UPDATE_GAMES' } );
 	}, [ state.gamesPlayed ] );
@@ -53,6 +62,7 @@ const RPSProvider = ({ children }) => {
       value={{
         ...state,
 				playerShoot,
+				resetGame,
       }}
     >
       {children}
