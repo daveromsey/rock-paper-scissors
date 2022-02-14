@@ -1,4 +1,4 @@
-import { shots, cpuShoot, getGameResult, getGameResultCount } from './RPSFunctions.js';
+import { shots, cpuShoot, getGameResult, getGameResultCount, getShotCountStats } from './RPSFunctions.js';
 
 // Reducer function.
 const reducer = ( state, action ) => {
@@ -84,6 +84,40 @@ const reducer = ( state, action ) => {
 			winTotal: updatedWins,
 			lossTotal: updatedLosses,
 			drawTotal: updatedDraws,
+		};
+	}
+
+	/**
+	 * Handle updating the number of wins, losses, and draws for Player and CPU.
+	 */
+	 if ( 'UPDATE_STATS' === action.type ) {
+
+		const updatedShotCounts = getShotCountStats( state.games );
+
+		// let playerRockCount = getPlayerShotCount( 'player', 'rock', state.games );
+		// let playerPaperCount = getPlayerShotCount( 'player', 'paper', state.games );
+		// let playerScissorsCount = getPlayerShotCount( 'player', 'scissors', state.games );
+
+		console.log(updatedShotCounts);
+
+		let udpatedStats = {};
+
+		return {
+			...state,
+			stats: {
+				player: {
+					winStreak: 0,
+					longestStreak: 0,
+					winPercentage: 0,
+					shotCounts: updatedShotCounts.player,
+				},
+				cpu:{
+					winStreak: 0,
+					longestStreak: 0,
+					winPercentage: 0,
+					shotCounts: updatedShotCounts.cpu,
+				},
+			},
 		};
 	}
 

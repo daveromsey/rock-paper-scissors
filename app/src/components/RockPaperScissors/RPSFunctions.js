@@ -80,3 +80,29 @@ export const getGameResultCount = ( resultType, games ) => {
 
 	return resultCount;
 };
+
+export const getShotCountStats = ( games ) => {
+
+	let shotCounts = {
+		player: {
+			rock: 0,
+			paper: 0,
+			scissors: 0,
+		},
+		cpu: {
+			rock: 0,
+			paper: 0,
+			scissors: 0,
+		}
+	}
+
+	games.forEach( (game) => {
+		const { playerShot, cpuShot } = game;
+		shotCounts.player[playerShot] += 1;
+		shotCounts.cpu[cpuShot] += 1;
+	});
+
+	return shotCounts;
+};
+
+

@@ -25,7 +25,7 @@ import {
 
 const RockPaperScissors = () => {
 
-	const { playerShoot, resetGame, game, gamesPlayed, winTotal, lossTotal, drawTotal } = useRPSContext();
+	const { playerShoot, resetGame, game, stats, gamesPlayed, winTotal, lossTotal, drawTotal } = useRPSContext();
 
   return (
 
@@ -75,9 +75,9 @@ const RockPaperScissors = () => {
 								<div className="win-percentage">Win Percentage </div>
 							</div>
 							<div className="player-stats-2">
-								<div className="rock">Rock: </div>
-								<div className="paper">Paper: </div>
-								<div className="scissors">Scissors: </div>
+								<div className="rock">Rock: {stats.player.shotCounts.rock}</div>
+								<div className="paper">Paper: {stats.player.shotCounts.paper}</div>
+								<div className="scissors">Scissors: {stats.player.shotCounts.scissors}</div>
 							</div>
 						</div>
 					</div>
@@ -91,9 +91,9 @@ const RockPaperScissors = () => {
 								<div className="win-percentage">Win Percentage </div>
 							</div>
 							<div className="cpu-stats-2">
-								<div className="rock">Rock: </div>
-								<div className="paper">Paper: </div>
-								<div className="scissors">Scissors: </div>
+								<div className="rock">Rock: {stats.cpu.shotCounts.rock}</div>
+								<div className="paper">Paper: {stats.cpu.shotCounts.paper}</div>
+								<div className="scissors">Scissors: {stats.cpu.shotCounts.scissors}</div>
 							</div>
 						</div>
 					</div>

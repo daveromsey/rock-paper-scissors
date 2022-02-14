@@ -10,11 +10,33 @@ const initialStateRPS = {
 		cpuShot: null,
 		winner: null,
 	},
+	games: [],
 	gamesPlayed: 0,
 	winTotal: 0,
 	lossTotal: 0,
 	drawTotal: 0,
-	games: []
+	stats: {
+		player:{
+			winStreak: 0,
+			longestStreak: 0,
+			winPercentage: 0,
+			shotCounts: {
+				rock: 0,
+				paper: 0,
+				scissors: 0,
+			},
+		},
+		cpu:{
+			winStreak: 0,
+			longestStreak: 0,
+			winPercentage: 0,
+			shotCounts: {
+				rock: 0,
+				paper: 0,
+				scissors: 0,
+			},
+		},
+	}
 }
 
 const RPSProvider = ({ children }) => {
@@ -57,9 +79,11 @@ const RPSProvider = ({ children }) => {
 
 	// Update Games (game history).
 	// Update Win/Lose/Draw counts.
+	// Update Player and CPU stats.
 	useEffect( () => {
 		dispatch( { type: 'UPDATE_GAMES' } );
 		dispatch( { type: 'UPDATE_WIN_LOSE_DRAW_TOTALS' } );
+		dispatch( { type: 'UPDATE_STATS' } );
 	}, [ state.gamesPlayed ] );
 
   return (
