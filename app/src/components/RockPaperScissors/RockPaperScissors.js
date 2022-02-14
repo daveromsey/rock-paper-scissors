@@ -25,7 +25,7 @@ import {
 
 const RockPaperScissors = () => {
 
-	const { playerShoot, resetGame, game, gamesPlayed } = useRPSContext();
+	const { playerShoot, resetGame, game, gamesPlayed, winTotal, lossTotal, drawTotal } = useRPSContext();
 
   return (
 
@@ -49,9 +49,9 @@ const RockPaperScissors = () => {
 					<span className="font-digital-italic">{gamesPlayed}</span>
 				</div>
 				<div className="games-results grid grid-cols-1 xs:grid-cols-3">
-					<div className="wins">Wins: </div>
-					<div className="losses">Losses: </div>
-					<div className="draws">Draws: </div>
+					<div className="wins">Wins: {winTotal}</div>
+					<div className="losses">Losses: {lossTotal}</div>
+					<div className="draws">Draws: {drawTotal}</div>
 				</div>
 			</div>
 

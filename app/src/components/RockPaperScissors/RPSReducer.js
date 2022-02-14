@@ -1,4 +1,4 @@
-import { shots, cpuShoot, getGameResult } from './RPSFunctions.js';
+import { shots, cpuShoot, getGameResult, getGameResultCount } from './RPSFunctions.js';
 
 // Reducer function.
 const reducer = ( state, action ) => {
@@ -46,7 +46,6 @@ const reducer = ( state, action ) => {
 	 * Handle resetting the game.
 	 */
 	 if ( 'RESET_GAME' === action.type ) {
-
 		// Reset shoot buttons.
 		const playerShootButtons = document.querySelectorAll('.player-shoot');
 
@@ -54,8 +53,6 @@ const reducer = ( state, action ) => {
 			button.classList.remove('clicked');
 			button.disabled = false;
 		});
-
-		// Clear: Winner, Your shot, CPU Shot
 
 		// Hide Reset Game button.
 		const playAgainButton = document.querySelector('.play-again');
@@ -72,6 +69,23 @@ const reducer = ( state, action ) => {
 		};
 	}
 
+
+	/**
+	 * Handle updating the number of wins, losses, and draws for Player and CPU.
+	 */
+	 if ( 'UPDATE_WIN_LOSE_DRAW_TOTALS' === action.type ) {
+
+		const updatedWins = getGameResultCount('win', state.games );
+		const updatedLosses = getGameResultCount('lose', state.games );
+		const updatedDraws = getGameResultCount('draw', state.games );
+
+		return {
+			...state,
+			winTotal: updatedWins,
+			lossTotal: updatedLosses,
+			drawTotal: updatedDraws,
+		};
+	}
 
 	/**
 	 * Handle updating the number of games played.

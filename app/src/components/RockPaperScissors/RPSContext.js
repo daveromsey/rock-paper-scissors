@@ -11,6 +11,9 @@ const initialStateRPS = {
 		winner: null,
 	},
 	gamesPlayed: 0,
+	winTotal: 0,
+	lossTotal: 0,
+	drawTotal: 0,
 	games: []
 }
 
@@ -53,8 +56,10 @@ const RPSProvider = ({ children }) => {
   }, [ state.game.startTime ] );
 
 	// Update Games (game history).
+	// Update Win/Lose/Draw counts.
 	useEffect( () => {
 		dispatch( { type: 'UPDATE_GAMES' } );
+		dispatch( { type: 'UPDATE_WIN_LOSE_DRAW_TOTALS' } );
 	}, [ state.gamesPlayed ] );
 
   return (
