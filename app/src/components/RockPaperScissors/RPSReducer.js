@@ -1,7 +1,7 @@
 import { shots, cpuShoot, getGameResult, getGameResultCount, getShotCountStats } from './RPSFunctions.js';
 
-// Reducer function.
-const reducer = ( state, action ) => {
+// Rock Paper Scissors Reducer function.
+const RPSReducer = ( state, action ) => {
 
 	/**
 	 * Handle player shoot.
@@ -153,4 +153,4 @@ const reducer = ( state, action ) => {
 	return state;
 };
 
-export default reducer;
+export default RPSReducer;
