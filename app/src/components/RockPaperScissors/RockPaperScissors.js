@@ -41,9 +41,9 @@ const RockPaperScissors = () => {
 			<div className="fancy-hr relative flex py-5 items-center">
 				<div className="flex-grow border-t border-gray-400"></div>
 				<span className="flex-shrink mx-4 text-gray-400 text-3xl flex items-center">
-					<FaRegHandRock/>
+					<FaRegHandRock className="rock"/>
 					<span className="text">&nbsp;&nbsp;Scoreboard&nbsp;&nbsp;</span>
-					<FaRegHandRock/>
+					<FaRegHandRock className="rock right"/>
 				</span>
 				<div className="flex-grow border-t border-gray-400"></div>
 			</div>
@@ -140,8 +140,8 @@ const RockPaperScissors = () => {
 					text-gray-900 bg-white border border-gray-300 hover:bg-gray-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
 					onClick={ (event) => playerShoot( 'rock', event ) }
 				>
-					<FaRegHandRock size={70} className="stroke inline-block"/>
-					<FaHandRock size={58} className="fill inline-block"/>
+					<FaRegHandRock size={70} className="stroke inline-block rock"/>
+					<FaHandRock size={58} className="fill inline-block rock"/>
 					<span className="button-text block">Rock</span>
 				</button>
 
@@ -149,7 +149,7 @@ const RockPaperScissors = () => {
 					className="player-shoot paper inline-block"
 					onClick={ (event) => playerShoot( 'paper', event ) }
 				>
-					<FaRegHandPaper size={70} className="stroke inline-block"/>
+					<FaRegHandPaper size={70} className="stroke inline-block paper"/>
 					<span className="button-text block">Paper</span>
 				</button>
 
@@ -157,7 +157,7 @@ const RockPaperScissors = () => {
 					className="player-shoot scissors inline-block"
 					onClick={ (event) => playerShoot( 'scissors', event ) }
 				>
-					<FaRegHandScissors size={70} className="stroke inline-block"/>
+					<FaRegHandScissors size={70} className="stroke inline-block scissors"/>
 					<span className="button-text block">Scissors</span>
 				</button>
 			</div>

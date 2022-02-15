@@ -75,6 +75,14 @@
 	}
 }
 
+svg.rock {
+	transform: rotate(90deg) scaleY(-1);
+
+	&.right {
+		transform: rotate(90deg) scaleY(1);
+	}
+}
+
 // Prevent icons from triggering events.
 // https://stackoverflow.com/a/54430159/3059883
 button {
