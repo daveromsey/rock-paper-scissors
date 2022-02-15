@@ -6,6 +6,7 @@ const RPSContext = React.createContext();
 const initialStateRPS = {
 	game: {
 		startTime: null,
+		endTime: null,
 		playerShot: null,
 		cpuShot: null,
 		winner: null,
@@ -66,26 +67,23 @@ const RPSProvider = ({ children }) => {
 		});
 	};
 
-	// Update number of games played.
-  useEffect( () => {
-    if ( firstUpdate.current ) {
-      firstUpdate.current = false;
-      return;
-    }
+	// Update games and stats.
+	useEffect( () => {
+		// Bail on first paint.
+		// if ( firstUpdate.current ) {
+    //   firstUpdate.current = false;
+    //   return;
+    // }
 
-		if ( null === state.game.startTime ) {
+		// Bail if the game has not finished yet.
+		if ( null === state.game.endTime ) {
 			return;
 		}
 
-		dispatch( { type: 'UPDATE_GAMES_PLAYED' } );
-  }, [ state.game.startTime ] );
-
-	// Update Games (game history).
-	// Update Player and CPU stats.
-	useEffect( () => {
 		dispatch( { type: 'UPDATE_GAMES' } );
+		dispatch( { type: 'UPDATE_GAMES_PLAYED' } );
 		dispatch( { type: 'UPDATE_STATS' } );
-	}, [ state.gamesPlayed ] );
+	}, [ state.game.endTime ] );
 
   return (
     <RPSContext.Provider

@@ -1,18 +1,9 @@
-Move into stats:
-	winTotal: 0,
-	lossTotal: 0,
-	drawTotal: 0,
-
-getGameResultCount() should return all data for player and CPU
-
-Game count should count games.
-
 Handle Player/CPU stats
-	- Win/Lose/Draw totals
 	- Win streak
 	- Longest streak
 	- Win percentage
 	---
+	- Win/Lose/Draw totals
 	- Shot counts
 
 
@@ -130,6 +121,9 @@ VscSymbolBoolean
 ----
 Done
 ----
+gameCount now uses length of games array instead of incrementing a value.
+Refactor shot count and win/lose/draw stat handling
+
 Stats: Shot counts
 Handle scoreboard stats
 Shot buttons

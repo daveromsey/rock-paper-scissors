@@ -7,7 +7,6 @@ import {
 
 // Rock Paper Scissors Reducer function.
 const RPSReducer = ( state, action ) => {
-
 	/**
 	 * Handle player shoot.
 	 *
@@ -18,8 +17,9 @@ const RPSReducer = ( state, action ) => {
 			throw new Error( 'Invalid shot type.' );
 		}
 
-		const newCpuShot = cpuShoot();
+		const newStartTime = new Date().getTime().toString()
 		const newPlayerShot = action.payload.playerShot;
+		const newCpuShot = cpuShoot();
 		const newWinner = getGameResult( newPlayerShot, newCpuShot );
 
 		action.payload.event.target.classList.add('clicked');
@@ -27,7 +27,6 @@ const RPSReducer = ( state, action ) => {
 		const playerShootButtons = document.querySelectorAll('.player-shoot');
 
 		playerShootButtons.forEach((button) => {
-			//button.classList.add('clicked');
 			button.disabled = true;
 		});
 
@@ -37,7 +36,8 @@ const RPSReducer = ( state, action ) => {
 		return {
 			...state,
 			game: {
-				startTime: new Date().getTime().toString(),
+				startTime: newStartTime,
+				endTime: new Date().getTime().toString(),
 				cpuShot: newCpuShot,
 				playerShot: newPlayerShot,
 				winner: newWinner
@@ -59,16 +59,46 @@ const RPSReducer = ( state, action ) => {
 
 		// Hide Reset Game button.
 		const playAgainButton = document.querySelector('.play-again');
-		playAgainButton.classList.add( 'invisible');
+		playAgainButton.classList.add('invisible');
 
 		return {
 			...state,
-			game: { // Initailize game state.
+			game: { // Re-initailize game state.
 				startTime: null,
+				endTime: null,
 				cpuShot: null,
 				playerShot: null,
 				winner: null
 			}
+		};
+	}
+
+	/**
+	 * Handle updating games (the game history).
+	 */
+	if ( 'UPDATE_GAMES' === action.type ) {
+		// If the game has not finished, don't add it to the history.
+		if ( null === state.game.winner ) {
+			return {
+				...state,
+			};
+		}
+
+		const updatedGames = [ ...state.games, state.game ];
+
+		return {
+			...state,
+			games: updatedGames
+		};
+	}
+
+	/**
+	 * Handle updating the number of games played.
+	 */
+	if ( 'UPDATE_GAMES_PLAYED' === action.type ) {
+		return {
+			...state,
+			gamesPlayed: state.games.length
 		};
 	}
 
@@ -100,35 +130,6 @@ const RPSReducer = ( state, action ) => {
 					shotCounts: updatedStats.cpu.shotCounts,
 				},
 			},
-		};
-	}
-
-	/**
-	 * Handle updating the number of games played.
-	 */
-	if ( 'UPDATE_GAMES_PLAYED' === action.type ) {
-		return {
-			...state,
-			gamesPlayed: state.gamesPlayed + 1
-		};
-	}
-
-	/**
-	 * Handle updating games (the game history).
-	 */
-	if ( 'UPDATE_GAMES' === action.type ) {
-		// If the game has not finished, don't add it to the history.
-		if ( null === state.game.winner ) {
-			return {
-				...state,
-			};
-		}
-
-		const updatedGames = [ ...state.games, state.game ];
-
-		return {
-			...state,
-			games: updatedGames
 		};
 	}
 
