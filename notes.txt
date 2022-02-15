@@ -130,6 +130,8 @@ VscSymbolBoolean
 ----
 Done
 ----
+Stats: Shot counts
+Handle scoreboard stats
 Shot buttons
 	When shot button is clicked, show it in clicked state
 	disable all shot buttons

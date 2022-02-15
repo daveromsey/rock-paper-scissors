@@ -2,8 +2,7 @@ import {
 	shots,
 	cpuShoot,
 	getGameResult,
-	getGameResultCount,
-	getShotCountStats
+	getStats,
 } from './RPSFunctions.js';
 
 // Rock Paper Scissors Reducer function.
@@ -22,8 +21,6 @@ const RPSReducer = ( state, action ) => {
 		const newCpuShot = cpuShoot();
 		const newPlayerShot = action.payload.playerShot;
 		const newWinner = getGameResult( newPlayerShot, newCpuShot );
-
-		//console.log( action.payload.event);
 
 		action.payload.event.target.classList.add('clicked');
 
@@ -75,53 +72,32 @@ const RPSReducer = ( state, action ) => {
 		};
 	}
 
-
 	/**
-	 * Handle updating the number of wins, losses, and draws for Player and CPU.
-	 */
-	 if ( 'UPDATE_WIN_LOSE_DRAW_TOTALS' === action.type ) {
-
-		const updatedWins = getGameResultCount('win', state.games );
-		const updatedLosses = getGameResultCount('lose', state.games );
-		const updatedDraws = getGameResultCount('draw', state.games );
-
-		return {
-			...state,
-			winTotal: updatedWins,
-			lossTotal: updatedLosses,
-			drawTotal: updatedDraws,
-		};
-	}
-
-	/**
-	 * Handle updating the number of wins, losses, and draws for Player and CPU.
+	 * Handle updating stats.
 	 */
 	 if ( 'UPDATE_STATS' === action.type ) {
-
-		const updatedShotCounts = getShotCountStats( state.games );
-
-		// let playerRockCount = getPlayerShotCount( 'player', 'rock', state.games );
-		// let playerPaperCount = getPlayerShotCount( 'player', 'paper', state.games );
-		// let playerScissorsCount = getPlayerShotCount( 'player', 'scissors', state.games );
-
-		console.log(updatedShotCounts);
-
-		let udpatedStats = {};
+		const updatedStats = getStats( state.games );
 
 		return {
 			...state,
 			stats: {
 				player: {
+					winTotal: updatedStats.player.winTotal,
+					lossTotal: updatedStats.player.lossTotal,
+					drawTotal: updatedStats.player.drawTotal,
 					winStreak: 0,
 					longestStreak: 0,
 					winPercentage: 0,
-					shotCounts: updatedShotCounts.player,
+					shotCounts: updatedStats.player.shotCounts,
 				},
 				cpu:{
+					winTotal: updatedStats.cpu.winTotal,
+					lossTotal: updatedStats.cpu.lossTotal,
+					drawTotal: updatedStats.cpu.drawTotal,
 					winStreak: 0,
 					longestStreak: 0,
 					winPercentage: 0,
-					shotCounts: updatedShotCounts.cpu,
+					shotCounts: updatedStats.cpu.shotCounts,
 				},
 			},
 		};

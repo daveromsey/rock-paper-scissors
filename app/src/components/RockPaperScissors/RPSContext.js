@@ -12,11 +12,11 @@ const initialStateRPS = {
 	},
 	games: [],
 	gamesPlayed: 0,
-	winTotal: 0,
-	lossTotal: 0,
-	drawTotal: 0,
 	stats: {
 		player:{
+			winTotal: 0,
+			lossTotal: 0,
+			drawTotal: 0,
 			winStreak: 0,
 			longestStreak: 0,
 			winPercentage: 0,
@@ -27,6 +27,9 @@ const initialStateRPS = {
 			},
 		},
 		cpu:{
+			winTotal: 0,
+			lossTotal: 0,
+			drawTotal: 0,
 			winStreak: 0,
 			longestStreak: 0,
 			winPercentage: 0,
@@ -63,7 +66,7 @@ const RPSProvider = ({ children }) => {
 		});
 	};
 
-	// Update "Games Played".
+	// Update number of games played.
   useEffect( () => {
     if ( firstUpdate.current ) {
       firstUpdate.current = false;
@@ -78,11 +81,9 @@ const RPSProvider = ({ children }) => {
   }, [ state.game.startTime ] );
 
 	// Update Games (game history).
-	// Update Win/Lose/Draw counts.
 	// Update Player and CPU stats.
 	useEffect( () => {
 		dispatch( { type: 'UPDATE_GAMES' } );
-		dispatch( { type: 'UPDATE_WIN_LOSE_DRAW_TOTALS' } );
 		dispatch( { type: 'UPDATE_STATS' } );
 	}, [ state.gamesPlayed ] );
 

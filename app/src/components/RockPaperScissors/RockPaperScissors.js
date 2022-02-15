@@ -31,16 +31,12 @@ const RockPaperScissors = () => {
 		game,
 		stats,
 		gamesPlayed,
-		winTotal,
-		lossTotal,
-		drawTotal
 	} = useRPSContext();
 
   return (
 	<article className="rock-paper-scissors">
 		<IconContext.Provider value={{ className: "react-icon icon" }}>
 			<RPSHeading/>
-
 
 			<div className="fancy-hr relative flex py-5 items-center">
 				<div className="flex-grow border-t border-gray-400"></div>
@@ -53,16 +49,15 @@ const RockPaperScissors = () => {
 			</div>
 			{/* <FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/> */}
 
-
 			<div className="scoreboard">
 				{/* <h2>Scoreboard</h2> */}
 				<div className="games-played text-4xl">Games Played:&nbsp;
 					<span className="font-digital-italic">{gamesPlayed}</span>
 				</div>
 				<div className="games-results grid grid-cols-1 xs:grid-cols-3">
-					<div className="wins">Wins: {winTotal}</div>
-					<div className="losses">Losses: {lossTotal}</div>
-					<div className="draws">Draws: {drawTotal}</div>
+					<div className="wins">Wins: {stats.player.winTotal}</div>
+					<div className="losses">Losses: {stats.player.lossTotal}</div>
+					<div className="draws">Draws: {stats.player.drawTotal}</div>
 				</div>
 			</div>
 

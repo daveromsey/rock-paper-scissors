@@ -55,54 +55,64 @@ export const getGameResult = ( playerShot, cpuShot ) => {
 };
 
 /**
- * Calculate number of wins for specified player.
+ * Calculate stats for the Player and CPU.
  *
  * @author Dave Romsey <david.romsey@webdevstudios.com>
- *
- * @return string resultType win|lose|draw
- * @return array games Games data
- * @return integer Number of wins, losses, or draws.
+
+ * @param array games Games data
+
+ * @return object stats Stats for both player and CPU.
  */
-export const getGameResultCount = ( resultType, games ) => {
-	let resultCount = 0;
+export const getStats = ( games ) => {
 
-	games.forEach( (game) => {
-		const { winner } = game;
-
-		if ( 'win' === resultType	&& 'player' === winner ) {
-			resultCount += 1;
-		} else if ( 'lose' === resultType	&& 'cpu' === winner ) {
-			resultCount += 1;
-		} else if ( 'draw' === resultType	&& 'draw' === winner ) {
-			resultCount += 1;
-		}
-	});
-
-	return resultCount;
-};
-
-export const getShotCountStats = ( games ) => {
-
-	let shotCounts = {
+	let stats = {
 		player: {
-			rock: 0,
-			paper: 0,
-			scissors: 0,
+			winTotal: 0,
+			lossTotal: 0,
+			drawTotal: 0,
+			shotCounts: {
+				rock: 0,
+				paper: 0,
+				scissors: 0,
+			}
 		},
 		cpu: {
-			rock: 0,
-			paper: 0,
-			scissors: 0,
+			winTotal: 0,
+			lossTotal: 0,
+			drawTotal: 0,
+			shotCounts: {
+				rock: 0,
+				paper: 0,
+				scissors: 0,
+			}
 		}
 	}
 
 	games.forEach( (game) => {
-		const { playerShot, cpuShot } = game;
-		shotCounts.player[playerShot] += 1;
-		shotCounts.cpu[cpuShot] += 1;
+		const { playerShot, cpuShot, winner } = game;
+
+		// Handle shot counts.
+		stats.player.shotCounts[playerShot] += 1;
+		stats.cpu.shotCounts[cpuShot] += 1;
+
+		// Handle win/lose/draw counts.
+		if ( 'player' === winner ) {
+			stats.player.winTotal += 1;
+			stats.cpu.lossTotal += 1;
+		}
+
+		if ( 'cpu' === winner ) {
+			stats.cpu.winTotal += 1;
+			stats.player.lossTotal += 1;
+		}
+
+		if ( 'draw' === winner ) {
+			stats.player.drawTotal += 1;
+			stats.cpu.drawTotal += 1;
+		}
 	});
 
-	return shotCounts;
+	return stats;
 };
 
 
