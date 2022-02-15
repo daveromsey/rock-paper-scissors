@@ -70,6 +70,9 @@ export const getStats = ( games ) => {
 			winTotal: 0,
 			lossTotal: 0,
 			drawTotal: 0,
+			winStreak: 0,
+			longestStreak: 0,
+			winPercentage: 0,
 			shotCounts: {
 				rock: 0,
 				paper: 0,
@@ -80,6 +83,9 @@ export const getStats = ( games ) => {
 			winTotal: 0,
 			lossTotal: 0,
 			drawTotal: 0,
+			winStreak: 0,
+			longestStreak: 0,
+			winPercentage: 0,
 			shotCounts: {
 				rock: 0,
 				paper: 0,
@@ -112,7 +118,41 @@ export const getStats = ( games ) => {
 		}
 	});
 
+	// Calculate Win Percentages.
+	stats.player.winPercentage = getWinPercentage( stats.player.winTotal, stats.player.lossTotal );
+	stats.cpu.winPercentage = getWinPercentage( stats.cpu.winTotal, stats.cpu.lossTotal );
+
 	return stats;
 };
 
+// Calculate win percentage bases on wins and losses only.
+export const getWinPercentage = ( wins, losses ) =>  {
+	let winPct = wins / ( wins + losses );
 
+	if ( 0 === wins && 0 === losses ) {
+		winPct = 0;
+	}
+
+	if ( ! isFinite( winPct ) ) {
+		winPct = 1;
+	}
+
+	// const formatter = Intl.NumberFormat('en-US', {
+	// 	style: 'percent',
+	// 	maximumFractionDigits: 1,
+	// });
+
+	// winPct = formatter.format( winPct );
+
+	//return formatPercentage( winPct );
+	return winPct;
+}
+
+export const formatPercentage = ( percentage ) => {
+	const formatter = Intl.NumberFormat('en-US', {
+		style: 'percent',
+		maximumFractionDigits: 1,
+	});
+
+	return formatter.format( percentage );
+}

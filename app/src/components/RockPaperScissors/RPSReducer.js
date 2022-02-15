@@ -117,7 +117,7 @@ const RPSReducer = ( state, action ) => {
 					drawTotal: updatedStats.player.drawTotal,
 					winStreak: 0,
 					longestStreak: 0,
-					winPercentage: 0,
+					winPercentage: updatedStats.player.winPercentage,
 					shotCounts: updatedStats.player.shotCounts,
 				},
 				cpu:{
@@ -126,7 +126,7 @@ const RPSReducer = ( state, action ) => {
 					drawTotal: updatedStats.cpu.drawTotal,
 					winStreak: 0,
 					longestStreak: 0,
-					winPercentage: 0,
+					winPercentage: updatedStats.cpu.winPercentage,
 					shotCounts: updatedStats.cpu.shotCounts,
 				},
 			},

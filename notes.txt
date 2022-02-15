@@ -1,10 +1,20 @@
 Handle Player/CPU stats
 	- Win streak
 	- Longest streak
-	- Win percentage
 	---
+	- Win percentage on page load
 	- Win/Lose/Draw totals
 	- Shot counts
+
+
+
+
+Handle formatting output for display
+	Winner
+	Your Shot
+	CPU Shot
+	----
+	Win Percentage
 
 
 Styling

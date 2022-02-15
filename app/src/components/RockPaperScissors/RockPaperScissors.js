@@ -4,6 +4,10 @@ import RPSHeading from './RPSHeading';
 import { IconContext } from "react-icons";
 
 import {
+	formatPercentage,
+} from './RPSFunctions.js';
+
+import {
 	// FaMedal,
 	// FaAward,
 	// FaTrophy,
@@ -78,7 +82,7 @@ const RockPaperScissors = () => {
 							<div className="player-stats-1">
 								<div className="current-streak">Win Streak: </div>
 								<div className="longest-streak">Longest Streak: </div>
-								<div className="win-percentage">Win Percentage </div>
+								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.player.winPercentage) }</div>
 							</div>
 							<div className="player-stats-2">
 								<div className="rock">Rock: {stats.player.shotCounts.rock}</div>
@@ -94,7 +98,7 @@ const RockPaperScissors = () => {
 							<div className="cpu-stats-1">
 								<div className="current-streak">Win Streak: </div>
 								<div className="longest-streak">Longest Streak: </div>
-								<div className="win-percentage">Win Percentage </div>
+								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.cpu.winPercentage) }</div>
 							</div>
 							<div className="cpu-stats-2">
 								<div className="rock">Rock: {stats.cpu.shotCounts.rock}</div>
