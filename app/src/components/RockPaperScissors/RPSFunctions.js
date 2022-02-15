@@ -122,6 +122,40 @@ export const getStats = ( games ) => {
 	stats.player.winPercentage = getWinPercentage( stats.player.winTotal, stats.player.lossTotal );
 	stats.cpu.winPercentage = getWinPercentage( stats.cpu.winTotal, stats.cpu.lossTotal );
 
+
+
+	// Current streak
+
+	// Reverse order without modifying original array.
+	// https://stackoverflow.com/a/30610528/3059883
+	const gamesSorted = games.slice().reverse();
+
+	let mostRecentWinner = false;
+
+	let playerCurrentStreak = 0;
+	let playerCurrentStreakDone = false
+	let cpuCurrentStreak = 0;
+	let cpuCurrentStreakDone = false
+
+	gamesSorted.forEach( (game) => {
+		const { winner } = game;
+
+		if ( 'draw' === winner ) {
+			return; // "Continue".
+		}
+
+		if ( ! mostRecentWinner ) {
+			mostRecentWinner = winner;
+		} else if ( mostRecentWinner !== winner ) {
+
+		}
+	});
+
+
+	// Longest streak.
+	// playerLongestStreak = 0;
+	// cpuLongestStreak = 0;
+
 	return stats;
 };
 
@@ -137,14 +171,6 @@ export const getWinPercentage = ( wins, losses ) =>  {
 		winPct = 1;
 	}
 
-	// const formatter = Intl.NumberFormat('en-US', {
-	// 	style: 'percent',
-	// 	maximumFractionDigits: 1,
-	// });
-
-	// winPct = formatter.format( winPct );
-
-	//return formatPercentage( winPct );
 	return winPct;
 }
 
