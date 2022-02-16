@@ -3,6 +3,7 @@ import {
 	cpuShoot,
 	getGameResult,
 	getStats,
+	resetButtonStates,
 } from './RPSFunctions.js';
 
 import RPSInitialState from './RPSInitialState'
@@ -51,17 +52,18 @@ const RPSReducer = ( state, action ) => {
 	 * Handle resetting the game.
 	 */
 	 if ( 'RESET_GAME' === action.type ) {
-		// Reset shoot buttons.
-		const playerShootButtons = document.querySelectorAll('.player-shoot');
+		// // Reset shoot buttons.
+		// const playerShootButtons = document.querySelectorAll('.player-shoot');
 
-		playerShootButtons.forEach((button) => {
-			button.classList.remove('clicked');
-			button.disabled = false;
-		});
+		// playerShootButtons.forEach((button) => {
+		// 	button.classList.remove('clicked');
+		// 	button.disabled = false;
+		// });
 
-		// Hide Reset Game button.
-		const playAgainButton = document.querySelector('.play-again');
-		playAgainButton.classList.add('invisible');
+		// // Hide Reset Game button.
+		// const playAgainButton = document.querySelector('.play-again');
+		// playAgainButton.classList.add('invisible');
+		resetButtonStates();
 
 		return {
 			...state,
@@ -139,6 +141,7 @@ const RPSReducer = ( state, action ) => {
 	 * Handle clearing and resetting all RPS data.
 	 */
 	if ( 'CLEAR_AND_RESET_RPS_DATA' === action.type ) {
+		resetButtonStates();
 		return state = RPSInitialState;
 	}
 

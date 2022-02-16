@@ -182,3 +182,17 @@ export const formatPercentage = ( percentage ) => {
 
 	return formatter.format( percentage );
 }
+
+
+export const resetButtonStates = () => {
+	// Reset shoot buttons.
+	const playerShootButtons = document.querySelectorAll('.player-shoot');
+	playerShootButtons.forEach((button) => {
+		button.classList.remove('clicked');
+		button.disabled = false;
+	});
+
+	// Hide Reset Game button.
+	const playAgainButton = document.querySelector('.play-again');
+	playAgainButton.classList.add('invisible');
+}
