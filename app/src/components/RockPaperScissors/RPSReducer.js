@@ -5,6 +5,8 @@ import {
 	getStats,
 } from './RPSFunctions.js';
 
+import RPSInitialState from './RPSInitialState'
+
 // Rock Paper Scissors Reducer function.
 const RPSReducer = ( state, action ) => {
 	/**
@@ -131,6 +133,13 @@ const RPSReducer = ( state, action ) => {
 				},
 			},
 		};
+	}
+
+	/**
+	 * Handle clearing and resetting all RPS data.
+	 */
+	if ( 'CLEAR_AND_RESET_RPS_DATA' === action.type ) {
+		return state = RPSInitialState;
 	}
 
 	return state;

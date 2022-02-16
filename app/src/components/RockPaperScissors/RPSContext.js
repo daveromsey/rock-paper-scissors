@@ -1,53 +1,22 @@
-import React, { useRef, useContext, useReducer, useEffect } from 'react'
+import React, { useRef, createContext, useContext, useReducer, useEffect } from 'react'
+
+import RPSStateInit from './RPSStateInit'
+import RPSInitialState from './RPSInitialState'
 import RPSReducer from './RPSReducer'
 
-const RPSContext = React.createContext();
-
-const initialStateRPS = {
-	game: {
-		startTime: null,
-		endTime: null,
-		playerShot: null,
-		cpuShot: null,
-		winner: null,
-	},
-	games: [],
-	gamesPlayed: 0,
-	stats: {
-		player:{
-			winTotal: 0,
-			lossTotal: 0,
-			drawTotal: 0,
-			winStreak: 0,
-			longestStreak: 0,
-			winPercentage: 0,
-			shotCounts: {
-				rock: 0,
-				paper: 0,
-				scissors: 0,
-			},
-		},
-		cpu:{
-			winTotal: 0,
-			lossTotal: 0,
-			drawTotal: 0,
-			winStreak: 0,
-			longestStreak: 0,
-			winPercentage: 0,
-			shotCounts: {
-				rock: 0,
-				paper: 0,
-				scissors: 0,
-			},
-		},
-	}
-}
+const RPSContext = createContext();
 
 const RPSProvider = ({ children }) => {
-  const [state, dispatch] = useReducer( RPSReducer, initialStateRPS );
+  const [state, dispatch] = useReducer( RPSReducer, RPSInitialState, RPSStateInit );
 
 	// Used to determine if this is the original render or not.
 	const firstUpdate = useRef(true);
+
+	// Save RPS state to Local Storage whenever state changes.
+	useEffect(() => {
+    localStorage.setItem( "RPSState", JSON.stringify(state) );
+  }, [state] );
+
 
 	// Handle Player Shot.
 	const playerShoot = ( playerShot, event ) => {
@@ -67,13 +36,20 @@ const RPSProvider = ({ children }) => {
 		});
 	};
 
+	// Clear all RPS data from local storage.
+	const resetAllRpsData = () => {
+		dispatch({
+			type: 'CLEAR_AND_RESET_RPS_DATA'
+		});
+	};
+
 	// Update games and stats.
 	useEffect( () => {
 		// Bail on first paint.
-		// if ( firstUpdate.current ) {
-    //   firstUpdate.current = false;
-    //   return;
-    // }
+		if ( firstUpdate.current ) {
+      firstUpdate.current = false;
+      return;
+    }
 
 		// Bail if the game has not finished yet.
 		if ( null === state.game.endTime ) {
@@ -91,6 +67,7 @@ const RPSProvider = ({ children }) => {
         ...state,
 				playerShoot,
 				resetGame,
+				resetAllRpsData,
       }}
     >
       {children}

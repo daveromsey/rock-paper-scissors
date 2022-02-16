@@ -1,9 +1,6 @@
-Local Storage
-	https://stackoverflow.com/a/64548196/3059883
-		Set App Local Storage
-		Clear App Local Storage
-		Set RPS Local Storage
-		Clear RPS Local Storage
+RPS to Rps
+
+Charts
 
 Handle Player/CPU stats
 	- Win streak
@@ -13,6 +10,7 @@ Handle Player/CPU stats
 	- Win/Lose/Draw totals
 	- Shot counts
 
+Confirm clearing all game data.
 
 Handle formatting output for display
 	Create a format.js file:
@@ -135,6 +133,12 @@ VscSymbolBoolean
 ----
 Done
 ----
+Local Storage
+	https://stackoverflow.com/a/64548196/3059883
+		Set App Local Storage
+		Set RPS Local Storage
+		Clear RPS Local Storage and reset game state
+
 gameCount now uses length of games array instead of incrementing a value.
 Refactor shot count and win/lose/draw stat handling
 Rotate and flip Rock icon
