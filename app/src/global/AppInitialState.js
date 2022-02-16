@@ -1,4 +1,4 @@
-export const AppInitialState = {
+const AppInitialState = {
 	theme: 'light',
 	somethingElse: 'testing',
 }
