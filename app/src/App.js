@@ -22,7 +22,7 @@ import {
 
 import { useAppContext } from './global/AppContext';
 import { RPSProvider } from './components/RockPaperScissors/RPSContext';
-import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors.js';
+import RockPaperScissors from './components/RockPaperScissors/RPSComponents/RockPaperScissors.js';
 
 function App() {
 

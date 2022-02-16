@@ -1,11 +1,11 @@
 import React from 'react'
-import { useRPSContext } from './RPSContext';
+import { useRPSContext } from '../RPSContext';
 import RPSHeading from './RPSHeading';
 import { IconContext } from "react-icons";
 
 import {
 	formatPercentage,
-} from './RPSFunctions.js';
+} from '../RPSFunctions.js';
 
 import {
 	// FaMedal,
@@ -32,6 +32,7 @@ const RockPaperScissors = () => {
 	const {
 		playerShoot,
 		resetGame,
+		resetAllRpsData,
 		game,
 		stats,
 		gamesPlayed,
@@ -169,6 +170,20 @@ const RockPaperScissors = () => {
 			<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
 				<button onClick={ () => resetGame() } className="play-again hidden_ invisible flex-grow  mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
 					<span className="button-text">Play Again</span> <FaRedo/>
+				</button>
+			</div>
+
+			<div className="fancy-hr relative flex py-5 items-center">
+				<div className="flex-grow border-t border-gray-400"></div>
+				<span className="flex-shrink mx-4 text-gray-400">
+					<FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/>
+				</span>
+				<div className="flex-grow border-t border-gray-400"></div>
+			</div>
+
+			<div className="reset-rps">
+				<button onClick={ () => resetAllRpsData() } className="do-reset-rps">
+					<span className="button-text">Reset All Game Data</span>
 				</button>
 			</div>
 		</IconContext.Provider>
