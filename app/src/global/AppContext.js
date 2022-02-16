@@ -1,15 +1,13 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { useContext, createContext, useEffect, useReducer } from 'react'
 
+import AppStateInit from './AppStateInit'
+import AppInitialState from './AppInitialState'
 import AppReducer from './AppReducer'
 
-const AppContext = React.createContext();
+const AppContext = createContext();
 
-const initialStateApp = {
-	theme: 'light'
-}
-
-const AppProvider = ( { children } ) => {
-  const [state, dispatch] = useReducer( AppReducer, initialStateApp );
+const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer( AppReducer, AppInitialState, AppStateInit );
 
 	const updateTheme = ( theme ) => {
 		dispatch( {type: 'UPDATE_THEME', payload: theme } );
@@ -27,6 +25,10 @@ const AppProvider = ( { children } ) => {
         break;
     }
   }, [state.theme] );
+
+	useEffect(() => {
+    localStorage.setItem( "AppState", JSON.stringify(state) );
+  }, [state] );
 
   return (
     <AppContext.Provider

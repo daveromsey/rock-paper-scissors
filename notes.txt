@@ -1,3 +1,10 @@
+Local Storage
+	https://stackoverflow.com/a/64548196/3059883
+		Set App Local Storage
+		Clear App Local Storage
+		Set RPS Local Storage
+		Clear RPS Local Storage
+
 Handle Player/CPU stats
 	- Win streak
 	- Longest streak
@@ -7,14 +14,13 @@ Handle Player/CPU stats
 	- Shot counts
 
 
-
-
 Handle formatting output for display
-	Winner
-	Your Shot
-	CPU Shot
-	----
-	Win Percentage
+	Create a format.js file:
+		Winner
+		Your Shot
+		CPU Shot
+		----
+		Win Percentage
 
 
 Styling
@@ -39,10 +45,6 @@ Convert elements to components
 	Shot buttons
 	Fancy hr
 
-Local Storage
-Reset Data to clear Local Storage
-
-
 Show pretty results:
 	You Win {Award icon} (Green)
 	You Lose {Trash icon} (Red)
@@ -65,14 +67,16 @@ Update readme.md
 		React APIs:
 			useRef()
 			useEffect()
-			useReducer() - One for the App and one for the RPS component.
-			useContext() - One for the App and one for the RPS component.
+			useReducer()
+			useContext()
+			createContext()
 		Local Storage
 		Tailwind
 		Sass
 		Google Fonts (self-hosted)
 		Self-hosted fonts
 		React Icons
+		{JSDOC, Coding standards, github pages CI/CD}
 
 	Acknowledgements:
 		favicon
@@ -133,6 +137,7 @@ Done
 ----
 gameCount now uses length of games array instead of incrementing a value.
 Refactor shot count and win/lose/draw stat handling
+Rotate and flip Rock icon
 
 Stats: Shot counts
 Handle scoreboard stats
