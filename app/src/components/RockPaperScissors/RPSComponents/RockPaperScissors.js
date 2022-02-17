@@ -27,6 +27,18 @@ import {
 } from "react-icons/fa";
 
 
+import RadarChart from 'react-svg-radar-chart';
+//import 'react-svg-radar-chart/build/css/index.css'
+import './radar-chart.scss'
+
+
+const captions = {
+	// columns
+	rock: 'Rock',
+	paper: 'Paper',
+	scissors: 'Scissors',
+};
+
 const RockPaperScissors = () => {
 
 	const {
@@ -37,6 +49,25 @@ const RockPaperScissors = () => {
 		stats,
 		gamesPlayed,
 	} = useRPSContext();
+
+	const data = [
+		{
+			data: {
+				rock: stats.player.shotCounts.rock / gamesPlayed,
+				paper: stats.player.shotCounts.paper / gamesPlayed,
+				scissors: stats.player.shotCounts.scissors / gamesPlayed,
+			},
+			meta: { color: '#10bee5' }
+		},
+		{
+			data: {
+				rock: stats.cpu.shotCounts.rock / gamesPlayed,
+				paper: stats.cpu.shotCounts.paper / gamesPlayed,
+				scissors: stats.cpu.shotCounts.scissors / gamesPlayed,
+			},
+			meta: { color: 'orange' }
+		},
+	];
 
   return (
 	<article className="rock-paper-scissors">
@@ -74,9 +105,7 @@ const RockPaperScissors = () => {
 
 			<div className="stats">
 				<h2>Stats</h2>
-
 				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
-
 					<div className="player-stats">
 						<h2>Player Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
@@ -110,6 +139,30 @@ const RockPaperScissors = () => {
 					</div>
 
 				</div>
+
+				<div className="radar-chart pt-8 flex justify-center">
+					<div className="radar-chart-container __bg-white inline-block">
+						<RadarChart
+							captions={captions}
+							data={data}
+							size={175}
+							options={{
+								//size: 100,
+								scales: 0,
+								zoomDistance: .6,
+								captionMargin: 10,
+								//dots: true,
+								captionProps: () => ({
+									className: 'caption',
+									fontSize: 13,
+									textAnchor: 'middle',
+									fontFamily: 'monospace'
+								}),
+							}}
+						/>
+					</div>
+				</div>
+
 			</div>
 
 			<div className="relative flex py-5 items-center">

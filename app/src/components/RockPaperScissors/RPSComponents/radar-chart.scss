@@ -1,0 +1,39 @@
+.shape{
+	fill-opacity:.3
+}
+.shape:hover{
+	fill-opacity:.65;
+	z-index:100
+}
+.scale{
+	//fill:#fafafa;
+	fill:rgb(123 16 211);
+	//fill:#000000bd;
+	//stroke:#999;
+	stroke:#000;
+	stroke-width:.5
+	//stroke-width:.2
+}
+.axis{
+	//stroke:#555;
+	stroke:#000;
+	//stroke-width:.2
+	stroke-width:.5
+}
+.dot{
+	fill:#fff;
+	stroke:#e7e8e7;
+	r:5;
+	-webkit-transition:r .2s;
+	-o-transition:r .2s;
+	transition:r .2s
+}
+.dot:hover{
+	stroke:#bbb;
+	r:8
+}
+.caption{
+	fill:#444;
+	font-weight:400;
+	text-shadow:1px 1px 0 #fff
+}
