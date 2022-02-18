@@ -1,16 +1,27 @@
-RPS to Rps
-
 Charts
+	Implement ChartJS
 
-Handle Player/CPU stats
-	- Win streak
-	- Longest streak
-	---
-	- Win percentage on page load
-	- Win/Lose/Draw totals
-	- Shot counts
+Rename RPS to Rps
 
-Confirm clearing all game data.
+Convert elements to components
+	Light/dark mode
+	Scoreboard
+	Stats
+		Player
+		CPU
+	Results
+	Play again
+	Shot buttons
+	Fancy hr
+
+
+Show pretty results:
+	You Win {Award icon} (Green)
+	You Lose {Trash icon} (Red)
+	Tie Game {FaRegWindowClose} (Black)
+		Or
+			Winner <robot icon> CPU
+			Winner <person icon> Player
 
 Handle formatting output for display
 	Create a format.js file:
@@ -19,6 +30,8 @@ Handle formatting output for display
 		CPU Shot
 		----
 		Win Percentage
+
+
 
 
 Styling
@@ -32,30 +45,20 @@ Styling
 	Colors
 	Light/Dark Mode
 
-Convert elements to components
-	Light/dark mode
-	Scoreboard
-	Stats
-		Player
-		CPU
-	Results
-	Play again
-	Shot buttons
-	Fancy hr
-
-Show pretty results:
-	You Win {Award icon} (Green)
-	You Lose {Trash icon} (Red)
-	Tie Game {FaRegWindowClose} (Black)
-		Or
-			Winner <robot icon> CPU
-			Winner <person icon> Player
-
 Handle light/dark theme styles
+
+Refactor stat calculations using functions to reduce code duplication.
+
+Add a confirmation when clearing all game data.
+
+
 
 clean up
 JSDOC inline docs
 	https://jsdoc.app/about-getting-started.html
+
+Coding standards
+Prettier
 
 Host and deploy to github pages
 	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
@@ -69,11 +72,12 @@ Update readme.md
 			useContext()
 			createContext()
 		Local Storage
-		Tailwind
+		Tailwind v3
 		Sass
 		Google Fonts (self-hosted)
 		Self-hosted fonts
 		React Icons
+		ChartJS v3
 		{JSDOC, Coding standards, github pages CI/CD}
 
 	Acknowledgements:
@@ -87,6 +91,7 @@ Update readme.md
 
 	Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
 	SVG to icon: https://cloudconvert.com/svg-to-ico
+	Charts
 
 	Possible Future Enhancements
 		Allow keyboard controls
@@ -105,8 +110,7 @@ Update readme.md
 		Opponents that talk smack
 
 
-Coding standards
-Prettier
+
 
 Icons
 --------
@@ -115,24 +119,26 @@ FaAward
 FaTrophy
 FaRegSadCry
 FaCat
-
 FaRegHandRock
 FaRegHandPaper
 FaRegHandScissors
-
 FaRedoAlt,
 FaRegWindowClose
 FaWindowClose
-
 FaRegTrashAlt,
-
-
 VscSymbolBoolean
 
 
 ----
 Done
 ----
+Handle Player/CPU stats
+	- Win streak
+	- Longest streak
+	- Win percentage on page load
+	- Win/Lose/Draw totals
+	- Shot counts
+
 Local Storage
 	https://stackoverflow.com/a/64548196/3059883
 		Set App Local Storage

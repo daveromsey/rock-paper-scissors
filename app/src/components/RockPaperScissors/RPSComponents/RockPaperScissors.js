@@ -4,7 +4,9 @@ import RPSHeading from './RPSHeading';
 import { IconContext } from "react-icons";
 
 import {
+	getShotPercentage,
 	formatPercentage,
+	formatPercentageDecimal,
 } from '../RPSFunctions.js';
 
 import {
@@ -32,12 +34,57 @@ import RadarChart from 'react-svg-radar-chart';
 import './radar-chart.scss'
 
 
+
+
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+	Title,
+	SubTitle,
+} from 'chart.js';
+import { Radar } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 const captions = {
 	// columns
 	rock: 'Rock',
 	paper: 'Paper',
 	scissors: 'Scissors',
 };
+
+
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+	Title,
+	SubTitle
+);
+// const data = [
+// 	{
+// 		data: {
+// 			rock: stats.player.shotCounts.rock / gamesPlayed,
+// 			paper: stats.player.shotCounts.paper / gamesPlayed,
+// 			scissors: stats.player.shotCounts.scissors / gamesPlayed,
+// 		},
+// 		meta: { color: '#10bee5' }
+// 	},
+// 	{
+// 		data: {
+// 			rock: stats.cpu.shotCounts.rock / gamesPlayed,
+// 			paper: stats.cpu.shotCounts.paper / gamesPlayed,
+// 			scissors: stats.cpu.shotCounts.scissors / gamesPlayed,
+// 		},
+// 		meta: { color: 'orange' }
+// 	},
+// ];
 
 const RockPaperScissors = () => {
 
@@ -68,6 +115,190 @@ const RockPaperScissors = () => {
 			meta: { color: 'orange' }
 		},
 	];
+
+	//const optionsChartJS = {}
+	const optionsChartJS = {
+		// layout: {
+		// 	autoPadding: true,
+		// 	padding: 0,
+		// },
+		//responsive: false,
+		//maintainAspectRatio: true,
+		elements: {
+			line: {
+				borderWidth: 3
+			}
+		},
+		scales: {
+			r: {
+				// grid: {
+        //   color: '#000'
+        // },
+				ticks: {
+					display: false,
+					beginAtZero: true,
+					max: 100,
+					min: 0,
+					stepSize: 50,
+					backdropColor: 'transparent',
+					showLabelBackdrop: true,
+					backdropPadding: 1,
+					color: '#000',
+					padding: 9,
+					font: {
+						size: 16,
+					}
+				},
+				pointLabels: {
+					font:  {
+						size: 20,
+					},
+					color: '#000',
+				}
+			}
+		},
+		// layout: {
+		// 	// padding: {
+		// 	// 	bottom: 0,
+		// 	// },
+		// 	autoPadding: false,
+		// },
+		plugins: {
+			legend: {
+				display: true,
+				position: 'top',
+				labels: {
+					color: '#000',
+					font: {
+						size: 16
+					},
+				},
+			},
+			// title: {
+			// 	display: true,
+			// 	text: 'Custom Chart title',
+			// 	padding: {
+			// 		top: 10,
+			// 		bottom: 30
+			// 	},
+			// 	position: 'bottom',
+			// },
+			// subtitle: {
+			// 	display: true,
+			// 	text: 'Custom Chart Subtitle',
+			// 	position: 'bottom',
+			// },
+		},
+
+	};
+
+	const dataChartJS2 = {
+		labels: [
+			'Eating',
+			'Drinking',
+			'Sleeping',
+			'Designing',
+			'Coding',
+			'Cycling',
+			'Running'
+		],
+		plugins: [ChartDataLabels],
+		datasets: [{
+			label: 'My First Dataset',
+			data: [65, 59, 90, 81, 56, 55, 40],
+			fill: true,
+			backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			borderColor: 'rgb(255, 99, 132)',
+			pointBackgroundColor: 'rgb(255, 99, 132)',
+			pointBorderColor: '#fff',
+			pointHoverBackgroundColor: '#fff',
+			pointHoverBorderColor: 'rgb(255, 99, 132)'
+		}, {
+			label: 'My Second Dataset',
+			data: [28, 48, 40, 19, 96, 27, 100],
+			fill: true,
+			backgroundColor: 'rgba(54, 162, 235, 0.2)',
+			borderColor: 'rgb(54, 162, 235)',
+			pointBackgroundColor: 'rgb(54, 162, 235)',
+			pointBorderColor: '#fff',
+			pointHoverBackgroundColor: '#fff',
+			pointHoverBorderColor: 'rgb(54, 162, 235)'
+		}]
+	};
+
+//console.log(typeof( formatPercentageDecimal( getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ) ) ));
+
+	const dataChartJS = {
+		labels: ['Rock', 'Paper', 'Scissors'],
+		datasets: [
+			{
+				label: 'Player',
+				data: [
+					formatPercentageDecimal(
+						getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
+					),
+					formatPercentageDecimal(
+						getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
+					),
+					formatPercentageDecimal(
+						getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
+					),
+
+					// ( stats.player.shotCounts.rock / gamesPlayed) *  100,
+					// ( stats.player.shotCounts.paper / gamesPlayed) *  100,
+					// ( stats.player.shotCounts.scissors / gamesPlayed) *  100,
+
+					// stats.player.shotCounts.rock / gamesPlayed,
+					// stats.player.shotCounts.paper / gamesPlayed,
+					// stats.player.shotCounts.scissors / gamesPlayed,
+				],
+				backgroundColor: 'rgba(16, 190, 229, .2)',
+				borderColor: 'rgba(16, 190, 229, 1)',
+				borderWidth: 2,
+				// borderWidth: 2,
+				fill: true,
+				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				// borderColor: 'rgb(255, 99, 132)',
+				// pointBackgroundColor: 'rgb(255, 99, 132)',
+				// pointBorderColor: '#fff',
+				// pointHoverBackgroundColor: '#fff',
+				// pointHoverBorderColor: 'rgb(255, 99, 132)'
+			},
+			{
+				label: 'CPU',
+				data: [
+					formatPercentageDecimal(
+						getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed )
+					),
+					formatPercentageDecimal(
+						getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed )
+					),
+					formatPercentageDecimal(
+						getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed )
+					),
+
+					// (stats.cpu.shotCounts.rock / gamesPlayed) *  100,
+					// (stats.cpu.shotCounts.paper / gamesPlayed) *  100,
+					// (stats.cpu.shotCounts.scissors / gamesPlayed) *  100,
+
+					// stats.cpu.shotCounts.rock / gamesPlayed,
+					// stats.cpu.shotCounts.paper / gamesPlayed,
+					// stats.cpu.shotCounts.scissors / gamesPlayed,
+				],
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				borderWidth: 2,
+				// borderWidth: 2,
+				fill: true,
+				// backgroundColor: 'rgba(54, 162, 235, 0.2)',
+				// borderColor: 'rgb(54, 162, 235)',
+				// pointBackgroundColor: 'rgb(54, 162, 235)',
+				// pointBorderColor: '#fff',
+				// pointHoverBackgroundColor: '#fff',
+				// pointHoverBorderColor: 'rgb(54, 162, 235)'
+			},
+		],
+	}
 
   return (
 	<article className="rock-paper-scissors">
@@ -140,7 +371,7 @@ const RockPaperScissors = () => {
 
 				</div>
 
-				<div className="radar-chart pt-8 flex justify-center">
+				{/* <div className="radar-chart pt-8 flex justify-center">
 					<div className="radar-chart-container __bg-white inline-block">
 						<RadarChart
 							captions={captions}
@@ -161,8 +392,24 @@ const RockPaperScissors = () => {
 							}}
 						/>
 					</div>
-				</div>
+				</div> */}
 
+				<hr className="" />
+
+
+				 <div className="_flex _justify-center _grid _grid-cols-1  _sm:grid-cols-3">
+
+
+					<div className="react-chartjs p4 __bg-white mx-auto max-w-sm">
+						<Radar
+							data={dataChartJS}
+							options={optionsChartJS}
+							//height={400}
+							//width={400}
+						/>
+					</div>
+
+				</div>
 			</div>
 
 			<div className="relative flex py-5 items-center">
