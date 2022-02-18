@@ -110,8 +110,8 @@ const RockPaperScissors = () => {
 						<h2>Player Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="player-stats-1">
-								<div className="current-streak" title="Ties are ignored">Win Streak: </div>
-								<div className="longest-streak" title="Ties are ignored">Longest Streak: </div>
+								<div className="current-streak" title="Ties are ignored">Win Streak: {stats.player.winStreak}</div>
+								<div className="longest-streak" title="Ties are ignored">Longest Streak: {stats.player.longestStreak}</div>
 								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.player.winPercentage) }</div>
 							</div>
 							<div className="player-stats-2">
@@ -126,8 +126,8 @@ const RockPaperScissors = () => {
 						<h2>CPU Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="cpu-stats-1">
-								<div className="current-streak" title="Ties are ignored">Win Streak: </div>
-								<div className="longest-streak" title="Ties are ignored">Longest Streak: </div>
+								<div className="current-streak" title="Ties are ignored">Win Streak: {stats.cpu.winStreak}</div>
+								<div className="longest-streak" title="Ties are ignored">Longest Streak: {stats.cpu.longestStreak}</div>
 								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.cpu.winPercentage) }</div>
 							</div>
 							<div className="cpu-stats-2">
