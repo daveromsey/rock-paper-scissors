@@ -250,6 +250,7 @@ export const formatPercentage = ( percentage ) => {
 	return formatter.format( percentage );
 }
 
+// unused
 export const formatPercentageDecimal = ( value ) => {
 	const formatter = Intl.NumberFormat('en-US', {
 		//style: 'percent',

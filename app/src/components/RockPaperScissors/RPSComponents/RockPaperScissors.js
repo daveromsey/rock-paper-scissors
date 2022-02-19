@@ -6,7 +6,6 @@ import { IconContext } from "react-icons";
 import {
 	getShotPercentage,
 	formatPercentage,
-	formatPercentageDecimal,
 } from '../RPSFunctions.js';
 
 import {
@@ -40,7 +39,6 @@ import {
 	SubTitle,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(
   RadialLinearScale,
@@ -117,21 +115,15 @@ const RockPaperScissors = () => {
 			tooltip: {
 				callbacks: {
 					label: function(context) {
-						var label = context.dataset.label || '';
-
+						let label = context.dataset.label || '';
 						if (label) {
-								label += ': ';
+							label += ': ';
 						}
 						if (context.parsed.y !== null) {
-
-								label += new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 2, }).format(context.parsed.r);
+							label += new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 2, }).format(context.parsed.r);
 						}
 						return label;
-				},
-					// afterBody: ( tooltips ) => {
-					// 	console.log(tooltips);
-					// 	return tooltips[0].raw + '%'
-					// },
+					},
 				},
 			},
 			legend: {
@@ -159,118 +151,6 @@ const RockPaperScissors = () => {
 			// 	position: 'bottom',
 			// },
 		},
-
-	};
-
-	const dataChartJS2 = {
-		labels: [
-			'Eating',
-			'Drinking',
-			'Sleeping',
-			'Designing',
-			'Coding',
-			'Cycling',
-			'Running'
-		],
-		plugins: [ChartDataLabels],
-		datasets: [{
-			label: 'My First Dataset',
-			data: [65, 59, 90, 81, 56, 55, 40],
-			fill: true,
-			backgroundColor: 'rgba(255, 99, 132, 0.2)',
-			borderColor: 'rgb(255, 99, 132)',
-			pointBackgroundColor: 'rgb(255, 99, 132)',
-			pointBorderColor: '#fff',
-			pointHoverBackgroundColor: '#fff',
-			pointHoverBorderColor: 'rgb(255, 99, 132)'
-		}, {
-			label: 'My Second Dataset',
-			data: [28, 48, 40, 19, 96, 27, 100],
-			fill: true,
-			backgroundColor: 'rgba(54, 162, 235, 0.2)',
-			borderColor: 'rgb(54, 162, 235)',
-			pointBackgroundColor: 'rgb(54, 162, 235)',
-			pointBorderColor: '#fff',
-			pointHoverBackgroundColor: '#fff',
-			pointHoverBorderColor: 'rgb(54, 162, 235)'
-		}]
-	};
-
-//console.log(typeof( formatPercentageDecimal( getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ) ) ));
-
-	const dataChartJS = {
-		labels: ['Rock', 'Paper', 'Scissors'],
-		datasets: [
-			{
-				label: 'Player',
-				data: [
-					getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
-					// ),
-					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
-					// ),
-					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
-					// ),
-
-					// ( stats.player.shotCounts.rock / gamesPlayed) *  100,
-					// ( stats.player.shotCounts.paper / gamesPlayed) *  100,
-					// ( stats.player.shotCounts.scissors / gamesPlayed) *  100,
-
-					// stats.player.shotCounts.rock / gamesPlayed,
-					// stats.player.shotCounts.paper / gamesPlayed,
-					// stats.player.shotCounts.scissors / gamesPlayed,
-				],
-				backgroundColor: 'rgba(16, 190, 229, .2)',
-				borderColor: 'rgba(16, 190, 229, 1)',
-				borderWidth: 2,
-				// borderWidth: 2,
-				fill: true,
-				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
-				// borderColor: 'rgb(255, 99, 132)',
-				// pointBackgroundColor: 'rgb(255, 99, 132)',
-				// pointBorderColor: '#fff',
-				// pointHoverBackgroundColor: '#fff',
-				// pointHoverBorderColor: 'rgb(255, 99, 132)'
-			},
-			{
-				label: 'CPU',
-				data: [
-					formatPercentageDecimal(
-						getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed )
-					),
-					formatPercentageDecimal(
-						getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed )
-					),
-					formatPercentageDecimal(
-						getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed )
-					),
-
-					// (stats.cpu.shotCounts.rock / gamesPlayed) *  100,
-					// (stats.cpu.shotCounts.paper / gamesPlayed) *  100,
-					// (stats.cpu.shotCounts.scissors / gamesPlayed) *  100,
-
-					// stats.cpu.shotCounts.rock / gamesPlayed,
-					// stats.cpu.shotCounts.paper / gamesPlayed,
-					// stats.cpu.shotCounts.scissors / gamesPlayed,
-				],
-				backgroundColor: 'rgba(255, 99, 132, 0.2)',
-				borderColor: 'rgba(255, 99, 132, 1)',
-				borderWidth: 2,
-				// borderWidth: 2,
-				fill: true,
-				// backgroundColor: 'rgba(54, 162, 235, 0.2)',
-				// borderColor: 'rgb(54, 162, 235)',
-				// pointBackgroundColor: 'rgb(54, 162, 235)',
-				// pointBorderColor: '#fff',
-				// pointHoverBackgroundColor: '#fff',
-				// pointHoverBorderColor: 'rgb(54, 162, 235)'
-			},
-		],
 	};
 
 	const playerDataChartJS = {
@@ -282,16 +162,6 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ),
 					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
-
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
-					// ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
-					// ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
-					// ),
 				],
 				backgroundColor: 'rgba(16, 190, 229, .2)',
 				borderColor: 'rgba(16, 190, 229, 1)',
@@ -310,15 +180,6 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed ),
 					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed )
-					// ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed )
-					// ),
-					// formatPercentageDecimal(
-					// 	getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed )
-					// ),
 				],
 				backgroundColor: 'rgba(255, 99, 132, 0.2)',
 				borderColor: 'rgba(255, 99, 132, 1)',

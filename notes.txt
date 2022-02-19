@@ -1,7 +1,5 @@
-Charts
-	Implement ChartJS
 
-Rename RPS to Rps
+Rename RPS to Rps ...or rpsSomething
 
 Convert elements to components
 	Light/dark mode
@@ -132,6 +130,8 @@ VscSymbolBoolean
 ----
 Done
 ----
+Implement ChartJS for shot counts
+
 Handle Player/CPU stats
 	- Win streak
 	- Longest streak
