@@ -29,11 +29,9 @@ import {
 } from "react-icons/fa";
 
 
-import RadarChart from 'react-svg-radar-chart';
-//import 'react-svg-radar-chart/build/css/index.css'
-import './radar-chart.scss'
-
-
+// import RadarChart from 'react-svg-radar-chart';
+// //import 'react-svg-radar-chart/build/css/index.css'
+// import './radar-chart.scss'
 
 
 import {
@@ -49,12 +47,13 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-const captions = {
-	// columns
-	rock: 'Rock',
-	paper: 'Paper',
-	scissors: 'Scissors',
-};
+
+// const captions = {
+// 	// columns
+// 	rock: 'Rock',
+// 	paper: 'Paper',
+// 	scissors: 'Scissors',
+// };
 
 
 ChartJS.register(
@@ -67,24 +66,6 @@ ChartJS.register(
 	Title,
 	SubTitle
 );
-// const data = [
-// 	{
-// 		data: {
-// 			rock: stats.player.shotCounts.rock / gamesPlayed,
-// 			paper: stats.player.shotCounts.paper / gamesPlayed,
-// 			scissors: stats.player.shotCounts.scissors / gamesPlayed,
-// 		},
-// 		meta: { color: '#10bee5' }
-// 	},
-// 	{
-// 		data: {
-// 			rock: stats.cpu.shotCounts.rock / gamesPlayed,
-// 			paper: stats.cpu.shotCounts.paper / gamesPlayed,
-// 			scissors: stats.cpu.shotCounts.scissors / gamesPlayed,
-// 		},
-// 		meta: { color: 'orange' }
-// 	},
-// ];
 
 const RockPaperScissors = () => {
 
@@ -116,12 +97,7 @@ const RockPaperScissors = () => {
 		},
 	];
 
-	//const optionsChartJS = {}
 	const optionsChartJS = {
-		// layout: {
-		// 	autoPadding: true,
-		// 	padding: 0,
-		// },
 		//responsive: false,
 		//maintainAspectRatio: true,
 		elements: {
@@ -131,15 +107,27 @@ const RockPaperScissors = () => {
 		},
 		scales: {
 			r: {
-				// grid: {
-        //   color: '#000'
-        // },
+				// https://www.chartjs.org/docs/latest/axes/radial/
+				angleLines: {
+          color: 'rgba( 0,0,0,.35)',
+        },
+				pointLabels: {
+					font:  {
+						size: 16,
+					},
+					color: '#000',
+				},
+				//display: false,
+				grid: {
+					color: 'rgba( 0,0,0,.35)',
+					//circular: true,
+        },
 				ticks: {
 					display: false,
 					beginAtZero: true,
 					max: 100,
 					min: 0,
-					stepSize: 50,
+					stepSize: 25,
 					backdropColor: 'transparent',
 					showLabelBackdrop: true,
 					backdropPadding: 1,
@@ -149,23 +137,38 @@ const RockPaperScissors = () => {
 						size: 16,
 					}
 				},
-				pointLabels: {
-					font:  {
-						size: 20,
-					},
-					color: '#000',
-				}
 			}
 		},
-		// layout: {
-		// 	// padding: {
-		// 	// 	bottom: 0,
-		// 	// },
-		// 	autoPadding: false,
-		// },
+		layout: {
+			// padding: {
+			// 	bottom: 220,
+			// },
+			// autoPadding: false,
+		},
 		plugins: {
+			// https://www.chartjs.org/docs/3.5.0/configuration/tooltip.html
+			tooltip: {
+				callbacks: {
+					label: function(context) {
+						var label = context.dataset.label || '';
+
+						if (label) {
+								label += ': ';
+						}
+						if (context.parsed.y !== null) {
+
+								label += new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 2, }).format(context.parsed.r);
+						}
+						return label;
+				},
+					// afterBody: ( tooltips ) => {
+					// 	console.log(tooltips);
+					// 	return tooltips[0].raw + '%'
+					// },
+				},
+			},
 			legend: {
-				display: true,
+				display: false,
 				position: 'top',
 				labels: {
 					color: '#000',
@@ -234,15 +237,18 @@ const RockPaperScissors = () => {
 			{
 				label: 'Player',
 				data: [
-					formatPercentageDecimal(
-						getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
-					),
-					formatPercentageDecimal(
-						getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
-					),
-					formatPercentageDecimal(
-						getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
-					),
+					getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
+					// ),
+					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
+					// ),
+					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
+					// ),
 
 					// ( stats.player.shotCounts.rock / gamesPlayed) *  100,
 					// ( stats.player.shotCounts.paper / gamesPlayed) *  100,
@@ -298,7 +304,62 @@ const RockPaperScissors = () => {
 				// pointHoverBorderColor: 'rgb(54, 162, 235)'
 			},
 		],
-	}
+	};
+
+	const playerDataChartJS = {
+		labels: ['Rock', 'Paper', 'Scissors'],
+		datasets: [
+			{
+				label: 'Player',
+				data: [
+					getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ),
+					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
+					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
+
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.rock, gamesPlayed )
+					// ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.paper, gamesPlayed )
+					// ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed )
+					// ),
+				],
+				backgroundColor: 'rgba(16, 190, 229, .2)',
+				borderColor: 'rgba(16, 190, 229, 1)',
+				borderWidth: 2,
+				fill: true,
+			},
+		],
+	};
+
+	const cpuDataChartJS = {
+		labels: ['Rock', 'Paper', 'Scissors'],
+		datasets: [
+			{
+				label: 'CPU',
+				data: [
+					getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed ),
+					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
+					getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed )
+					// ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed )
+					// ),
+					// formatPercentageDecimal(
+					// 	getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed )
+					// ),
+				],
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				borderWidth: 2,
+				fill: true,
+			},
+		],
+	};
 
   return (
 	<article className="rock-paper-scissors">
@@ -351,6 +412,12 @@ const RockPaperScissors = () => {
 								<div className="scissors">Scissors: {stats.player.shotCounts.scissors}</div>
 							</div>
 						</div>
+						<div className="px-8 react-chartjs">
+							<Radar
+								data={playerDataChartJS}
+								options={optionsChartJS}
+								/>
+						</div>
 					</div>
 
 					<div className="cpu-stats">
@@ -366,6 +433,12 @@ const RockPaperScissors = () => {
 								<div className="paper">Paper: {stats.cpu.shotCounts.paper}</div>
 								<div className="scissors">Scissors: {stats.cpu.shotCounts.scissors}</div>
 							</div>
+						</div>
+						<div className="px-8 react-chartjs">
+							<Radar
+								data={cpuDataChartJS}
+								options={optionsChartJS}
+								/>
 						</div>
 					</div>
 
@@ -394,22 +467,16 @@ const RockPaperScissors = () => {
 					</div>
 				</div> */}
 
-				<hr className="" />
-
-
+				{/* <hr className="" />
 				 <div className="_flex _justify-center _grid _grid-cols-1  _sm:grid-cols-3">
-
-
 					<div className="react-chartjs p4 __bg-white mx-auto max-w-sm">
 						<Radar
 							data={dataChartJS}
 							options={optionsChartJS}
-							//height={400}
-							//width={400}
 						/>
 					</div>
+				</div> */}
 
-				</div>
 			</div>
 
 			<div className="relative flex py-5 items-center">

@@ -215,3 +215,6 @@ Helpful Links:
 
 	Adding Local Fonts or Google Fonts In Tailwind CSS With WordPress
 		https://imranhsayed.medium.com/adding-local-fonts-or-google-fonts-in-tailwind-css-with-wordpress-2850aac843fd
+
+	Fancy hr
+		https://stackoverflow.com/a/70203951/3059883
