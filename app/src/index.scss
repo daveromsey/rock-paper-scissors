@@ -31,21 +31,6 @@
   font-size: calculateRem($size);
 }
 
-// body {
-//   margin: 0;
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-//     sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-// code {
-//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-//     monospace;
-// }
-
-
 .player-shoot {
 	//background-color: lightgray;
 	padding: 10px;
@@ -86,6 +71,7 @@ svg.rock {
 .react-chartjs {
 	canvas {
 		margin-top: -5%;
+		// Fix extra space at bottom of radar chart when grid is not circular.
 		margin-bottom: -20%;
 	}
 }

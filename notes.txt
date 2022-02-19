@@ -1,17 +1,21 @@
-
-Rename RPS to Rps ...or rpsSomething
-
 Convert elements to components
-	Light/dark mode
+>	Fancy hr
+	Shot buttons
+	Play again
+	Light/dark mode controls
 	Scoreboard
 	Stats
 		Player
 		CPU
+		Shot Charts
 	Results
-	Play again
-	Shot buttons
-	Fancy hr
+	App Header
+	App Footer
 
+
+Make a charts.js file to contain chart configuration
+
+Rename RPS to Rps ...or rpsSomething
 
 Show pretty results:
 	You Win {Award icon} (Green)
@@ -84,12 +88,14 @@ Update readme.md
 			Paytone One: https://fonts.google.com/specimen/Paytone+One#standard-styles
 			Digital-7: https://www.1001fonts.com/digital-7-font.html
 
-	RPS instuctions
-	https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
+		RPS instuctions
+			https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
 
-	Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
-	SVG to icon: https://cloudconvert.com/svg-to-ico
-	Charts
+		Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
+		SVG to icon: https://cloudconvert.com/svg-to-ico
+		Charts: ChartJS v3 and react-chartjs2
+
+
 
 	Possible Future Enhancements
 		Allow keyboard controls
@@ -100,6 +106,7 @@ Update readme.md
 			Games
 				Game
 					Rounds
+		Add stats (and charts?) for results by shot: Win/Lose/Draw:Rock, etc.
 		Hack mode to force computer's shot
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements

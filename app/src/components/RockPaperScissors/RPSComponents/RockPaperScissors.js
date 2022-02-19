@@ -1,13 +1,5 @@
 import React from 'react'
-import { useRPSContext } from '../RPSContext';
-import RPSHeading from './RPSHeading';
-import { IconContext } from "react-icons";
-
-import {
-	getShotPercentage,
-	formatPercentage,
-} from '../RPSFunctions.js';
-
+import { IconContext } from 'react-icons';
 import {
 	// FaMedal,
 	// FaAward,
@@ -26,7 +18,6 @@ import {
 	// FaRedoAlt,
 	FaRedo
 } from "react-icons/fa";
-
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -40,20 +31,15 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend,
-	Title,
-	SubTitle
-);
+import { useRPSContext } from '../RPSContext';
+import {
+	getShotPercentage,
+	formatPercentage,
+} from '../RPSFunctions.js';
+import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
 const RockPaperScissors = () => {
-
 	const {
 		playerShoot,
 		resetGame,
@@ -62,6 +48,17 @@ const RockPaperScissors = () => {
 		stats,
 		gamesPlayed,
 	} = useRPSContext();
+
+	ChartJS.register(
+		RadialLinearScale,
+		PointElement,
+		LineElement,
+		Filler,
+		Tooltip,
+		Legend,
+		Title,
+		SubTitle
+	);
 
 	const optionsChartJS = {
 		//responsive: false,
@@ -137,20 +134,20 @@ const RockPaperScissors = () => {
 					},
 				},
 			},
-			// title: {
-			// 	display: true,
-			// 	text: 'Custom Chart title',
-			// 	padding: {
-			// 		top: 10,
-			// 		bottom: 30
-			// 	},
-			// 	position: 'bottom',
-			// },
-			// subtitle: {
-			// 	display: true,
-			// 	text: 'Custom Chart Subtitle',
-			// 	position: 'bottom',
-			// },
+			title: {
+				display: false,
+				text: 'Shot Usage',
+				padding: {
+					top: 10,
+					bottom: 30
+				},
+				position: 'bottom',
+			},
+			subtitle: {
+				display: false,
+				text: 'Radar Chart',
+				position: 'bottom',
+			},
 		},
 	};
 
