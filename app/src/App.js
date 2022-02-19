@@ -43,16 +43,6 @@ function App() {
 					<RockPaperScissors />
 				</RPSProvider>
 
-			<div className="fancy-hr relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400">
-					<FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/>
-				</span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
-
-
-
 				<footer className="app-footer">
 					By Dave Romsey - Github
 				</footer>

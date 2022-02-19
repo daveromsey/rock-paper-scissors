@@ -50,6 +50,7 @@ ChartJS.register(
 	Title,
 	SubTitle
 );
+import RPSPageBreak from './RPSPageBreak';
 
 const RockPaperScissors = () => {
 
@@ -194,16 +195,13 @@ const RockPaperScissors = () => {
 		<IconContext.Provider value={{ className: "react-icon icon" }}>
 			<RPSHeading/>
 
-			<div className="fancy-hr relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400 text-3xl flex items-center">
-					<FaRegHandRock className="rock"/>
-					<span className="text">&nbsp;&nbsp;Scoreboard&nbsp;&nbsp;</span>
-					<FaRegHandRock className="rock right"/>
-				</span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
-			{/* <FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/> */}
+			<RPSPageBreak
+				text="Scoreboard"
+				extraTextClassName="px-4"
+				textBefore={<><FaRegHandRock className="rock"/></>}
+				textAfter={<><FaRegHandRock className="rock right"/></>}
+				extraContentClassName="text-gray-400 text-3xl"
+			/>
 
 			<div className="scoreboard">
 				{/* <h2>Scoreboard</h2> */}
@@ -217,14 +215,10 @@ const RockPaperScissors = () => {
 				</div>
 			</div>
 
-			<div className="relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandRock/></span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
+			<RPSPageBreak text={<><FaRegHandRock/></>}/>
 
 			<div className="stats">
-				<h2>Stats</h2>
+				{/* <h2>Stats</h2> */}
 				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
 					<div className="player-stats">
 						<h2>Player Stats</h2>
@@ -235,9 +229,9 @@ const RockPaperScissors = () => {
 								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.player.winPercentage) }</div>
 							</div>
 							<div className="player-stats-2">
-								<div className="rock">Rock: {stats.player.shotCounts.rock}</div>
-								<div className="paper">Paper: {stats.player.shotCounts.paper}</div>
-								<div className="scissors">Scissors: {stats.player.shotCounts.scissors}</div>
+								<div className="rock" title="Number of times Rock was used">Rock: {stats.player.shotCounts.rock}</div>
+								<div className="paper" title="Number of times Paper was used">Paper: {stats.player.shotCounts.paper}</div>
+								<div className="scissors" title="Number of times Scissors was used">Scissors: {stats.player.shotCounts.scissors}</div>
 							</div>
 						</div>
 						<div className="px-8 react-chartjs">
@@ -257,9 +251,9 @@ const RockPaperScissors = () => {
 								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.cpu.winPercentage) }</div>
 							</div>
 							<div className="cpu-stats-2">
-								<div className="rock">Rock: {stats.cpu.shotCounts.rock}</div>
-								<div className="paper">Paper: {stats.cpu.shotCounts.paper}</div>
-								<div className="scissors">Scissors: {stats.cpu.shotCounts.scissors}</div>
+							<div className="rock" title="Number of times Rock was used">Rock: {stats.cpu.shotCounts.rock}</div>
+								<div className="paper" title="Number of times Paper was used">Paper: {stats.cpu.shotCounts.paper}</div>
+								<div className="scissors" title="Number of times Scissors was used">Scissors: {stats.cpu.shotCounts.scissors}</div>
 							</div>
 						</div>
 						<div className="px-8 react-chartjs">
@@ -272,11 +266,7 @@ const RockPaperScissors = () => {
 				</div>
 			</div>
 
-			<div className="relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandPaper/></span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
+			<RPSPageBreak text={<><FaRegHandPaper/></>}/>
 
 			<div className="results">
 				<h2>Results</h2>
@@ -293,11 +283,7 @@ const RockPaperScissors = () => {
 				</div>
 			</div>
 
-			<div className="relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400"><FaRegHandScissors/></span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
+			<RPSPageBreak text={<><FaRegHandScissors/></>}/>
 
 			<div className="player-shot-controls grid grid-cols-3 gap-4 items-center max-w-2xl mx-auto">
 				<button
@@ -333,19 +319,15 @@ const RockPaperScissors = () => {
 				</button>
 			</div>
 
-			<div className="fancy-hr relative flex py-5 items-center">
-				<div className="flex-grow border-t border-gray-400"></div>
-				<span className="flex-shrink mx-4 text-gray-400">
-					<FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/>
-				</span>
-				<div className="flex-grow border-t border-gray-400"></div>
-			</div>
+			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 
 			<div className="reset-rps">
 				<button onClick={ () => resetAllRpsData() } className="do-reset-rps">
 					<span className="button-text">Reset All Game Data</span>
 				</button>
 			</div>
+
+			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 		</IconContext.Provider>
 	 </article>
   )
