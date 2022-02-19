@@ -28,12 +28,6 @@ import {
 	FaRedo
 } from "react-icons/fa";
 
-
-// import RadarChart from 'react-svg-radar-chart';
-// //import 'react-svg-radar-chart/build/css/index.css'
-// import './radar-chart.scss'
-
-
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -47,14 +41,6 @@ import {
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-
-// const captions = {
-// 	// columns
-// 	rock: 'Rock',
-// 	paper: 'Paper',
-// 	scissors: 'Scissors',
-// };
-
 
 ChartJS.register(
   RadialLinearScale,
@@ -441,42 +427,7 @@ const RockPaperScissors = () => {
 								/>
 						</div>
 					</div>
-
 				</div>
-
-				{/* <div className="radar-chart pt-8 flex justify-center">
-					<div className="radar-chart-container __bg-white inline-block">
-						<RadarChart
-							captions={captions}
-							data={data}
-							size={175}
-							options={{
-								//size: 100,
-								scales: 0,
-								zoomDistance: .6,
-								captionMargin: 10,
-								//dots: true,
-								captionProps: () => ({
-									className: 'caption',
-									fontSize: 13,
-									textAnchor: 'middle',
-									fontFamily: 'monospace'
-								}),
-							}}
-						/>
-					</div>
-				</div> */}
-
-				{/* <hr className="" />
-				 <div className="_flex _justify-center _grid _grid-cols-1  _sm:grid-cols-3">
-					<div className="react-chartjs p4 __bg-white mx-auto max-w-sm">
-						<Radar
-							data={dataChartJS}
-							options={optionsChartJS}
-						/>
-					</div>
-				</div> */}
-
 			</div>
 
 			<div className="relative flex py-5 items-center">
