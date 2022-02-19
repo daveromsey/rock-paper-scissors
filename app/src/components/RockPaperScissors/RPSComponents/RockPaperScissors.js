@@ -29,9 +29,9 @@ import {
 } from "react-icons/fa";
 
 
-// import RadarChart from 'react-svg-radar-chart';
-// //import 'react-svg-radar-chart/build/css/index.css'
-// import './radar-chart.scss'
+import RadarChart from 'react-svg-radar-chart';
+//import 'react-svg-radar-chart/build/css/index.css'
+import './radar-chart.scss'
 
 
 import {
@@ -48,12 +48,12 @@ import {
 import { Radar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-// const captions = {
-// 	// columns
-// 	rock: 'Rock',
-// 	paper: 'Paper',
-// 	scissors: 'Scissors',
-// };
+const captions = {
+	// columns
+	rock: 'Rock',
+	paper: 'Paper',
+	scissors: 'Scissors',
+};
 
 
 ChartJS.register(
@@ -444,7 +444,7 @@ const RockPaperScissors = () => {
 
 				</div>
 
-				{/* <div className="radar-chart pt-8 flex justify-center">
+				<div className="radar-chart pt-8 flex justify-center">
 					<div className="radar-chart-container __bg-white inline-block">
 						<RadarChart
 							captions={captions}
@@ -465,7 +465,7 @@ const RockPaperScissors = () => {
 							}}
 						/>
 					</div>
-				</div> */}
+				</div>
 
 				{/* <hr className="" />
 				 <div className="_flex _justify-center _grid _grid-cols-1  _sm:grid-cols-3">
