@@ -64,25 +64,6 @@ const RockPaperScissors = () => {
 		gamesPlayed,
 	} = useRPSContext();
 
-	const data = [
-		{
-			data: {
-				rock: stats.player.shotCounts.rock / gamesPlayed,
-				paper: stats.player.shotCounts.paper / gamesPlayed,
-				scissors: stats.player.shotCounts.scissors / gamesPlayed,
-			},
-			meta: { color: '#10bee5' }
-		},
-		{
-			data: {
-				rock: stats.cpu.shotCounts.rock / gamesPlayed,
-				paper: stats.cpu.shotCounts.paper / gamesPlayed,
-				scissors: stats.cpu.shotCounts.scissors / gamesPlayed,
-			},
-			meta: { color: 'orange' }
-		},
-	];
-
 	const optionsChartJS = {
 		//responsive: false,
 		//maintainAspectRatio: true,
