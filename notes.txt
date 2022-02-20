@@ -1,21 +1,16 @@
-Convert elements to components
->	Fancy hr
-	Shot buttons
-	Play again
-	Light/dark mode controls
-	Scoreboard
-	Stats
-		Player
-		CPU
-		Shot Charts
-	Results
-	App Header
-	App Footer
+light/dark theme styles
 
-
-Make a charts.js file to contain chart configuration
-
-Rename RPS to Rps ...or rpsSomething
+Styling
+	Layout
+		Scoreboard
+		Stats
+		Results
+		Buttons
+	Grid structure
+	Responsiveness
+	Colors
+	Light/Dark Mode
+	Clear game data button
 
 Show pretty results:
 	You Win {Award icon} (Green)
@@ -34,36 +29,41 @@ Handle formatting output for display
 		Win Percentage
 
 
+Convert elements to components
+	Shot buttons
+	Play again
+	Scoreboard
+	Stats
+		Player
+		CPU
+		Shot Charts
+	Results
+	---
+	App Header
+	App Footer
+	Light/dark mode controls
+	Fancy hr
 
 
-Styling
-	Layout
-		Scoreboard
-		Stats
-		Results
-		Buttons
-	Grid structure
-	Responsiveness
-	Colors
-	Light/Dark Mode
+Make a charts.js file to contain chart configuration
 
-Handle light/dark theme styles
+Rename RPS to Rps ...or rpsSomething
 
-Refactor stat calculations using functions to reduce code duplication.
+Host and deploy to github pages
+	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
 
 Add a confirmation when clearing all game data.
 
 
+Refactor stat calculations using functions to reduce code duplication.
 
-clean up
+clean up (commented code, initial create react app stuff, etc)
+
 JSDOC inline docs
 	https://jsdoc.app/about-getting-started.html
 
 Coding standards
 Prettier
-
-Host and deploy to github pages
-	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
 
 Update readme.md
 	Uses:
@@ -137,6 +137,9 @@ VscSymbolBoolean
 ----
 Done
 ----
+light/dark toggle
+Clear game data button
+
 Implement ChartJS for shot counts
 
 Handle Player/CPU stats
