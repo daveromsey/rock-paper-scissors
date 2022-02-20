@@ -218,18 +218,19 @@ const RockPaperScissors = () => {
 			<div className="stats">
 				{/* <h2>Stats</h2> */}
 				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
-					<div className="player-stats">
+
+					<div className="player-stats sm:pr-6">
 						<h2>Player Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="player-stats-1">
-								<div className="current-streak" title="Ties are ignored">Win Streak: {stats.player.winStreak}</div>
-								<div className="longest-streak" title="Ties are ignored">Longest Streak: {stats.player.longestStreak}</div>
-								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.player.winPercentage) }</div>
+								<p className="current-streak" title="Ties are ignored">Win Streak: {stats.player.winStreak}</p>
+								<p className="longest-streak" title="Ties are ignored">Longest Streak: {stats.player.longestStreak}</p>
+								<p className="win-percentage" title="Based on wins and losses only">Win Pct: { formatPercentage(stats.player.winPercentage) }</p>
 							</div>
-							<div className="player-stats-2">
-								<div className="rock" title="Number of times Rock was used">Rock: {stats.player.shotCounts.rock}</div>
-								<div className="paper" title="Number of times Paper was used">Paper: {stats.player.shotCounts.paper}</div>
-								<div className="scissors" title="Number of times Scissors was used">Scissors: {stats.player.shotCounts.scissors}</div>
+							<div className="player-stats-2 xs:text-right">
+								<p className="rock" title="Number of times Rock was used">Rock: {stats.player.shotCounts.rock}</p>
+								<p className="paper" title="Number of times Paper was used">Paper: {stats.player.shotCounts.paper}</p>
+								<p className="scissors" title="Number of times Scissors was used">Scissors: {stats.player.shotCounts.scissors}</p>
 							</div>
 						</div>
 						<div className="px-8 react-chartjs">
@@ -240,18 +241,18 @@ const RockPaperScissors = () => {
 						</div>
 					</div>
 
-					<div className="cpu-stats">
+					<div className="cpu-stats sm:pl-6">
 						<h2>CPU Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="cpu-stats-1">
-								<div className="current-streak" title="Ties are ignored">Win Streak: {stats.cpu.winStreak}</div>
-								<div className="longest-streak" title="Ties are ignored">Longest Streak: {stats.cpu.longestStreak}</div>
-								<div className="win-percentage" title="Based on wins and losses only">Win Percentage { formatPercentage(stats.cpu.winPercentage) }</div>
+								<p className="current-streak" title="Ties are ignored">Win Streak: {stats.cpu.winStreak}</p>
+								<p className="longest-streak" title="Ties are ignored">Longest Streak: {stats.cpu.longestStreak}</p>
+								<p className="win-percentage" title="Based on wins and losses only">Win Pct: { formatPercentage(stats.cpu.winPercentage) }</p>
 							</div>
-							<div className="cpu-stats-2">
-							<div className="rock" title="Number of times Rock was used">Rock: {stats.cpu.shotCounts.rock}</div>
-								<div className="paper" title="Number of times Paper was used">Paper: {stats.cpu.shotCounts.paper}</div>
-								<div className="scissors" title="Number of times Scissors was used">Scissors: {stats.cpu.shotCounts.scissors}</div>
+							<div className="cpu-stats-2 xs:text-right">
+								<p className="rock" title="Number of times Rock was used">Rock: {stats.cpu.shotCounts.rock}</p>
+								<p className="paper" title="Number of times Paper was used">Paper: {stats.cpu.shotCounts.paper}</p>
+								<p className="scissors" title="Number of times Scissors was used">Scissors: {stats.cpu.shotCounts.scissors}</p>
 							</div>
 						</div>
 						<div className="px-8 react-chartjs">
