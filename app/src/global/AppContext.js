@@ -14,10 +14,6 @@ const AppProvider = ({ children }) => {
 	};
 
 	const getTheme = () => {
-		//return dispatch( {type: 'GET_THEME' } );
-		console.log( state.theme);
-		console.log( getThemeBool() );
-
 		return state.theme;
 	};
 
