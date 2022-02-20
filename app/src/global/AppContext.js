@@ -13,15 +13,46 @@ const AppProvider = ({ children }) => {
 		dispatch( {type: 'UPDATE_THEME', payload: theme } );
 	};
 
+	const getTheme = () => {
+		//return dispatch( {type: 'GET_THEME' } );
+		console.log( state.theme);
+		console.log( getThemeBool() );
+
+		return state.theme;
+	};
+
+	const getThemeBool = ( theme ) => {
+		switch (theme) {
+			case 'light':
+				return false;
+
+				case 'dark':
+					default:
+						return true;
+    }
+	};
+	const getOppositeTheme = ( theme ) => {
+		switch (theme) {
+      case 'dark':
+				return 'light';
+
+      case 'light':
+				return 'dark';
+
+			default:
+				return state.theme;
+    }
+	};
+
   useEffect(() => {
     switch (state.theme) {
       case 'dark':
-        document.body.classList.add( 'theme-dark' );
+        document.body.classList.add( 'dark' );
         break;
 
       case 'light':
       default:
-        document.body.classList.remove( 'theme-dark' );
+        document.body.classList.remove( 'dark' );
         break;
     }
   }, [state.theme] );
@@ -34,6 +65,9 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
+				getTheme,
+				getThemeBool,
+				getOppositeTheme,
 				updateTheme
       }}
     >
