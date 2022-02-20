@@ -1,20 +1,22 @@
 // AppReducer function.
 const AppReducer = (state, action) => {
 
-	/**
-	 * Handle updating the app theme.
-	 */
-	 if ( 'UPDATE_THEME' === action.type ) {
-		const newTheme = action.payload;
+	switch ( action.type ) {
+		case ( 'UPDATE_THEME' ):
+			/**
+			 * Handle updating the app theme.
+			 */
+			const newTheme = action.payload;
 
-		return {
-			...state,
-			theme: newTheme,
-			somethingElse: Math.random()
-		};
+			return {
+				...state,
+				theme: newTheme,
+				somethingElse: Math.random()
+			};
+
+		default:
+			return state;
 	}
-
-	return state;
 };
 
 export default AppReducer;
