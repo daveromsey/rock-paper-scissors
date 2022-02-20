@@ -128,7 +128,6 @@ export const getStats = ( games ) => {
 	let cpuStreak = 0;
 	let playerLongestStreak = 0;
 	let cpuLongestStreak = 0;
-	let mostRecentWinner = false;
 	games.forEach( (game) => {
 		const { winner } = game;
 
@@ -162,8 +161,6 @@ export const getStats = ( games ) => {
 				cpuLongestStreak = cpuStreak;
 			}
 		}
-
-		mostRecentWinner = winner;
 	});
 
 	// Update each player's longest streak.
