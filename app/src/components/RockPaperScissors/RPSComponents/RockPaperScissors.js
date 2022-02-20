@@ -45,7 +45,6 @@ const RockPaperScissors = () => {
 	const {
 		playerShoot,
 		resetGame,
-		resetAllRpsData,
 		game,
 		stats,
 		gamesPlayed,
