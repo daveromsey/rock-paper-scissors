@@ -8,18 +8,16 @@ import RockPaperScissors from './components/RockPaperScissors/RPSComponents/Rock
 
 function App() {
   return (
-    <div className="app p-6 flex items-center justify-center">
+    <div className="app p-6 flex items-center justify-center text-lg">
 			<div className="app-container grid grid-cols-1 max-w-none lg:max-w-[800px] flex-grow">
 				<AppHeader />
-
 				<RPSProvider>
 					<RockPaperScissors />
 					<AppFooter /> { /* Footer uses resetAllRpsData() */}
 				</RPSProvider>
-
 			</div>
     </div>
-  )
+  );
 }
 
 
