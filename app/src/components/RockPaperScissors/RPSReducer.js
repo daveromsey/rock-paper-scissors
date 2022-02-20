@@ -10,142 +10,135 @@ import RPSInitialState from './RPSInitialState'
 
 // Rock Paper Scissors Reducer function.
 const RPSReducer = ( state, action ) => {
-	/**
-	 * Handle player shoot.
-	 *
-	 * action.payload string The shot type rock|paper|scissors.
-	 */
-	if ( 'PLAYER_SHOOT' === action.type ) {
-		if ( ! shots.includes( action.payload.playerShot ) ) {
-			throw new Error( 'Invalid shot type.' );
-		}
-
-		const newStartTime = new Date().getTime().toString()
-		const newPlayerShot = action.payload.playerShot;
-		const newCpuShot = cpuShoot();
-		const newWinner = getGameResult( newPlayerShot, newCpuShot );
-
-		action.payload.event.target.classList.add('clicked');
-
-		const playerShootButtons = document.querySelectorAll('.player-shoot');
-
-		playerShootButtons.forEach((button) => {
-			button.disabled = true;
-		});
-
-		const playAgainButton = document.querySelector('.play-again');
-		playAgainButton.classList.remove( 'invisible');
-
-		return {
-			...state,
-			game: {
-				startTime: newStartTime,
-				endTime: new Date().getTime().toString(),
-				cpuShot: newCpuShot,
-				playerShot: newPlayerShot,
-				winner: newWinner
+	switch ( action.type ) {
+		/**
+		 * Handle player shoot.
+		 *
+		 * action.payload string The shot type rock|paper|scissors.
+		 */
+		case ( 'PLAYER_SHOOT' ): {
+			if ( ! shots.includes( action.payload.playerShot ) ) {
+				throw new Error( 'Invalid shot type.' );
 			}
-		};
-	}
 
-	/**
-	 * Handle resetting the game.
-	 */
-	 if ( 'RESET_GAME' === action.type ) {
-		// // Reset shoot buttons.
-		// const playerShootButtons = document.querySelectorAll('.player-shoot');
+			const newStartTime = new Date().getTime().toString()
+			const newPlayerShot = action.payload.playerShot;
+			const newCpuShot = cpuShoot();
+			const newWinner = getGameResult( newPlayerShot, newCpuShot );
 
-		// playerShootButtons.forEach((button) => {
-		// 	button.classList.remove('clicked');
-		// 	button.disabled = false;
-		// });
+			action.payload.event.target.classList.add('clicked');
 
-		// // Hide Reset Game button.
-		// const playAgainButton = document.querySelector('.play-again');
-		// playAgainButton.classList.add('invisible');
-		resetButtonStates();
+			const playerShootButtons = document.querySelectorAll('.player-shoot');
 
-		return {
-			...state,
-			game: { // Re-initailize game state.
-				startTime: null,
-				endTime: null,
-				cpuShot: null,
-				playerShot: null,
-				winner: null
-			}
-		};
-	}
+			playerShootButtons.forEach((button) => {
+				button.disabled = true;
+			});
 
-	/**
-	 * Handle updating games (the game history).
-	 */
-	if ( 'UPDATE_GAMES' === action.type ) {
-		// If the game has not finished, don't add it to the history.
-		if ( null === state.game.winner ) {
+			const playAgainButton = document.querySelector('.play-again');
+			playAgainButton.classList.remove( 'invisible');
+
 			return {
 				...state,
+				game: {
+					startTime: newStartTime,
+					endTime: new Date().getTime().toString(),
+					cpuShot: newCpuShot,
+					playerShot: newPlayerShot,
+					winner: newWinner
+				}
 			};
 		}
 
-		const updatedGames = [ ...state.games, state.game ];
+		/**
+		 * Handle resetting the game.
+		 */
+		case ( 'RESET_GAME' ): {
+			resetButtonStates();
 
-		return {
-			...state,
-			games: updatedGames
-		};
-	}
+			return {
+				...state,
+				game: { // Re-initailize game state.
+					startTime: null,
+					endTime: null,
+					cpuShot: null,
+					playerShot: null,
+					winner: null
+				}
+			};
+		}
 
-	/**
-	 * Handle updating the number of games played.
-	 */
-	if ( 'UPDATE_GAMES_PLAYED' === action.type ) {
-		return {
-			...state,
-			gamesPlayed: state.games.length
-		};
-	}
+		/**
+		 * Handle updating games (the game history).
+		 */
+		case ( 'UPDATE_GAMES' ): {
+			// If the game has not finished, don't add it to the history.
+			if ( null === state.game.winner ) {
+				return {
+					...state,
+				};
+			}
 
-	/**
-	 * Handle updating stats.
-	 */
-	 if ( 'UPDATE_STATS' === action.type ) {
-		const updatedStats = getStats( state.games );
+			const updatedGames = [ ...state.games, state.game ];
 
-		return {
-			...state,
-			stats: {
-				player: {
-					winTotal: updatedStats.player.winTotal,
-					lossTotal: updatedStats.player.lossTotal,
-					drawTotal: updatedStats.player.drawTotal,
-					winStreak: updatedStats.player.winStreak,
-					longestStreak: updatedStats.player.longestStreak,
-					winPercentage: updatedStats.player.winPercentage,
-					shotCounts: updatedStats.player.shotCounts,
+			return {
+				...state,
+				games: updatedGames
+			};
+		}
+
+		/**
+		 * Handle updating the number of games played.
+		 */
+		case ( 'UPDATE_GAMES_PLAYED' ): {
+			return {
+				...state,
+				gamesPlayed: state.games.length
+			};
+		}
+
+		/**
+		 * Handle updating stats.
+		 */
+		case ( 'UPDATE_STATS' ): {
+			const updatedStats = getStats( state.games );
+
+			return {
+				...state,
+				stats: {
+					player: {
+						winTotal: updatedStats.player.winTotal,
+						lossTotal: updatedStats.player.lossTotal,
+						drawTotal: updatedStats.player.drawTotal,
+						winStreak: updatedStats.player.winStreak,
+						longestStreak: updatedStats.player.longestStreak,
+						winPercentage: updatedStats.player.winPercentage,
+						shotCounts: updatedStats.player.shotCounts,
+					},
+					cpu:{
+						winTotal: updatedStats.cpu.winTotal,
+						lossTotal: updatedStats.cpu.lossTotal,
+						drawTotal: updatedStats.cpu.drawTotal,
+						winStreak: updatedStats.cpu.winStreak,
+						longestStreak: updatedStats.cpu.longestStreak,
+						winPercentage: updatedStats.cpu.winPercentage,
+						shotCounts: updatedStats.cpu.shotCounts,
+					},
 				},
-				cpu:{
-					winTotal: updatedStats.cpu.winTotal,
-					lossTotal: updatedStats.cpu.lossTotal,
-					drawTotal: updatedStats.cpu.drawTotal,
-					winStreak: updatedStats.cpu.winStreak,
-					longestStreak: updatedStats.cpu.longestStreak,
-					winPercentage: updatedStats.cpu.winPercentage,
-					shotCounts: updatedStats.cpu.shotCounts,
-				},
-			},
-		};
-	}
+			};
+		}
 
-	/**
-	 * Handle clearing and resetting all RPS data.
-	 */
-	if ( 'CLEAR_AND_RESET_RPS_DATA' === action.type ) {
-		resetButtonStates();
-		return state = RPSInitialState;
-	}
+		/**
+		 * Handle clearing and resetting all RPS data.
+		 */
+		case ( 'CLEAR_AND_RESET_RPS_DATA' ): {
+			resetButtonStates();
+			return state = RPSInitialState;
+		}
 
-	return state;
+		default: {
+			return state;
+		}
+	}
 };
 
 export default RPSReducer;
