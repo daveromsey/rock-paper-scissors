@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { IconContext } from 'react-icons';
 import {
 	// FaMedal,
@@ -18,6 +18,7 @@ import {
 	// FaRedoAlt,
 	FaRedo
 } from "react-icons/fa";
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -29,6 +30,7 @@ import {
 	Title,
 	SubTitle,
 } from 'chart.js';
+
 import { Radar } from 'react-chartjs-2';
 
 import { useRPSContext } from '../RPSContext';
@@ -316,13 +318,13 @@ const RockPaperScissors = () => {
 				</button>
 			</div>
 
-			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
+			{/* <RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 
 			<div className="reset-rps">
 				<button onClick={ () => resetAllRpsData() } className="do-reset-rps">
 					<span className="button-text">Reset All Game Data</span>
 				</button>
-			</div>
+			</div> */}
 
 			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 		</IconContext.Provider>
