@@ -318,14 +318,6 @@ const RockPaperScissors = () => {
 				</button>
 			</div>
 
-			{/* <RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
-
-			<div className="reset-rps">
-				<button onClick={ () => resetAllRpsData() } className="do-reset-rps">
-					<span className="button-text">Reset All Game Data</span>
-				</button>
-			</div> */}
-
 			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 		</IconContext.Provider>
 	 </article>
