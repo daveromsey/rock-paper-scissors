@@ -1,6 +1,5 @@
 const AppInitialState = {
-	theme: 'light',
-	somethingElse: 'testing',
-}
+	theme: 'dark',
+};
 
 export default AppInitialState;
