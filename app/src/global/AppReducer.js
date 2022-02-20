@@ -2,7 +2,7 @@
 const AppReducer = (state, action) => {
 
 	switch ( action.type ) {
-		case ( 'UPDATE_THEME' ):
+		case ( 'UPDATE_THEME' ): {
 			/**
 			 * Handle updating the app theme.
 			 */
@@ -10,12 +10,13 @@ const AppReducer = (state, action) => {
 
 			return {
 				...state,
-				theme: newTheme,
-				somethingElse: Math.random()
+				theme: newTheme
 			};
+		}
 
-		default:
+		default: {
 			return state;
+		}
 	}
 };
 
