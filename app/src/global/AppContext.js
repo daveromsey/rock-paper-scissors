@@ -43,12 +43,12 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     switch (state.theme) {
       case 'dark':
-        document.body.classList.add( 'dark' );
+        document.querySelector('html').classList.add( 'dark' );
         break;
 
       case 'light':
       default:
-        document.body.classList.remove( 'dark' );
+        document.querySelector('html').classList.remove( 'dark' );
         break;
     }
   }, [state.theme] );
