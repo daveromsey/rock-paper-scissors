@@ -19,10 +19,11 @@ const AppHeader = () => {
 						() => updateTheme(getOppositeTheme(getTheme()))
 					}
 					size={25}
-					moonColor='#101010'
-					sunColor='white'
+					//moonColor='#101010'
+					moonColor='#341C47'
+					sunColor='#E6C1E3'
 					className='darkmode-switch'
-					// sunColor='#f09b10dd'
+					//sunColor='#f09b10dd'
 				/>
 			</section>
 		</header>

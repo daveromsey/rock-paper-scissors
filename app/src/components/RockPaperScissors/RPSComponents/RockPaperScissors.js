@@ -135,7 +135,7 @@ const RockPaperScissors = () => {
 				extraTextClassName="px-4"
 				textBefore={<><FaRegHandRock className="rock"/></>}
 				textAfter={<><FaRegHandRock className="rock right"/></>}
-				extraContentClassName="text-gray-400 text-3xl"
+				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-3xl"
 			/>
 
 			<div className="scoreboard">

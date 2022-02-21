@@ -3,8 +3,8 @@ const RPSPageBreak = ( {
 	extraTextClassName = '',
 	textBefore = false,
 	textAfter = false,
-	extraContentClassName = 'text-gray-400',
-	extraLineClassName = 'border-gray-400'
+	extraContentClassName = 'text-retropurple-600 dark:text-retropurple-100',
+	extraLineClassName = 'border-retropurple-600 dark:border-retropurple-100'
 } ) => {
 	return (
 		<div className="rps-page-break relative flex py-5 items-center">

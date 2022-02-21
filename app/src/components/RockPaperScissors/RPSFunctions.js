@@ -277,7 +277,7 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 		case 'ticks':
 		case 'legend':
 			if ( 'dark' === theme ) {
-				return '#e7e7e7';
+				return '#E6C1E3';
 			} else {
 				return 'rgba( 0,0,0,.35)';
 			}
@@ -285,7 +285,7 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 		case 'pointLabels':
 		default:
 			if ( 'dark' === theme ) {
-				return '#e7e7e7';
+				return '#E6C1E3';
 			} else {
 				return '#000';
 			}

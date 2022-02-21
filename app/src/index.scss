@@ -120,9 +120,12 @@ button {
 
 .lcd {
 	background-color: #000;
-	color: #ff0000cc;
-	//color: yellow;
 	padding: 1px 5px;
+	color: yellow;
+}
+
+.dark .lcd {
+	color: #ff0000cc;
 }
 
 .update-chart {
