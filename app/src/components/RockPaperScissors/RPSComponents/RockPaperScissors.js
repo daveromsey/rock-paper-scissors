@@ -42,7 +42,7 @@ import { useRPSContext } from '../RPSContext';
 import {
 	getShotPercentage,
 	formatPercentage,
-	setChartShotPctOptions
+	updateChartShotPctOptions
 } from '../RPSFunctions.js';
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
@@ -59,11 +59,11 @@ const RockPaperScissors = () => {
 	let ChartShotPctOptions = ChartShotPctOptionDefaults;
 	let theme = getTheme();
 
-	ChartShotPctOptions = setChartShotPctOptions( ChartShotPctOptions, theme );
+	ChartShotPctOptions = updateChartShotPctOptions( ChartShotPctOptions, theme );
 
 	// Update charts using new options when the theme is changed.
 	useEffect(() => {
-		let options = setChartShotPctOptions( ChartShotPctOptions, getTheme(), false );
+		let options = updateChartShotPctOptions( ChartShotPctOptions, getTheme(), false );
 		playerChartReference.current.options = options;
 		playerChartReference.current.update();
 		cpuChartReference.current.options = options;

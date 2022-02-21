@@ -270,15 +270,7 @@ export const resetButtonStates = () => {
 	playAgainButton.classList.add('invisible');
 }
 
-export const getChartPieceColor = (chartPiece, theme, invert = false ) => {
-	if ( true === invert ) {
-		if ( 'dark' === theme ) {
-			theme = 'light';
-		} else {
-			theme = 'dark';
-		}
-	}
-
+export const getChartPieceColor = (chartPiece, theme ) => {
 	switch (chartPiece) {
 		case 'angleLines':
 		case 'grid':
@@ -300,11 +292,11 @@ export const getChartPieceColor = (chartPiece, theme, invert = false ) => {
 	}
 }
 
-export const setChartShotPctOptions = ( chartOptions, theme, invert = false ) => {
-	chartOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', theme, invert );
-	chartOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', theme, invert );
-	chartOptions.scales.r.grid.color = getChartPieceColor('grid', theme, invert );
-	chartOptions.scales.r.ticks.color = getChartPieceColor('ticks', theme, invert );
+export const updateChartShotPctOptions = ( chartOptions, theme) => {
+	chartOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', theme );
+	chartOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', theme );
+	chartOptions.scales.r.grid.color = getChartPieceColor('grid', theme );
+	chartOptions.scales.r.ticks.color = getChartPieceColor('ticks', theme );
 
 	return chartOptions;
 }
