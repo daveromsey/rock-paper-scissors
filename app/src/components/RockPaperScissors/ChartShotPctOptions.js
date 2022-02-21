@@ -1,3 +1,40 @@
+import AppInitialState from '../../global/AppInitialState'
+
+const getChartPieceColor = (chartPiece, invert = false ) => {
+	// TODO: Figure out how to use App context to get state value.
+	const appState = JSON.parse( localStorage.getItem("AppState") ) || AppInitialState;
+
+	let theme = appState.theme;
+
+	if ( true === invert ) {
+		if ( 'dark' === theme ) {
+			theme = 'light';
+		} else {
+			theme = 'dark';
+		}
+	}
+
+	switch (chartPiece) {
+		case 'angleLines':
+		case 'grid':
+		case 'ticks':
+		case 'legend':
+			if ( 'dark' === theme ) {
+				return '#e7e7e7';
+			} else {
+				return 'rgba( 0,0,0,.35)';
+			}
+
+		case 'pointLabels':
+		default:
+			if ( 'dark' === theme ) {
+				return '#e7e7e7';
+			} else {
+				return '#000';
+			}
+	}
+}
+
 // Options for Shot Percentages Radar Charts.
 const ChartShotPctOptions = {
 	//responsive: false,
@@ -11,17 +48,20 @@ const ChartShotPctOptions = {
 		r: {
 			// https://www.chartjs.org/docs/latest/axes/radial/
 			angleLines: {
-				color: 'rgba( 0,0,0,.35)',
+				color: getChartPieceColor('angleLines'),
+				//color: 'rgba( 0,0,0,.35)',
 			},
 			pointLabels: {
 				font:  {
 					size: 16,
 				},
-				color: '#000',
+				color: getChartPieceColor('pointLabels'),
+				//color: '#000',
 			},
 			//display: false,
 			grid: {
-				color: 'rgba( 0,0,0,.35)',
+				color: getChartPieceColor('grid'),
+				//color: 'rgba( 0,0,0,.35)',
 				//circular: true,
 			},
 			ticks: {
@@ -33,7 +73,8 @@ const ChartShotPctOptions = {
 				backdropColor: 'transparent',
 				showLabelBackdrop: true,
 				backdropPadding: 1,
-				color: '#000',
+				color: getChartPieceColor('ticks'),
+				//color: '#000',
 				padding: 9,
 				font: {
 					size: 16,
@@ -90,4 +131,4 @@ const ChartShotPctOptions = {
 	},
 };
 
-export default ChartShotPctOptions;
+export { ChartShotPctOptions, getChartPieceColor };

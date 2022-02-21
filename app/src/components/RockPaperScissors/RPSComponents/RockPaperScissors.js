@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { IconContext } from 'react-icons';
 import {
 	// FaMedal,
@@ -33,7 +33,8 @@ import {
 
 import { Radar } from 'react-chartjs-2';
 
-import ChartShotPctOptions from '../ChartShotPctOptions';
+import { ChartShotPctOptions, getChartPieceColor } from '../ChartShotPctOptions';
+
 import { useRPSContext } from '../RPSContext';
 import {
 	getShotPercentage,
@@ -43,6 +44,9 @@ import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
 const RockPaperScissors = () => {
+	const playerChartReference = useRef(true);
+	const cpuChartReference = useRef(true);
+
 	const {
 		playerShoot,
 		resetGame,
@@ -98,6 +102,18 @@ const RockPaperScissors = () => {
 		],
 	};
 
+	const updateChart = (playerChart, cpuChart, ChartShotPctOptions) => {
+		ChartShotPctOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', true );
+		ChartShotPctOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', true );
+		ChartShotPctOptions.scales.r.grid.color = getChartPieceColor('grid', true );
+		ChartShotPctOptions.scales.r.ticks.color = getChartPieceColor('ticks', true );
+
+		playerChart.current.options = ChartShotPctOptions;
+		playerChart.current.update();
+		cpuChart.current.options = ChartShotPctOptions;
+		cpuChart.current.update();
+	};
+
   return (
 	<article className="rock-paper-scissors">
 		<IconContext.Provider value={{ className: "react-icon icon" }}>
@@ -113,13 +129,19 @@ const RockPaperScissors = () => {
 
 			<div className="scoreboard">
 				{/* <h2>Scoreboard</h2> */}
-				<div className="games-played text-4xl">Games Played:&nbsp;
-					<span className="font-digital-italic">{gamesPlayed}</span>
+				<div className="games-played text-4xl">
+					Games Played: <span className="font-digital-italic lcd">{gamesPlayed}</span>
 				</div>
-				<div className="games-results grid grid-cols-1 xs:grid-cols-3">
-					<div className="wins">Wins: {stats.player.winTotal}</div>
-					<div className="losses">Losses: {stats.player.lossTotal}</div>
-					<div className="draws">Draws: {stats.player.drawTotal}</div>
+				<div className="games-results grid grid-cols-1 xs:grid-cols-3 text-2xl">
+					<p className="wins">
+						Wins: <span className="font-digital-italic lcd">{stats.player.winTotal}</span>
+					</p>
+					<p className="losses xs:text-center">
+						Losses: <span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
+					</p>
+					<p className="draws xs:text-right">
+						Draws: <span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
+					</p>
 				</div>
 			</div>
 
@@ -127,55 +149,101 @@ const RockPaperScissors = () => {
 
 			<div className="stats">
 				{/* <h2>Stats</h2> */}
-				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2">
+				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
 
 					<div className="player-stats sm:pr-6">
-						<h2>Player Stats</h2>
+						<h2 className="text-2xl">Player Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="player-stats-1">
-								<p className="current-streak" title="Ties are ignored">Win Streak: {stats.player.winStreak}</p>
-								<p className="longest-streak" title="Ties are ignored">Longest Streak: {stats.player.longestStreak}</p>
-								<p className="win-percentage" title="Based on wins and losses only">Win Pct: { formatPercentage(stats.player.winPercentage) }</p>
+								<p className="current-streak" title="Ties are ignored">
+									Win Streak: <span className="font-digital-italic lcd">{stats.player.winStreak}</span>
+								</p>
+								<p className="longest-streak" title="Ties are ignored">
+									Top Streak: <span className="font-digital-italic lcd">{stats.player.longestStreak}</span>
+								</p>
+								<p className="win-percentage" title="Based on wins and losses only">
+									Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
+								</p>
 							</div>
 							<div className="player-stats-2 xs:text-right">
-								<p className="rock" title="Number of times Rock was used">Rock: {stats.player.shotCounts.rock}</p>
-								<p className="paper" title="Number of times Paper was used">Paper: {stats.player.shotCounts.paper}</p>
-								<p className="scissors" title="Number of times Scissors was used">Scissors: {stats.player.shotCounts.scissors}</p>
+								<p className="rock" title="Number of times Rock was used">
+									Rock: <span className="font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
+								</p>
+								<p className="paper" title="Number of times Paper was used">
+									Paper: <span className="font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
+								</p>
+								<p className="scissors" title="Number of times Scissors was used">
+									Scissors: <span className="font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
+								</p>
 							</div>
 						</div>
-						<div className="px-8 react-chartjs">
+						{/* <div className="px-8 react-chartjs">
 							<Radar
-								data={playerDataChartJS}
 								options={ChartShotPctOptions}
-								/>
-						</div>
+								data={playerDataChartJS}
+							/>
+						</div> */}
 					</div>
 
 					<div className="cpu-stats sm:pl-6">
-						<h2>CPU Stats</h2>
+						<h2 className="text-2xl">CPU Stats</h2>
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="cpu-stats-1">
-								<p className="current-streak" title="Ties are ignored">Win Streak: {stats.cpu.winStreak}</p>
-								<p className="longest-streak" title="Ties are ignored">Longest Streak: {stats.cpu.longestStreak}</p>
-								<p className="win-percentage" title="Based on wins and losses only">Win Pct: { formatPercentage(stats.cpu.winPercentage) }</p>
+								<p className="current-streak" title="Ties are ignored">
+									Win Streak: <span className="font-digital-italic lcd">{stats.cpu.winStreak}</span>
+								</p>
+								<p className="longest-streak" title="Ties are ignored">
+									Top Streak: <span className="font-digital-italic lcd">{stats.cpu.longestStreak}</span>
+								</p>
+								<p className="win-percentage" title="Based on wins and losses only">
+									Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.cpu.winPercentage) }</span>
+								</p>
 							</div>
 							<div className="cpu-stats-2 xs:text-right">
-								<p className="rock" title="Number of times Rock was used">Rock: {stats.cpu.shotCounts.rock}</p>
-								<p className="paper" title="Number of times Paper was used">Paper: {stats.cpu.shotCounts.paper}</p>
-								<p className="scissors" title="Number of times Scissors was used">Scissors: {stats.cpu.shotCounts.scissors}</p>
+								<p className="rock" title="Number of times Rock was used">
+									Rock: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.rock}</span>
+								</p>
+								<p className="paper" title="Number of times Paper was used">
+									Paper: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.paper}</span>
+								</p>
+								<p className="scissors" title="Number of times Scissors was used">
+									Scissors: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.scissors}</span>
+								</p>
 							</div>
 						</div>
-						<div className="px-8 react-chartjs">
+						{/* <div className="px-8 react-chartjs">
 							<Radar
-								data={cpuDataChartJS}
 								options={ChartShotPctOptions}
-								/>
-						</div>
+								data={cpuDataChartJS}
+							/>
+						</div> */}
 					</div>
 				</div>
+
+				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
+					<div className="px-8 react-chartjs">
+						<Radar
+							options={ChartShotPctOptions}
+							data={playerDataChartJS}
+							ref={playerChartReference}
+						/>
+					</div>
+					<div className="px-8 react-chartjs">
+						<Radar
+							options={ChartShotPctOptions}
+							data={cpuDataChartJS}
+							ref={cpuChartReference}
+						/>
+					</div>
+				</div>
+
 			</div>
 
 			<RPSPageBreak text={<><FaRegHandPaper/></>}/>
+
+			<div className="update-chart" onClick={
+				() => updateChart(playerChartReference, cpuChartReference, ChartShotPctOptions)
+			}></div>
 
 			<div className="results">
 				<h2>Results</h2>
