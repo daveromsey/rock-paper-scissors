@@ -12,8 +12,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        royalpurple: {
+        retropurple: {
           50: "#7b10d3",
+          100: "#E6C1E3",
+          200: "#B362AC",
+          500: "#591c89",
+          600: "#341C47",
         },
       }
 		},
