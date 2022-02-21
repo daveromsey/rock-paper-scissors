@@ -3,7 +3,6 @@ import React, { useRef, createContext, useContext, useReducer, useEffect } from 
 import RPSStateInit from './RPSStateInit'
 import RPSInitialState from './RPSInitialState'
 import RPSReducer from './RPSReducer'
-
 const RPSContext = createContext();
 
 const RPSProvider = ({ children }) => {
@@ -16,7 +15,6 @@ const RPSProvider = ({ children }) => {
 	useEffect(() => {
     localStorage.setItem( "RPSState", JSON.stringify(state) );
   }, [state] );
-
 
 	// Handle Player Shot.
 	const playerShoot = ( playerShot, event ) => {
@@ -64,10 +62,10 @@ const RPSProvider = ({ children }) => {
   return (
     <RPSContext.Provider
       value={{
-        ...state,
+				...state,
 				playerShoot,
 				resetGame,
-				resetAllRpsData,
+				resetAllRpsData
       }}
     >
       {children}
