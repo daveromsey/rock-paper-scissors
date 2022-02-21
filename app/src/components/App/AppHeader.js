@@ -14,11 +14,14 @@ const AppHeader = () => {
 			<section className="header-right flex flex-1 justify-end items-end">
 				<DarkModeSwitch
 					style={{ display: 'flex' }}
-					checked={getThemeBool(getTheme())}
-					onChange={() => updateTheme(getOppositeTheme(getTheme()))}
+					checked={getThemeBool(getOppositeTheme(getTheme()))}
+					onChange={
+						() => updateTheme(getOppositeTheme(getTheme()))
+					}
 					size={25}
 					moonColor='#101010'
 					sunColor='white'
+					className='darkmode-switch'
 					// sunColor='#f09b10dd'
 				/>
 			</section>
