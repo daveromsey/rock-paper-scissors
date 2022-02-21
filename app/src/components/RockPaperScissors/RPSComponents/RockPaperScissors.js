@@ -33,10 +33,7 @@ import {
 
 import { Radar } from 'react-chartjs-2';
 
-//import { ChartShotPctOptions, getChartPieceColor } from '../ChartShotPctOptions';
-import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
-
-
+import { useAppContext } from '../../../global/AppContext';
 import { useRPSContext } from '../RPSContext';
 
 import {
@@ -44,21 +41,20 @@ import {
 	formatPercentage,
 	updateChartShotPctOptions
 } from '../RPSFunctions.js';
+
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
-
-import { useAppContext } from '../../../global/AppContext';
+import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
 
 const RockPaperScissors = () => {
 	const { getTheme } = useAppContext();
 
-	const playerChartReference = useRef(true);
-	const cpuChartReference = useRef(true);
-
-	let ChartShotPctOptions = ChartShotPctOptionDefaults;
 	let theme = getTheme();
 
+	const playerChartReference = useRef(true);
+	const cpuChartReference = useRef(true);
+	let ChartShotPctOptions = ChartShotPctOptionDefaults;
 	ChartShotPctOptions = updateChartShotPctOptions( ChartShotPctOptions, theme );
 
 	// Update charts using new options when the theme is changed.
