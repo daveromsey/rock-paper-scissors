@@ -269,3 +269,42 @@ export const resetButtonStates = () => {
 	const playAgainButton = document.querySelector('.play-again');
 	playAgainButton.classList.add('invisible');
 }
+
+export const getChartPieceColor = (chartPiece, theme, invert = false ) => {
+	if ( true === invert ) {
+		if ( 'dark' === theme ) {
+			theme = 'light';
+		} else {
+			theme = 'dark';
+		}
+	}
+
+	switch (chartPiece) {
+		case 'angleLines':
+		case 'grid':
+		case 'ticks':
+		case 'legend':
+			if ( 'dark' === theme ) {
+				return '#e7e7e7';
+			} else {
+				return 'rgba( 0,0,0,.35)';
+			}
+
+		case 'pointLabels':
+		default:
+			if ( 'dark' === theme ) {
+				return '#e7e7e7';
+			} else {
+				return '#000';
+			}
+	}
+}
+
+export const setChartShotPctOptions = ( chartOptions, theme, invert = false ) => {
+	chartOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', theme, invert );
+	chartOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', theme, invert );
+	chartOptions.scales.r.grid.color = getChartPieceColor('grid', theme, invert );
+	chartOptions.scales.r.ticks.color = getChartPieceColor('ticks', theme, invert );
+
+	return chartOptions;
+}

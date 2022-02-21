@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef, useReducer } from 'react'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 
 import AppStateInit from './AppStateInit'
 import AppInitialState from './AppInitialState'
@@ -8,22 +8,6 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer( AppReducer, AppInitialState, AppStateInit );
-
-	const initialLoad = useRef(true);
-
-	// TODO: Ideally, the charts should update when the theme color is updated.
-	useEffect( () => {
-		document.querySelector('.darkmode-switch').addEventListener('click', e => {
-			console.log('darkmode-switch');
-			document.querySelector('.update-chart').click();
-		});
-
-		// Bail on first paint.
-		if ( initialLoad.current ) {
-      initialLoad.current = false;
-      return;
-    }
-	}, [initialLoad] );
 
 	const updateTheme = ( theme ) => {
 		dispatch( {type: 'UPDATE_THEME', payload: theme } );

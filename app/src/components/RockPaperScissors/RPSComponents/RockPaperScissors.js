@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect } from 'react';
 import { IconContext } from 'react-icons';
 import {
 	// FaMedal,
@@ -33,19 +33,42 @@ import {
 
 import { Radar } from 'react-chartjs-2';
 
-import { ChartShotPctOptions, getChartPieceColor } from '../ChartShotPctOptions';
+//import { ChartShotPctOptions, getChartPieceColor } from '../ChartShotPctOptions';
+import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
+
 
 import { useRPSContext } from '../RPSContext';
+
 import {
 	getShotPercentage,
 	formatPercentage,
+	setChartShotPctOptions
 } from '../RPSFunctions.js';
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
+
+import { useAppContext } from '../../../global/AppContext';
+
 const RockPaperScissors = () => {
+	const { getTheme } = useAppContext();
+
 	const playerChartReference = useRef(true);
 	const cpuChartReference = useRef(true);
+
+	let ChartShotPctOptions = ChartShotPctOptionDefaults;
+	let theme = getTheme();
+
+	ChartShotPctOptions = setChartShotPctOptions( ChartShotPctOptions, theme );
+
+	// Update charts using new options when the theme is changed.
+	useEffect(() => {
+		let options = setChartShotPctOptions( ChartShotPctOptions, getTheme(), false );
+		playerChartReference.current.options = options;
+		playerChartReference.current.update();
+		cpuChartReference.current.options = options;
+		cpuChartReference.current.update();
+  }, [theme] );
 
 	const {
 		playerShoot,
@@ -100,18 +123,6 @@ const RockPaperScissors = () => {
 				fill: true,
 			},
 		],
-	};
-
-	const updateChart = (playerChart, cpuChart, ChartShotPctOptions) => {
-		ChartShotPctOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', true );
-		ChartShotPctOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', true );
-		ChartShotPctOptions.scales.r.grid.color = getChartPieceColor('grid', true );
-		ChartShotPctOptions.scales.r.ticks.color = getChartPieceColor('ticks', true );
-
-		playerChart.current.options = ChartShotPctOptions;
-		playerChart.current.update();
-		cpuChart.current.options = ChartShotPctOptions;
-		cpuChart.current.update();
 	};
 
   return (
@@ -177,12 +188,13 @@ const RockPaperScissors = () => {
 								</p>
 							</div>
 						</div>
-						{/* <div className="px-8 react-chartjs">
+						<div className="xs:px-8 react-chartjs">
 							<Radar
 								options={ChartShotPctOptions}
 								data={playerDataChartJS}
+								ref={playerChartReference}
 							/>
-						</div> */}
+						</div>
 					</div>
 
 					<div className="cpu-stats sm:pl-6">
@@ -211,16 +223,17 @@ const RockPaperScissors = () => {
 								</p>
 							</div>
 						</div>
-						{/* <div className="px-8 react-chartjs">
+						<div className="xs:px-8 react-chartjs">
 							<Radar
-								options={ChartShotPctOptions}
-								data={cpuDataChartJS}
+							options={ChartShotPctOptions}
+							data={cpuDataChartJS}
+							ref={cpuChartReference}
 							/>
-						</div> */}
+						</div>
 					</div>
 				</div>
 
-				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
+				{/* <div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
 					<div className="px-8 react-chartjs">
 						<Radar
 							options={ChartShotPctOptions}
@@ -235,15 +248,11 @@ const RockPaperScissors = () => {
 							ref={cpuChartReference}
 						/>
 					</div>
-				</div>
+				</div> */}
 
 			</div>
 
 			<RPSPageBreak text={<><FaRegHandPaper/></>}/>
-
-			<div className="update-chart" onClick={
-				() => updateChart(playerChartReference, cpuChartReference, ChartShotPctOptions)
-			}></div>
 
 			<div className="results">
 				<h2>Results</h2>
