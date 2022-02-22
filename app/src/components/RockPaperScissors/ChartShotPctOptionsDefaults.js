@@ -11,19 +11,16 @@ const ChartShotPctOptionDefaults = {
 		r: {
 			// https://www.chartjs.org/docs/latest/axes/radial/
 			angleLines: {
-				//color: getChartPieceColor('angleLines'),
 				color: 'rgba( 0,0,0,.35)',
 			},
 			pointLabels: {
 				font:  {
 					size: 16,
 				},
-				//color: getChartPieceColor('pointLabels'),
 				color: '#000',
 			},
 			//display: false,
 			grid: {
-				//color: getChartPieceColor('grid'),
 				color: 'rgba( 0,0,0,.35)',
 				//circular: true,
 			},
@@ -36,7 +33,6 @@ const ChartShotPctOptionDefaults = {
 				backdropColor: 'transparent',
 				showLabelBackdrop: true,
 				backdropPadding: 1,
-				//color: getChartPieceColor('ticks'),
 				color: '#000',
 				padding: 9,
 				font: {

@@ -54,14 +54,15 @@ const RockPaperScissors = () => {
 
 	const playerChartReference = useRef(true);
 	const cpuChartReference = useRef(true);
-	let ChartShotPctOptions = ChartShotPctOptionDefaults;
-	ChartShotPctOptions = updateChartShotPctOptions( ChartShotPctOptions, theme );
+	let ChartShotPctOptions = updateChartShotPctOptions( ChartShotPctOptionDefaults, theme );
 
 	// Update charts using new options when the theme is changed.
 	useEffect(() => {
 		let options = updateChartShotPctOptions( ChartShotPctOptions, getTheme(), false );
+
 		playerChartReference.current.options = options;
 		playerChartReference.current.update();
+
 		cpuChartReference.current.options = options;
 		cpuChartReference.current.update();
   }, [theme] );
@@ -95,8 +96,18 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
 				],
-				backgroundColor: 'rgba(16, 190, 229, .2)',
-				borderColor: 'rgba(16, 190, 229, 1)',
+				// blue
+				// borderColor: 'rgba(16, 190, 229, 1)',
+				// backgroundColor: 'rgba(16, 190, 229, .2)',
+				// purple
+				// borderColor: '#B362AC',
+				// backgroundColor: '#B362AC77',
+				// yellow
+				// borderColor: 'rgb(255, 255, 0)',
+				// backgroundColor: 'rgba(255, 255, 0, .5)',
+				// blue 2
+				borderColor: '#25d4f3',
+				backgroundColor: 'rgba(37, 213, 244, 0.424)',
 				borderWidth: 2,
 				fill: true,
 			},
@@ -113,8 +124,10 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed ),
 				],
-				backgroundColor: 'rgba(255, 99, 132, 0.2)',
-				borderColor: 'rgba(255, 99, 132, 1)',
+				// borderColor: 'rgba(255, 99, 132, 1)',
+				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: '#ff9b00',
+				backgroundColor: '#FF700377',
 				borderWidth: 2,
 				fill: true,
 			},
@@ -137,17 +150,17 @@ const RockPaperScissors = () => {
 			<div className="scoreboard">
 				{/* <h2>Scoreboard</h2> */}
 				<div className="games-played text-4xl">
-					Games Played: <span className="font-digital-italic lcd">{gamesPlayed}</span>
+					<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
 				</div>
 				<div className="games-results grid grid-cols-1 xs:grid-cols-3 text-2xl">
 					<p className="wins">
-						Wins: <span className="font-digital-italic lcd">{stats.player.winTotal}</span>
+						<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
 					</p>
 					<p className="losses xs:text-center">
-						Losses: <span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
+						<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
 					</p>
 					<p className="draws xs:text-right">
-						Draws: <span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
+						<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
 					</p>
 				</div>
 			</div>
@@ -163,28 +176,28 @@ const RockPaperScissors = () => {
 						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 							<div className="player-stats-1">
 								<p className="current-streak" title="Ties are ignored">
-									Win Streak: <span className="font-digital-italic lcd">{stats.player.winStreak}</span>
+									<span className="stat-label">Win Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.winStreak}</span>
 								</p>
 								<p className="longest-streak" title="Ties are ignored">
-									Top Streak: <span className="font-digital-italic lcd">{stats.player.longestStreak}</span>
+									<span className="stat-label">Top Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.longestStreak}</span>
 								</p>
 								<p className="win-percentage" title="Based on wins and losses only">
-									Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
+									<span className="stat-label">Win Pct: </span><span className="stat-value font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
 								</p>
 							</div>
 							<div className="player-stats-2 xs:text-right">
 								<p className="rock" title="Number of times Rock was used">
-									Rock: <span className="font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
+									<span className="stat-label">Rock: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
 								</p>
 								<p className="paper" title="Number of times Paper was used">
-									Paper: <span className="font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
+									<span className="stat-label">Paper: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
 								</p>
 								<p className="scissors" title="Number of times Scissors was used">
-									Scissors: <span className="font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
+									<span className="stat-label">Scissors: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
 								</p>
 							</div>
 						</div>
-						<div className="xs:px-8 react-chartjs">
+						<div className="xs:px-10 react-chartjs">
 							<Radar
 								options={ChartShotPctOptions}
 								data={playerDataChartJS}
@@ -219,7 +232,7 @@ const RockPaperScissors = () => {
 								</p>
 							</div>
 						</div>
-						<div className="xs:px-8 react-chartjs">
+						<div className="xs:px-10 react-chartjs">
 							<Radar
 							options={ChartShotPctOptions}
 							data={cpuDataChartJS}
@@ -270,7 +283,10 @@ const RockPaperScissors = () => {
 			<div className="player-shot-controls grid grid-cols-3 gap-4 items-center max-w-2xl mx-auto">
 				<button
 					className="player-shoot rock items-center
-					text-gray-900 bg-white border border-gray-300 hover:bg-gray-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700"
+					border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
+					"
+			// {		text-gray-900 bg-white border border-gray-300 hover:bg-gray-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 }
+
 					onClick={ (event) => playerShoot( 'rock', event ) }
 				>
 					<FaRegHandRock size={70} className="stroke inline-block rock"/>

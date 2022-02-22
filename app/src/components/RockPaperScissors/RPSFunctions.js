@@ -275,20 +275,22 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 		case 'angleLines':
 		case 'grid':
 		case 'ticks':
-		case 'legend':
+		case 'legend': {
 			if ( 'dark' === theme ) {
 				return '#E6C1E3';
 			} else {
-				return 'rgba( 0,0,0,.35)';
+				return 'rgba(52, 28, 71,.33)'; //#341C47
 			}
+		}
 
 		case 'pointLabels':
-		default:
+		default: {
 			if ( 'dark' === theme ) {
 				return '#E6C1E3';
 			} else {
-				return '#000';
+				return '#341C47';
 			}
+		}
 	}
 }
 
