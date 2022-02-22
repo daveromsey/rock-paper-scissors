@@ -32,6 +32,7 @@
 }
 
 
+// Zurb Foundation Rem Calc: https://stackoverflow.com/a/68394724/3059883
 $rem-base: 16px;
 
 @function strip-unit($num) {
@@ -54,16 +55,14 @@ $rem-base: 16px;
   @return $remValues;
 }
 
-
-
-.player-shoot {
+button.player-shoot {
 	//background-color: lightgray;
 	padding: 10px;
 	min-width: 90px;
 	position: relative;
 
 
-	&.rock {
+	&.rock svg {
 		color: black;
 	}
 
@@ -77,7 +76,7 @@ $rem-base: 16px;
 
 		&.fill {
 			position: absolute;
-			top: 15%;
+			top: 16px;
 			right: calc(50% - 29px);
 			fill: yellowgreen;
 			z-index: 1;
@@ -128,8 +127,23 @@ button {
 	color: #ff0000cc;
 }
 
-.update-chart {
-	visibility: hidden;
-	width: 0;
-	height: 0;
+.colors{
+	color: #25d4f3;
+	color: rgba(37, 213, 244, 0.424);
+	color: rgb(255, 255, 0);
+	color: #FFDFFC;
+	color: #E6C1E3;
+	color: #E0A6DB;
+	color: #BDA5BB;
+	color: #AC93AA;
+	color: #A28EA0;
+	color: #B362AC;
+	color: #A0589A;
+	color: #573154;
+	color: #1C0029;
+	color: #ff9b00;
+	color: #FFA300;
+	color: #FF7003;
+	color: #ff7d00;
+	color: #ce5e00;
 }
