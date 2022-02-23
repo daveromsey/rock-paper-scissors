@@ -77,7 +77,7 @@ JSDOC inline docs
 
 clean up
 	(commented code, initial create react app stuff, etc)
-	fix manifest
+
 
 Host and deploy to github pages
 	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
@@ -106,37 +106,31 @@ Update readme.md
 		{JSDOC, Coding standards, github pages CI/CD}
 
 	Acknowledgements:
-		favicon
 		Fonts:
 			Paytone One: https://fonts.google.com/specimen/Paytone+One#standard-styles
 			Digital-7: https://www.1001fonts.com/digital-7-font.html
-
-		RPS instuctions
-			https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
-
-		Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
-		SVG to icon: https://cloudconvert.com/svg-to-ico
 		Charts: ChartJS v3 and react-chartjs2
 		Toggle Dark Mode:
 			https://github.com/JoseRFelix/react-toggle-dark-mode
-			https://codebycorey.com/blog/dark-mode-toggle-using-tailwind-css
 
 	Possible Future Enhancements
 		Allow keyboard controls
 			A,S,D
 			Space to reset
-		Rounds per game (best of): 1, 3, 5
-			Ties don't count towards winning.
-			Games
-				Game
-					Rounds
+
+		Rounds per match (best of): 1, 3, 5, x (Ties don't count towards winning.)
+			Match (rename game to match)
+				Round
+			Allow match to be ended early and data for that match will be discarded.
 		Add stats (and charts?) for results by shot: Win/Lose/Draw:Rock, etc.
+		Test mode to run x number of games automatically
 		Hack mode to force computer's shot
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements
 		Opponents with ladder like Mortal Kombat.
 		Oppenents with various strategies (always same shot, random, based on player's shot patterns, etc)
 		Opponents that talk smack
+		Multiplayer
 
 
 Maybe Later
@@ -164,6 +158,10 @@ VscSymbolBoolean
 ----
 Done
 ----
+
+
+
+Update assets, fix manifest
 Move iconcontext to the app level
 
 Chart player colors
@@ -414,3 +412,10 @@ ChartJS
 
 			// To list available remote versions on Windows 10 you can type:
 			nvm list available
+
+
+		RPS instuctions
+			https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg
+
+		Triforce logo: https://seeklogo.com/vector-logo/327217/triforce
+		SVG to icon: https://cloudconvert.com/svg-to-ico

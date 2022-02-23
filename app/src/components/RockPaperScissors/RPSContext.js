@@ -8,7 +8,7 @@ const RPSContext = createContext();
 const RPSProvider = ({ children }) => {
   const [state, dispatch] = useReducer( RPSReducer, RPSInitialState, RPSStateInit );
 
-	// Used to determine if this is the original render or not.
+	// Flag used to determine if this is the first render or not.
 	const firstUpdate = useRef(true);
 
 	// Save RPS state to Local Storage whenever state changes.

@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         retropurple: {
+          40: "#d9abf3",
           50: "#E0A6DB",
           100: "#E6C1E3",
           200: "#B362AC",

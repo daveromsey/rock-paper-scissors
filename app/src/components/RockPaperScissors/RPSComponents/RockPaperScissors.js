@@ -1,5 +1,5 @@
 import React, {useRef, useEffect } from 'react';
-// import { IconContext } from 'react-icons';
+
 import {
 	FaGithub,
 	// FaMedal,
@@ -16,9 +16,10 @@ import {
 	FaHandRock, // Fill
 	FaHandPaper, // Fill
 	FaHandScissors, // Fill
-	// FaRedoAlt,
-	FaRedo
 } from "react-icons/fa";
+
+import { MdDoubleArrow } from "react-icons/md";
+
 
 import {
   Chart as ChartJS,
@@ -284,7 +285,7 @@ const RockPaperScissors = () => {
 
 		<RPSPageBreak text={<><FaRegHandScissors/></>}/>
 
-		<div className="player-shot-controls pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
+		<div className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
 			<button
 				className="player-shoot rock items-center
 				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
@@ -322,9 +323,13 @@ const RockPaperScissors = () => {
 			</button>
 		</div>
 
-		<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
-			<button onClick={ () => resetGame() } className="play-again hidden_ invisible flex-grow  mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-				<span className="button-text">Play Again</span> <FaRedo/>
+		<div className="game-actions flex flex-row mx-auto max-w-[60%] xs:max-w-[40%] items-center justify-center">
+			<button onClick={ () => resetGame() } className="play-again invisible flex-grow mt-8 py-2.5 px-5 mr-2 mb-2 text-sm font-medium
+				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
+				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+			 "
+				>
+				<span className="button-text">Play Again</span> <span className="button-icon relative top-[-2px]"><MdDoubleArrow size={20} /></span>
 			</button>
 		</div>
 
