@@ -1,6 +1,7 @@
 import React, {useRef, useEffect } from 'react';
-import { IconContext } from 'react-icons';
+// import { IconContext } from 'react-icons';
 import {
+	FaGithub,
 	// FaMedal,
 	// FaAward,
 	// FaTrophy,
@@ -9,12 +10,12 @@ import {
 	// FaRegWindowClose,
 	// FaWindowClose,
 	// FaRegTrashAlt,
-	FaRegHandRock,
-	FaRegHandPaper,
-	FaRegHandScissors,
-	FaHandRock,
-	// FaHandPaper,
-	// FaHandScissors,
+	FaRegHandRock, // Stroke
+	FaRegHandPaper, // Stroke
+	FaRegHandScissors, // Stroke
+	FaHandRock, // Fill
+	FaHandPaper, // Fill
+	FaHandScissors, // Fill
 	// FaRedoAlt,
 	FaRedo
 } from "react-icons/fa";
@@ -134,191 +135,200 @@ const RockPaperScissors = () => {
 		],
 	};
 
+	const shotIconSize = 55;
+	const shotIconFillSize = 48;
+
   return (
 	<article className="rock-paper-scissors">
-		<IconContext.Provider value={{ className: "react-icon icon" }}>
-			<RPSHeading/>
 
-			<RPSPageBreak
-				text="Scoreboard"
-				extraTextClassName="px-4"
-				textBefore={<><FaRegHandRock className="rock"/></>}
-				textAfter={<><FaRegHandRock className="rock right"/></>}
-				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-3xl"
-			/>
+		<RPSHeading/>
 
-			<div className="scoreboard">
-				{/* <h2>Scoreboard</h2> */}
-				<div className="games-played text-4xl">
-					<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
-				</div>
-				<div className="games-results grid grid-cols-1 xs:grid-cols-3 text-2xl">
-					<p className="wins">
-						<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
-					</p>
-					<p className="losses xs:text-center">
-						<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
-					</p>
-					<p className="draws xs:text-right">
-						<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
-					</p>
-				</div>
+		<RPSPageBreak
+			text="Scoreboard"
+			extraTextClassName="px-4"
+			textBefore={<><FaRegHandRock className="rock"/></>}
+			textAfter={<><FaRegHandRock className="rock right"/></>}
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-3xl"
+		/>
+
+		<div className="scoreboard">
+			{/* <h2>Scoreboard</h2> */}
+			<div className="games-played text-4xl">
+				<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
 			</div>
+			<div className="games-results grid grid-cols-1 xs:grid-cols-3 text-2xl">
+				<p className="wins">
+					<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
+				</p>
+				<p className="losses xs:text-center">
+					<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
+				</p>
+				<p className="draws xs:text-right">
+					<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
+				</p>
+			</div>
+		</div>
 
-			<RPSPageBreak text={<><FaRegHandRock/></>}/>
+		<RPSPageBreak text={<><FaRegHandRock/></>}/>
 
-			<div className="stats">
-				{/* <h2>Stats</h2> */}
-				<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
+		<div className="stats">
+			{/* <h2>Stats</h2> */}
+			<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
 
-					<div className="player-stats sm:pr-6">
-						<h2 className="text-2xl">Player Stats</h2>
-						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
-							<div className="player-stats-1">
-								<p className="current-streak" title="Ties are ignored">
-									<span className="stat-label">Win Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.winStreak}</span>
-								</p>
-								<p className="longest-streak" title="Ties are ignored">
-									<span className="stat-label">Top Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.longestStreak}</span>
-								</p>
-								<p className="win-percentage" title="Based on wins and losses only">
-									<span className="stat-label">Win Pct: </span><span className="stat-value font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
-								</p>
-							</div>
-							<div className="player-stats-2 xs:text-right">
-								<p className="rock" title="Number of times Rock was used">
-									<span className="stat-label">Rock: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
-								</p>
-								<p className="paper" title="Number of times Paper was used">
-									<span className="stat-label">Paper: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
-								</p>
-								<p className="scissors" title="Number of times Scissors was used">
-									<span className="stat-label">Scissors: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
-								</p>
-							</div>
+				<div className="player-stats sm:pr-6">
+					<h2 className="text-2xl">Player Stats</h2>
+					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+						<div className="player-stats-1">
+							<p className="current-streak" title="Ties are ignored">
+								<span className="stat-label">Win Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.winStreak}</span>
+							</p>
+							<p className="longest-streak" title="Ties are ignored">
+								<span className="stat-label">Top Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.longestStreak}</span>
+							</p>
+							<p className="win-percentage" title="Based on wins and losses only">
+								<span className="stat-label">Win Pct: </span><span className="stat-value font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
+							</p>
 						</div>
-						<div className="xs:px-10 react-chartjs">
-							<Radar
-								options={ChartShotPctOptions}
-								data={playerDataChartJS}
-								ref={playerChartReference}
-							/>
-						</div>
-					</div>
-
-					<div className="cpu-stats sm:pl-6">
-						<h2 className="text-2xl">CPU Stats</h2>
-						<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
-							<div className="cpu-stats-1">
-								<p className="current-streak" title="Ties are ignored">
-									Win Streak: <span className="font-digital-italic lcd">{stats.cpu.winStreak}</span>
-								</p>
-								<p className="longest-streak" title="Ties are ignored">
-									Top Streak: <span className="font-digital-italic lcd">{stats.cpu.longestStreak}</span>
-								</p>
-								<p className="win-percentage" title="Based on wins and losses only">
-									Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.cpu.winPercentage) }</span>
-								</p>
-							</div>
-							<div className="cpu-stats-2 xs:text-right">
-								<p className="rock" title="Number of times Rock was used">
-									Rock: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.rock}</span>
-								</p>
-								<p className="paper" title="Number of times Paper was used">
-									Paper: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.paper}</span>
-								</p>
-								<p className="scissors" title="Number of times Scissors was used">
-									Scissors: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.scissors}</span>
-								</p>
-							</div>
-						</div>
-						<div className="xs:px-10 react-chartjs">
-							<Radar
-							options={ChartShotPctOptions}
-							data={cpuDataChartJS}
-							ref={cpuChartReference}
-							/>
+						<div className="player-stats-2 xs:text-right">
+							<p className="rock" title="Number of times Rock was used">
+								<span className="stat-label">Rock: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
+							</p>
+							<p className="paper" title="Number of times Paper was used">
+								<span className="stat-label">Paper: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
+							</p>
+							<p className="scissors" title="Number of times Scissors was used">
+								<span className="stat-label">Scissors: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
+							</p>
 						</div>
 					</div>
-				</div>
-
-				{/* <div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
-					<div className="px-8 react-chartjs">
+					<div className="xs:px-10 react-chartjs">
 						<Radar
 							options={ChartShotPctOptions}
 							data={playerDataChartJS}
 							ref={playerChartReference}
 						/>
 					</div>
-					<div className="px-8 react-chartjs">
+				</div>
+
+				<div className="cpu-stats sm:pl-6">
+					<h2 className="text-2xl">CPU Stats</h2>
+					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
+						<div className="cpu-stats-1">
+							<p className="current-streak" title="Ties are ignored">
+								Win Streak: <span className="font-digital-italic lcd">{stats.cpu.winStreak}</span>
+							</p>
+							<p className="longest-streak" title="Ties are ignored">
+								Top Streak: <span className="font-digital-italic lcd">{stats.cpu.longestStreak}</span>
+							</p>
+							<p className="win-percentage" title="Based on wins and losses only">
+								Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.cpu.winPercentage) }</span>
+							</p>
+						</div>
+						<div className="cpu-stats-2 xs:text-right">
+							<p className="rock" title="Number of times Rock was used">
+								Rock: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.rock}</span>
+							</p>
+							<p className="paper" title="Number of times Paper was used">
+								Paper: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.paper}</span>
+							</p>
+							<p className="scissors" title="Number of times Scissors was used">
+								Scissors: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.scissors}</span>
+							</p>
+						</div>
+					</div>
+					<div className="xs:px-10 react-chartjs">
 						<Radar
-							options={ChartShotPctOptions}
-							data={cpuDataChartJS}
-							ref={cpuChartReference}
+						options={ChartShotPctOptions}
+						data={cpuDataChartJS}
+						ref={cpuChartReference}
 						/>
-					</div>
-				</div> */}
-
-			</div>
-
-			<RPSPageBreak text={<><FaRegHandPaper/></>}/>
-
-			<div className="results">
-				<h2>Results</h2>
-				<div className="results-grid grid grid-cols-1 xs:grid-cols-3">
-					<div className="game-winner">
-						<h3>Winner: {game.winner}</h3>
-					</div>
-					<div className="player-shot">
-						Your Shot: {game.playerShot}
-					</div>
-					<div className="cpu-shot">
-						CPU Shot: {game.cpuShot}
 					</div>
 				</div>
 			</div>
 
-			<RPSPageBreak text={<><FaRegHandScissors/></>}/>
+			{/* <div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
+				<div className="px-8 react-chartjs">
+					<Radar
+						options={ChartShotPctOptions}
+						data={playerDataChartJS}
+						ref={playerChartReference}
+					/>
+				</div>
+				<div className="px-8 react-chartjs">
+					<Radar
+						options={ChartShotPctOptions}
+						data={cpuDataChartJS}
+						ref={cpuChartReference}
+					/>
+				</div>
+			</div> */}
 
-			<div className="player-shot-controls grid grid-cols-3 gap-4 items-center max-w-2xl mx-auto">
-				<button
-					className="player-shoot rock items-center
-					border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-					"
-			// {		text-gray-900 bg-white border border-gray-300 hover:bg-gray-100  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 }
+		</div>
 
-					onClick={ (event) => playerShoot( 'rock', event ) }
-				>
-					<FaRegHandRock size={70} className="stroke inline-block rock"/>
-					<FaHandRock size={58} className="fill inline-block rock"/>
-					<span className="button-text block">Rock</span>
-				</button>
+		<RPSPageBreak text={<><FaRegHandPaper/></>}/>
 
-				<button
-					className="player-shoot paper inline-block"
-					onClick={ (event) => playerShoot( 'paper', event ) }
-				>
-					<FaRegHandPaper size={70} className="stroke inline-block paper"/>
-					<span className="button-text block">Paper</span>
-				</button>
-
-				<button
-					className="player-shoot scissors inline-block"
-					onClick={ (event) => playerShoot( 'scissors', event ) }
-				>
-					<FaRegHandScissors size={70} className="stroke inline-block scissors"/>
-					<span className="button-text block">Scissors</span>
-				</button>
+		<div className="results">
+			<h2>Results</h2>
+			<div className="results-grid grid grid-cols-1 xs:grid-cols-3">
+				<div className="game-winner">
+					<h3>Winner: {game.winner}</h3>
+				</div>
+				<div className="player-shot">
+					Your Shot: {game.playerShot}
+				</div>
+				<div className="cpu-shot">
+					CPU Shot: {game.cpuShot}
+				</div>
 			</div>
+		</div>
 
-			<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
-				<button onClick={ () => resetGame() } className="play-again hidden_ invisible flex-grow  mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-					<span className="button-text">Play Again</span> <FaRedo/>
-				</button>
-			</div>
+		<RPSPageBreak text={<><FaRegHandScissors/></>}/>
 
-			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
-		</IconContext.Provider>
+		<div className="player-shot-controls pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
+			<button
+				className="player-shoot rock items-center
+				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
+				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				"
+				onClick={ (event) => playerShoot( 'rock', event ) }
+			>
+				<FaRegHandRock size={shotIconSize} className="stroke inline-block rock"/>
+				<FaHandRock size={shotIconFillSize} className="fill inline-block rock"/>
+				<span className="button-text font-brand block pt-2">Rock</span>
+			</button>
+
+			<button
+				className="player-shoot paper items-center
+				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
+				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				"
+				onClick={ (event) => playerShoot( 'paper', event ) }
+			>
+				<FaRegHandPaper size={shotIconSize} className="stroke inline-block paper"/>
+				<FaHandPaper size={shotIconFillSize} className="fill inline-block paper"/>
+				<span className="button-text font-brand block pt-2">Paper</span>
+			</button>
+
+			<button
+				className="player-shoot scissors items-center
+				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
+				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				"
+				onClick={ (event) => playerShoot( 'scissors', event ) }
+			>
+				<FaRegHandScissors size={shotIconSize} className="stroke inline-block scissors"/>
+				<FaHandScissors size={shotIconFillSize} className="fill inline-block scissors"/>
+				<span className="button-text font-brand block pt-2">Scissors</span>
+			</button>
+		</div>
+
+		<div className="game-actions flex flex-row mx-auto max-w-[50%] items-center justify-center">
+			<button onClick={ () => resetGame() } className="play-again hidden_ invisible flex-grow  mt-4 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+				<span className="button-text">Play Again</span> <FaRedo/>
+			</button>
+		</div>
+
+		<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 	 </article>
   )
 }

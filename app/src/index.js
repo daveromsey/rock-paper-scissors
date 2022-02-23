@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { IconContext } from 'react-icons';
+
 import './index.scss';
 import App from './App';
 import { AppProvider } from './global/AppContext';
@@ -8,7 +11,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
 		<AppProvider>
-   	 	<App />
+			<IconContext.Provider value={{ className: "react-icon icon" }}>
+   	 		<App />
+			</IconContext.Provider>
 		</AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
