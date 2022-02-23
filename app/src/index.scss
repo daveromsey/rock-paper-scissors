@@ -12,7 +12,10 @@
     @apply text-lg;
   }
   a {
-    @apply text-blue-600 underline;
+    @apply text-retropurple-100
+  }
+	a:hover {
+    @apply text-retropurple-50
   }
 }
 
@@ -56,14 +59,17 @@ $rem-base: 16px;
 }
 
 button.player-shoot {
-	//background-color: lightgray;
-	padding: 10px;
+	padding: rem-calc( 14px 10px 10px 10px );
 	min-width: 90px;
 	position: relative;
 
-
 	&.rock svg {
-		color: black;
+		//color: black;
+	}
+
+	&.clicked {
+		background-color: #341C47;
+		opacity: .67;
 	}
 
 	.icon {
@@ -71,16 +77,34 @@ button.player-shoot {
 		&.stroke {
 			z-index: 10;
 			position: relative;
-
+			color: #E6C1E3;
 		}
 
 		&.fill {
+			display: none;
 			position: absolute;
-			top: 16px;
-			right: calc(50% - 29px);
-			fill: yellowgreen;
+			// For 58px fill, 70px stroke
+			//top: 16px;
+			//right: calc(50% - 29px);
+			// For 48px fill, 55px stroke
+			top: 13px;
+			right: calc(50% - 24px);
+			//fill: #603485;
+			fill: yellow;
 			z-index: 1;
 		}
+	}
+
+	&:hover {
+		.icon {
+			&.stroke {
+				//color: #341C47;
+			}
+		}
+	}
+
+	&:active {
+		transform: translateY(rem-calc(4px));
 	}
 }
 
@@ -92,13 +116,6 @@ svg.rock {
 	}
 }
 
-.react-chartjs {
-	canvas {
-		margin-top: -5%;
-		// Fix extra space at bottom of radar chart when grid is not circular.
-		margin-bottom: -20%;
-	}
-}
 
 // Prevent icons from triggering events.
 // https://stackoverflow.com/a/54430159/3059883
@@ -125,6 +142,14 @@ button {
 
 .dark .lcd {
 	color: #ff0000cc;
+}
+
+.react-chartjs {
+	canvas {
+		margin-top: -5%;
+		// Fix extra space at bottom of radar chart when grid is not circular.
+		margin-bottom: -20%;
+	}
 }
 
 .colors{

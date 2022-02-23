@@ -1,9 +1,17 @@
 Shoot Buttons
-.rock >>> .icon-rock
+	.rock >>> .icon-rock
+	hover
+	active
+	disabled
+	light theme
 
 Footer
-	top/bottom bg images
-	Add PageBreak to footer for small screens
+	spacing for small screens
+
+PageBreak should be a global component
+Rename PageBreak?
+
+
 
 Refactor stat calculations using functions to reduce code duplication.
 
@@ -15,6 +23,7 @@ Improve Game Results section:
 		Or
 			Winner <robot icon> CPU
 			Winner <person icon> Player
+	Add player colors to player/CPU icons
 
 Handle formatting output for display
 	Create a format.js file:
@@ -28,9 +37,8 @@ Styling
 	Shoot Buttons
 	Clear game data button
 	Play again button
-	Atari Footer
-		Top image
-		bottom image
+	Footer
+		Top image/bottom image?
 		reset button
 		github
 	Layout
@@ -156,6 +164,8 @@ VscSymbolBoolean
 ----
 Done
 ----
+Move iconcontext to the app level
+
 Chart player colors
 light theme chart colors
 

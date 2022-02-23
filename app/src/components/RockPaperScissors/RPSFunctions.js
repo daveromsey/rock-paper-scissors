@@ -279,7 +279,7 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 			if ( 'dark' === theme ) {
 				return '#E6C1E3';
 			} else {
-				return 'rgba(52, 28, 71,.33)'; //#341C47
+				return 'rgba(52, 28, 71,.5)'; //#341C47
 			}
 		}
 
