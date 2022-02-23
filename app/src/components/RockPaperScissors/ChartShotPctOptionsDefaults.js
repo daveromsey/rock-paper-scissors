@@ -15,6 +15,7 @@ const ChartShotPctOptionDefaults = {
 			},
 			pointLabels: {
 				font:  {
+					family: '"Paytone One", sans-serif',
 					size: 16,
 				},
 				color: '#000',
