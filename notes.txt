@@ -1,20 +1,7 @@
-Shoot Buttons
-	.rock >>> .icon-rock
-	hover
-	active
-	disabled
-	light theme
+light theme
+	Shoot Buttons
 
-Footer
-	spacing for small screens
-
-PageBreak should be a global component
-Rename PageBreak?
-
-
-
-Refactor stat calculations using functions to reduce code duplication.
-
+Clean up github repo
 
 Improve Game Results section:
 	You Win {Award icon} (Green)
@@ -34,18 +21,20 @@ Handle formatting output for display
 		Win Percentage
 
 Styling
-	Shoot Buttons
-	Clear game data button
-	Play again button
-	Footer
-		Top image/bottom image?
-		reset button
-		github
 	Layout
 		Scoreboard
 		Stats
 		Results
 	....
+	Shoot Buttons
+		hover
+		active
+		disabled
+	Clear game data button
+	Play again button
+	Footer
+		reset button
+		github
 	light/dark theme styles
 	Colors
 	Grid structure
@@ -67,9 +56,17 @@ Convert elements to components
 	Light/dark mode controls
 	Fancy hr
 
+
+Refactor stat calculations using functions to reduce code duplication.
+
+convert sass styles to tailwind classes
+.rock >>> .icon-rock?
 tailwind
 	colors
 	classes
+
+PageBreak should be a global component?
+Rename PageBreak?
 
 
 JSDOC inline docs
@@ -81,11 +78,6 @@ clean up
 
 Host and deploy to github pages
 	https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb
-
-
-Coding standards
-Prettier
-
 
 
 Update readme.md
@@ -103,7 +95,7 @@ Update readme.md
 		Self-hosted fonts
 		React Icons
 		ChartJS v3
-		{JSDOC, Coding standards, github pages CI/CD}
+		{JSDOC, Coding standards?, github pages CI/CD}
 
 	Acknowledgements:
 		Fonts:
@@ -113,18 +105,17 @@ Update readme.md
 		Toggle Dark Mode:
 			https://github.com/JoseRFelix/react-toggle-dark-mode
 
-	Possible Future Enhancements
+	Possible Future Enhancements:
 		Allow keyboard controls
 			A,S,D
 			Space to reset
-
 		Rounds per match (best of): 1, 3, 5, x (Ties don't count towards winning.)
 			Match (rename game to match)
 				Round
 			Allow match to be ended early and data for that match will be discarded.
 		Add stats (and charts?) for results by shot: Win/Lose/Draw:Rock, etc.
 		Test mode to run x number of games automatically
-		Hack mode to force computer's shot
+		Hack mode to force computer's shot for testing
 		Timing based clicks with style points for accuracy and timeout for fault.
 		Achievements
 		Opponents with ladder like Mortal Kombat.
@@ -135,6 +126,8 @@ Update readme.md
 
 Maybe Later
 -----------
+Coding standards
+Prettier
 Rename RPS to Rps ...or rpsSomething
 Pull in chart data from separate file
 
@@ -158,9 +151,7 @@ VscSymbolBoolean
 ----
 Done
 ----
-
-
-
+Footer spacing for small screens
 Update assets, fix manifest
 Move iconcontext to the app level
 
