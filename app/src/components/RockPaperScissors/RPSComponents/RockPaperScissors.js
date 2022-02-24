@@ -99,16 +99,6 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
 				],
-				// blue
-				// borderColor: 'rgba(16, 190, 229, 1)',
-				// backgroundColor: 'rgba(16, 190, 229, .2)',
-				// purple
-				// borderColor: '#B362AC',
-				// backgroundColor: '#B362AC77',
-				// yellow
-				// borderColor: 'rgb(255, 255, 0)',
-				// backgroundColor: 'rgba(255, 255, 0, .5)',
-				// blue 2
 				borderColor: '#25d4f3',
 				backgroundColor: 'rgba(37, 213, 244, 0.424)',
 				borderWidth: 2,
@@ -127,8 +117,6 @@ const RockPaperScissors = () => {
 					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed ),
 				],
-				// borderColor: 'rgba(255, 99, 132, 1)',
-				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
 				borderColor: '#ff9b00',
 				backgroundColor: '#FF700377',
 				borderWidth: 2,

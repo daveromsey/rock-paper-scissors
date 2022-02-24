@@ -247,17 +247,7 @@ export const formatPercentage = ( percentage ) => {
 	return formatter.format( percentage );
 }
 
-// unused
-export const formatPercentageDecimal = ( value ) => {
-	const formatter = Intl.NumberFormat('en-US', {
-		//style: 'percent',
-		maximumFractionDigits: 1,
-	});
-
-	return Number( formatter.format( value ) ) * 100;
-}
-
-export const resetButtonStates = () => {
+export const resetShootButtonStates = () => {
 	// Reset shoot buttons.
 	const playerShootButtons = document.querySelectorAll('.player-shoot');
 	playerShootButtons.forEach((button) => {
@@ -279,7 +269,7 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 			if ( 'dark' === theme ) {
 				return '#E6C1E3';
 			} else {
-				return 'rgba(52, 28, 71,.5)'; //#341C47
+				return 'rgba(52, 28, 71,.5)'; // #341C47
 			}
 		}
 

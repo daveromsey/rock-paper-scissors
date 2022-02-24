@@ -3,7 +3,7 @@ import {
 	cpuShoot,
 	getGameResult,
 	getStats,
-	resetButtonStates,
+	resetShootButtonStates,
 } from './RPSFunctions.js';
 
 import RPSInitialState from './RPSInitialState'
@@ -53,7 +53,7 @@ const RPSReducer = ( state, action ) => {
 		 * Handle resetting the game.
 		 */
 		case ( 'RESET_GAME' ): {
-			resetButtonStates();
+			resetShootButtonStates();
 
 			return {
 				...state,
@@ -131,7 +131,7 @@ const RPSReducer = ( state, action ) => {
 		 * Handle clearing and resetting all RPS data.
 		 */
 		case ( 'CLEAR_AND_RESET_RPS_DATA' ): {
-			resetButtonStates();
+			resetShootButtonStates();
 			return state = RPSInitialState;
 		}
 
