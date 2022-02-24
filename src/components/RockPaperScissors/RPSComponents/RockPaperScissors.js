@@ -297,7 +297,7 @@ const RockPaperScissors = () => {
 				dark:text-retropurple-100 dark:border-retropurple-100
 				dark:hover:bg-retropurple-600
 				dark:disabled:bg-retropurple-500
-				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-500
 				"
 				onClick={ (event) => playerShoot( 'rock', event ) }
 			>
@@ -316,7 +316,7 @@ const RockPaperScissors = () => {
 				dark:text-retropurple-100 dark:border-retropurple-100
 				dark:hover:bg-retropurple-600
 				dark:disabled:bg-retropurple-500
-				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-500
 				"
 				onClick={ (event) => playerShoot( 'paper', event ) }
 			>
@@ -335,7 +335,7 @@ const RockPaperScissors = () => {
 				dark:text-retropurple-100 dark:border-retropurple-100
 				dark:hover:bg-retropurple-600
 				dark:disabled:bg-retropurple-500
-				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-500
 				"
 				onClick={ (event) => playerShoot( 'scissors', event ) }
 			>

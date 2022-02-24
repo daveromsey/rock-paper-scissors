@@ -124,6 +124,10 @@ button.player-shoot {
 	&.clicked {
 		background-color: #341C47;
 		color: #E6C1E3;
+
+		&:hover {
+			background-color: #341C47;
+		}
 	}
 }
 
