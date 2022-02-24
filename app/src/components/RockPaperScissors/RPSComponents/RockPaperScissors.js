@@ -9,7 +9,8 @@ import {
 	// FaCat,
 	// FaRegWindowClose,
 	// FaWindowClose,
-	// FaRegTrashAlt,
+	FaUser,
+	FaRobot,
 	FaRegHandRock, // Stroke
 	FaRegHandPaper, // Stroke
 	FaRegHandScissors, // Stroke
@@ -176,29 +177,39 @@ const RockPaperScissors = () => {
 			{/* <h2>Stats</h2> */}
 			<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
 
-				<div className="player-stats sm:pr-6">
-					<h2 className="text-2xl">Player Stats</h2>
+				<div className="player-stats xs:pr-2 md:pr-8">
+					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
+						<span className="border-b border-retropurple-100/50 pb-1">
+							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4ee]"/> Player Stats
+						</span>
+					</h2>
 					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 						<div className="player-stats-1">
 							<p className="current-streak" title="Ties are ignored">
-								<span className="stat-label">Win Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.winStreak}</span>
+								<span className="stat-label">Win Streak: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{stats.player.winStreak}</span>
 							</p>
 							<p className="longest-streak" title="Ties are ignored">
-								<span className="stat-label">Top Streak: </span><span className="stat-value font-digital-italic lcd">{stats.player.longestStreak}</span>
+								<span className="stat-label">Top Streak: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{stats.player.longestStreak}</span>
 							</p>
 							<p className="win-percentage" title="Based on wins and losses only">
-								<span className="stat-label">Win Pct: </span><span className="stat-value font-digital-italic lcd">{ formatPercentage(stats.player.winPercentage) }</span>
+								<span className="stat-label">Win Pct: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{ formatPercentage(stats.player.winPercentage) }</span>
 							</p>
 						</div>
 						<div className="player-stats-2 xs:text-right">
 							<p className="rock" title="Number of times Rock was used">
-								<span className="stat-label">Rock: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.rock}</span>
+								<span className="stat-label">Rock: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{stats.player.shotCounts.rock}</span>
 							</p>
 							<p className="paper" title="Number of times Paper was used">
-								<span className="stat-label">Paper: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.paper}</span>
+								<span className="stat-label">Paper: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{stats.player.shotCounts.paper}</span>
 							</p>
 							<p className="scissors" title="Number of times Scissors was used">
-								<span className="stat-label">Scissors: </span><span className="stat-value font-digital-italic lcd">{stats.player.shotCounts.scissors}</span>
+								<span className="stat-label">Scissors: </span>
+								<span className="stat-value font-digital-italic lcd text-2xl">{stats.player.shotCounts.scissors}</span>
 							</p>
 						</div>
 					</div>
@@ -211,29 +222,33 @@ const RockPaperScissors = () => {
 					</div>
 				</div>
 
-				<div className="cpu-stats sm:pl-6">
-					<h2 className="text-2xl">CPU Stats</h2>
+				<div className="cpu-stats xs:pl-2 md:pl-8">
+					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
+						<span className="border-b border-retropurple-100/50 pb-1">
+							<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> CPU Stats
+						</span>
+					</h2>
 					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
 						<div className="cpu-stats-1">
 							<p className="current-streak" title="Ties are ignored">
-								Win Streak: <span className="font-digital-italic lcd">{stats.cpu.winStreak}</span>
+								Win Streak: <span className="font-digital-italic lcd text-2xl">{stats.cpu.winStreak}</span>
 							</p>
 							<p className="longest-streak" title="Ties are ignored">
-								Top Streak: <span className="font-digital-italic lcd">{stats.cpu.longestStreak}</span>
+								Top Streak: <span className="font-digital-italic lcd text-2xl">{stats.cpu.longestStreak}</span>
 							</p>
 							<p className="win-percentage" title="Based on wins and losses only">
-								Win Pct: <span className="font-digital-italic lcd">{ formatPercentage(stats.cpu.winPercentage) }</span>
+								Win Pct: <span className="font-digital-italic lcd text-2xl">{ formatPercentage(stats.cpu.winPercentage) }</span>
 							</p>
 						</div>
 						<div className="cpu-stats-2 xs:text-right">
 							<p className="rock" title="Number of times Rock was used">
-								Rock: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.rock}</span>
+								Rock: <span className="font-digital-italic lcd text-2xl">{stats.cpu.shotCounts.rock}</span>
 							</p>
 							<p className="paper" title="Number of times Paper was used">
-								Paper: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.paper}</span>
+								Paper: <span className="font-digital-italic lcd text-2xl">{stats.cpu.shotCounts.paper}</span>
 							</p>
 							<p className="scissors" title="Number of times Scissors was used">
-								Scissors: <span className="font-digital-italic lcd">{stats.cpu.shotCounts.scissors}</span>
+								Scissors: <span className="font-digital-italic lcd text-2xl">{stats.cpu.shotCounts.scissors}</span>
 							</p>
 						</div>
 					</div>
@@ -301,7 +316,7 @@ const RockPaperScissors = () => {
 			<button
 				className="player-shoot paper items-center
 				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
 				"
 				onClick={ (event) => playerShoot( 'paper', event ) }
 			>
@@ -313,7 +328,7 @@ const RockPaperScissors = () => {
 			<button
 				className="player-shoot scissors items-center
 				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
 				"
 				onClick={ (event) => playerShoot( 'scissors', event ) }
 			>
@@ -326,7 +341,7 @@ const RockPaperScissors = () => {
 		<div className="game-actions flex flex-row mx-auto max-w-[60%] xs:max-w-[40%] items-center justify-center">
 			<button onClick={ () => resetGame() } className="play-again invisible flex-grow mt-8 py-2.5 px-5 mr-2 mb-2 text-sm font-medium
 				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
 			 "
 				>
 				<span className="button-text">Play Again</span> <span className="button-icon relative top-[-2px]"><MdDoubleArrow size={20} /></span>
