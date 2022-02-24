@@ -1,7 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Development resourses, notes, etc.
-#/_dev-resources
+# Development resources, notes, etc.
+/_dev-resources
+*.code-workspace
 
 # dependencies
 /node_modules
