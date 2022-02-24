@@ -12,9 +12,15 @@
     @apply text-lg;
   }
   a {
-    @apply text-retropurple-100
+    @apply text-retropurple-600
   }
 	a:hover {
+    @apply text-retropurple-500
+  }
+	.dark a {
+    @apply text-retropurple-100
+  }
+	.dark a:hover {
     @apply text-retropurple-50
   }
 }
@@ -69,7 +75,13 @@ button.player-shoot {
 
 	&.clicked {
 		background-color: #341C47;
+		color: #E0A6DB;
 		opacity: .67;
+
+		&:hover {
+			background-color: #341C47;
+			color: #E0A6DB;
+		}
 	}
 
 	.icon {
@@ -77,7 +89,7 @@ button.player-shoot {
 		&.stroke {
 			z-index: 10;
 			position: relative;
-			color: #E6C1E3;
+			//color: #E6C1E3;
 		}
 
 		&.fill {
@@ -107,6 +119,14 @@ button.player-shoot {
 		transform: translateY(rem-calc(4px));
 	}
 }
+
+.dark button.player-shoot {
+	&.clicked {
+		background-color: #341C47;
+		color: #E6C1E3;
+	}
+}
+
 
 svg.rock {
 	transform: rotate(90deg) scaleY(-1);

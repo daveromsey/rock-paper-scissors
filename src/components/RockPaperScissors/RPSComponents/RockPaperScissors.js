@@ -1,28 +1,6 @@
 import React, {useRef, useEffect } from 'react';
 
 import {
-	FaGithub,
-	// FaMedal,
-	// FaAward,
-	// FaTrophy,
-	// FaRegSadCry,
-	// FaCat,
-	// FaRegWindowClose,
-	// FaWindowClose,
-	FaUser,
-	FaRobot,
-	FaRegHandRock, // Stroke
-	FaRegHandPaper, // Stroke
-	FaRegHandScissors, // Stroke
-	FaHandRock, // Fill
-	FaHandPaper, // Fill
-	FaHandScissors, // Fill
-} from "react-icons/fa";
-
-import { MdDoubleArrow } from "react-icons/md";
-
-
-import {
   Chart as ChartJS,
   RadialLinearScale,
   PointElement,
@@ -33,8 +11,27 @@ import {
 	Title,
 	SubTitle,
 } from 'chart.js';
-
 import { Radar } from 'react-chartjs-2';
+
+import {
+	FaUser,
+	FaRobot,
+	FaRegHandRock, // Stroke
+	FaRegHandPaper, // Stroke
+	FaRegHandScissors, // Stroke
+	FaHandRock, // Fill
+	FaHandPaper, // Fill
+	FaHandScissors, // Fill
+	FaGithub,
+	// FaMedal,
+	// FaAward,
+	// FaTrophy,
+	// FaRegSadCry,
+	// FaCat,
+	// FaRegWindowClose,
+	// FaWindowClose,
+} from "react-icons/fa";
+import { MdDoubleArrow } from "react-icons/md";
 
 import { useAppContext } from '../../../global/AppContext';
 import { useRPSContext } from '../RPSContext';
@@ -44,20 +41,24 @@ import {
 	formatPercentage,
 	updateChartShotPctOptions
 } from '../RPSFunctions.js';
+import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
 
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
-import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
+
 
 const RockPaperScissors = () => {
 	const { getTheme } = useAppContext();
-
 	let theme = getTheme();
 
+	// Radar chart references used when updating charts (e.g. theme color change).
 	const playerChartReference = useRef(true);
 	const cpuChartReference = useRef(true);
 	let ChartShotPctOptions = updateChartShotPctOptions( ChartShotPctOptionDefaults, theme );
+
+	const shotIconSize = 55;
+	const shotIconFillSize = 48;
 
 	// Update charts using new options when the theme is changed.
 	useEffect(() => {
@@ -124,9 +125,6 @@ const RockPaperScissors = () => {
 			},
 		],
 	};
-
-	const shotIconSize = 55;
-	const shotIconFillSize = 48;
 
   return (
 	<article className="rock-paper-scissors">
@@ -290,9 +288,16 @@ const RockPaperScissors = () => {
 
 		<div className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
 			<button
-				className="player-shoot rock items-center
-				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-retropurple-500
+				className="rock
+				player-shoot items-center
+				border rounded-md text-center disabled:cursor-not-allowed disabled:opacity-50
+				text-retropurple-600 border-retropurple-600
+				hover:text-retropurple-100 hover:bg-retropurple-600
+				hover:disabled:text-retropurple-600 hover:disabled:bg-inherit hover:disabled:border-retropurple-600
+				dark:text-retropurple-100 dark:border-retropurple-100
+				dark:hover:bg-retropurple-600
+				dark:disabled:bg-retropurple-500
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
 				"
 				onClick={ (event) => playerShoot( 'rock', event ) }
 			>
@@ -302,9 +307,16 @@ const RockPaperScissors = () => {
 			</button>
 
 			<button
-				className="player-shoot paper items-center
-				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
+				className="paper
+				player-shoot items-center
+				border rounded-md text-center disabled:cursor-not-allowed disabled:opacity-50
+				text-retropurple-600 border-retropurple-600
+				hover:text-retropurple-100 hover:bg-retropurple-600
+				hover:disabled:text-retropurple-600 hover:disabled:bg-inherit hover:disabled:border-retropurple-600
+				dark:text-retropurple-100 dark:border-retropurple-100
+				dark:hover:bg-retropurple-600
+				dark:disabled:bg-retropurple-500
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
 				"
 				onClick={ (event) => playerShoot( 'paper', event ) }
 			>
@@ -314,9 +326,16 @@ const RockPaperScissors = () => {
 			</button>
 
 			<button
-				className="player-shoot scissors items-center
-				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
+				className="scissors
+				player-shoot items-center
+				border rounded-md text-center disabled:cursor-not-allowed disabled:opacity-50
+				text-retropurple-600 border-retropurple-600
+				hover:text-retropurple-100 hover:bg-retropurple-600
+				hover:disabled:text-retropurple-600 hover:disabled:bg-inherit hover:disabled:border-retropurple-600
+				dark:text-retropurple-100 dark:border-retropurple-100
+				dark:hover:bg-retropurple-600
+				dark:disabled:bg-retropurple-500
+				dark:hover:disabled:text-retropurple-100 dark:hover:disabled:border-retropurple-100 dark:hover:disabled:bg-retropurple-600
 				"
 				onClick={ (event) => playerShoot( 'scissors', event ) }
 			>
@@ -327,9 +346,11 @@ const RockPaperScissors = () => {
 		</div>
 
 		<div className="game-actions flex flex-row mx-auto max-w-[60%] xs:max-w-[40%] items-center justify-center">
-			<button onClick={ () => resetGame() } className="play-again invisible flex-grow mt-8 py-2.5 px-5 mr-2 mb-2 text-sm font-medium
-				border text-retropurple-100 border-retropurple-100 hover:bg-retropurple-600 rounded-md text-center
-				disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-retropurple-500
+			<button onClick={ () => resetGame() } className="play-again invisible flex-grow mt-8 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-center border rounded-md
+				 text-retropurple-600 border-retropurple-600
+				 hover:text-retropurple-100 hover:bg-retropurple-600
+				 dark:text-retropurple-100 dark:border-retropurple-100
+				 dark:hover:bg-retropurple-600
 			 "
 				>
 				<span className="button-text">Play Again</span> <span className="button-icon relative top-[-2px]"><MdDoubleArrow size={20} /></span>

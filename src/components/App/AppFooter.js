@@ -10,7 +10,7 @@ const AppFooter = () => {
 	return (
 		<footer className="app-footer sm:flex">
 			<section className="footer-left flex my-8 sm:my-2 flex-shrink justify-center sm:max-w-sm sm:flex sm:flex-1 sm:justify-start sm:items-start">
-				<button className="reset-rps text-retropurple-100 hover:text-red-600 text-center"
+				<button className="reset-rpstext-center hover:text-red-600 dark:text-retropurple-100 dark:hover:text-red-600 "
 					onClick={() => {
 						if ( window.confirm( 'Delete all game data?' ) ) {
 							resetAllRpsData();
