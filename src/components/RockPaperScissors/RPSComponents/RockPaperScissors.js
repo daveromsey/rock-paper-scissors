@@ -35,18 +35,14 @@ import { MdDoubleArrow } from "react-icons/md";
 
 import { useAppContext } from '../../../global/AppContext';
 import { useRPSContext } from '../RPSContext';
-
 import {
 	getShotPercentage,
 	formatPercentage,
 	updateChartShotPctOptions
 } from '../RPSFunctions.js';
 import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
-
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
-
-
 
 const RockPaperScissors = () => {
 	const { getTheme } = useAppContext();

@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.scss';
 
 import { RPSProvider } from './components/RockPaperScissors/RPSContext';
