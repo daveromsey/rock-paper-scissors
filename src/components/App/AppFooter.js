@@ -17,7 +17,7 @@ const AppFooter = () => {
 						}
 					}}
 				>
-					<span className="button-text">Clear Data</span> <span className="button-icon"><BsTrash size={16} /></span>
+					<span className="button-text">Clear Game Data</span> <span className="button-icon"><BsTrash size={16} /></span>
 				</button>
 			</section>
 

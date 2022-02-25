@@ -132,32 +132,12 @@ const RockPaperScissors = () => {
 		<RPSHeading/>
 
 		<RPSPageBreak
-			text="Scoreboard"
+			text="Statistics"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandRock className="rock"/></>}
-			textAfter={<><FaRegHandRock className="rock right"/></>}
-			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-3xl"
+			textAfter={<><FaRegHandRock className="rock opposite"/></>}
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
 		/>
-
-		<div className="scoreboard">
-			{/* <h2>Scoreboard</h2> */}
-			<div className="games-played text-4xl">
-				<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
-			</div>
-			<div className="games-results grid grid-cols-1 xs:grid-cols-3 text-2xl">
-				<p className="wins">
-					<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
-				</p>
-				<p className="losses xs:text-center">
-					<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
-				</p>
-				<p className="draws xs:text-right">
-					<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
-				</p>
-			</div>
-		</div>
-
-		<RPSPageBreak text={<><FaRegHandRock/></>}/>
 
 		<div className="stats">
 			{/* <h2>Stats</h2> */}
@@ -165,7 +145,7 @@ const RockPaperScissors = () => {
 
 				<div className="player-stats xs:pr-2 md:pr-8">
 					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
-						<span className="border-b border-retropurple-100/50 pb-1">
+						<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
 							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4ee]"/> Player Stats
 						</span>
 					</h2>
@@ -199,7 +179,7 @@ const RockPaperScissors = () => {
 							</p>
 						</div>
 					</div>
-					<div className="xs:px-10 react-chartjs">
+					<div className="xs:px-14 react-chartjs">
 						<Radar
 							options={ChartShotPctOptions}
 							data={playerDataChartJS}
@@ -210,7 +190,7 @@ const RockPaperScissors = () => {
 
 				<div className="cpu-stats xs:pl-2 md:pl-8">
 					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
-						<span className="border-b border-retropurple-100/50 pb-1">
+						<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
 							<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> CPU Stats
 						</span>
 					</h2>
@@ -238,7 +218,7 @@ const RockPaperScissors = () => {
 							</p>
 						</div>
 					</div>
-					<div className="xs:px-10 react-chartjs">
+					<div className="xs:px-14 react-chartjs">
 						<Radar
 						options={ChartShotPctOptions}
 						data={cpuDataChartJS}
@@ -264,13 +244,48 @@ const RockPaperScissors = () => {
 					/>
 				</div>
 			</div> */}
-
 		</div>
 
-		<RPSPageBreak text={<><FaRegHandPaper/></>}/>
+		<RPSPageBreak
+			text="Scoreboard"
+			extraTextClassName="px-4"
+			textBefore={<><FaRegHandPaper className="paper"/></>}
+			textAfter={<><FaRegHandPaper className="paper opposite"/></>}
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
+		/>
 
-		<div className="results">
-			<h2>Results</h2>
+		{/* <RPSPageBreak text={<><FaRegHandRock/></>}/> */}
+
+		<div className="scoreboard py-3">
+
+			<div className="games-results flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl ">
+				<p className="games-played sm:text-center">
+					<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
+				</p>
+				<p className="wins sm:text-center">
+					<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
+				</p>
+				<p className="losses sm:text-center">
+					<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
+				</p>
+				<p className="draws sm:text-center">
+					<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
+				</p>
+			</div>
+		</div>
+
+		<RPSPageBreak
+			text="Results"
+			extraTextClassName="px-4"
+			textBefore={<><FaRegHandScissors className="scissors"/></>}
+			textAfter={<><FaRegHandScissors className="scissors opposite"/></>}
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
+		/>
+
+		{/* <RPSPageBreak text={<><FaRegHandPaper/></>}/> */}
+
+		<div className="results py-3">
+			{/* <h2>Results</h2> */}
 			<div className="results-grid grid grid-cols-1 xs:grid-cols-3">
 				<div className="game-winner">
 					<h3>Winner: {game.winner}</h3>
@@ -284,7 +299,8 @@ const RockPaperScissors = () => {
 			</div>
 		</div>
 
-		<RPSPageBreak text={<><FaRegHandScissors/></>}/>
+		{/* <RPSPageBreak text={<><FaRegHandScissors/></>}/> */}
+		<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 
 		<div className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
 			<button

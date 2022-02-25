@@ -69,10 +69,6 @@ button.player-shoot {
 	min-width: 90px;
 	position: relative;
 
-	&.rock svg {
-		//color: black;
-	}
-
 	&.clicked {
 		background-color: #341C47;
 		color: #E0A6DB;
@@ -131,12 +127,50 @@ button.player-shoot {
 	}
 }
 
+.rps-page-break {
+	svg.rock {
+		transform: rotate(90deg) scaleY(1);
+		&.opposite {
+			transform: rotate(90deg) scaleY(-1);
+		}
+	}
+
+	svg.paper {
+		transform: rotate(90deg);
+		&.opposite {
+			transform: rotate(90deg) scaleY(-1);
+		}
+	}
+
+	svg.scissors {
+		transform: rotate(180deg) scaleY(-1);
+		&.opposite {
+			transform: scaleY(1);
+		}
+	}
+}
 
 svg.rock {
 	transform: rotate(90deg) scaleY(-1);
 
-	&.right {
+	&.opposite {
 		transform: rotate(90deg) scaleY(1);
+	}
+}
+
+svg.paper {
+	transform: rotate(90deg) scaleY(-1);
+
+	&.opposite {
+		transform: rotate(90deg);
+	}
+}
+
+svg.scissors {
+	//transform: rotate(90deg) scaleY(-1);
+
+	&.opposite {
+		transform: rotate(180deg) scaleY(-1);
 	}
 }
 
