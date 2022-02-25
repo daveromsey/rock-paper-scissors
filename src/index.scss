@@ -32,8 +32,8 @@
 @import "./assets/sass/utilities.scss";
 
 button.player-shoot {
-	padding: rem-calc( 14px 10px 10px 10px );
 	min-width: 90px;
+	padding: rem-calc( 14px 10px 10px 10px );
 	position: relative;
 
 	&.clicked {
@@ -50,21 +50,20 @@ button.player-shoot {
 	.icon {
 
 		&.stroke {
-			z-index: 10;
 			position: relative;
-			//color: #E6C1E3;
+			z-index: 10;
 		}
 
 		&.fill {
 			display: none;
-			position: absolute;
+			//fill: #603485;
 			// For 58px fill, 70px stroke
 			//top: 16px;
 			//right: calc(50% - 29px);
 			// For 48px fill, 55px stroke
 			top: 13px;
 			right: calc(50% - 24px);
-			//fill: #603485;
+			position: absolute;
 			z-index: 1;
 		}
 	}
@@ -160,8 +159,8 @@ button {
 
 .lcd {
 	background-color: #000;
-	padding: 1px 5px;
 	color: yellow;
+	padding: 1px 5px;
 }
 
 .dark .lcd {
@@ -170,12 +169,79 @@ button {
 
 .react-chartjs {
 	canvas {
-		margin-top: -5%;
 		// Fix extra space at bottom of radar chart when grid is not circular.
 		margin-bottom: -20%;
+		margin-top: -5%;
 	}
 }
 
+.laugh {
+  animation-direction: alternate;
+	animation-duration: 140ms;
+	animation-iteration-count: 10;
+	animation-name: laugh;
+	bottom: rem-calc(4px);
+	position: relative;
+}
+@keyframes laugh {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+@keyframes laugh {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+.back-and-forth {
+	animation: backandforth 2500ms infinite linear;
+}
+
+@keyframes backandforth {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(6deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.back-and-forth-opposite {
+	animation: backandforthopposite 2500ms infinite linear;
+}
+@keyframes backandforthopposite  {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .colors{
 	color: #d9abf3;
 	color: #25d4f3;

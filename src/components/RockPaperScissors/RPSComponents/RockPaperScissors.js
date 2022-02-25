@@ -38,7 +38,9 @@ import { useRPSContext } from '../RPSContext';
 import {
 	getShotPercentage,
 	formatPercentage,
-	updateChartShotPctOptions
+	updateChartShotPctOptions,
+	getWinnerText,
+	getShotOutput
 } from '../RPSFunctions.js';
 import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
 import RPSHeading from './RPSHeading';
@@ -136,13 +138,12 @@ const RockPaperScissors = () => {
 		/>
 
 		<div className="stats">
-			{/* <h2>Stats</h2> */}
 			<div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
 
 				<div className="player-stats xs:pr-2 md:pr-8">
 					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
 						<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
-							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4ee]"/> <span className="name-label font-brand">Player</span>
+							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> <span className="name-label font-brand">Player</span>
 						</span>
 					</h2>
 					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
@@ -223,23 +224,6 @@ const RockPaperScissors = () => {
 					</div>
 				</div>
 			</div>
-
-			{/* <div className="grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-2 text-xl">
-				<div className="px-8 react-chartjs">
-					<Radar
-						options={ChartShotPctOptions}
-						data={playerDataChartJS}
-						ref={playerChartReference}
-					/>
-				</div>
-				<div className="px-8 react-chartjs">
-					<Radar
-						options={ChartShotPctOptions}
-						data={cpuDataChartJS}
-						ref={cpuChartReference}
-					/>
-				</div>
-			</div> */}
 		</div>
 
 		<RPSPageBreak
@@ -249,8 +233,6 @@ const RockPaperScissors = () => {
 			textAfter={<><FaRegHandPaper className="paper opposite"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
-
-		{/* <RPSPageBreak text={<><FaRegHandRock/></>}/> */}
 
 		<div className="scoreboard py-3">
 
@@ -278,24 +260,37 @@ const RockPaperScissors = () => {
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
-		{/* <RPSPageBreak text={<><FaRegHandPaper/></>}/> */}
-
-		<div className="results py-3">
-			{/* <h2>Results</h2> */}
-			<div className="results-grid grid grid-cols-1 xs:grid-cols-3">
-				<div className="game-winner">
-					<h3>Winner: {game.winner}</h3>
-				</div>
-				<div className="player-shot">
-					Your Shot: {game.playerShot}
-				</div>
-				<div className="cpu-shot">
-					CPU Shot: {game.cpuShot}
+		<div className="results py-3 grid grid-cols-1 sm:grid-cols-3 text-xl ">
+			{/* experiment with stacked layout */}
+			<div className="player-shot order-1 mx-auto sm:mx-0">
+				<div className="flex flex-col text-center ">
+					<div className="player">
+						<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> Your Shot
+					</div>
+					{ getShotOutput( game.playerShot ) }
 				</div>
 			</div>
+			{/* <div className="player-shot order-1 mx-auto sm:mx-0">
+				<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> Player Shot: { getShotOutput( game.playerShot ) }
+			</div> */}
+			<div className="game-winner xs:text-center justify-center order-3 xs:order-2 text-2xl font-brand mx-auto sm:mx-0 xs:text-3xl xs:min-h-[56px] mt-2">
+				{ getWinnerText( game.winner ) }
+			</div>
+
+			<div className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">
+				<div className="flex flex-col text-center ">
+					<div className="cpu">
+						<FaUser className="relative text-[22px] top-[-4px] text-[#FF7003ee]"/> CPU Shot
+					</div>
+					{ getShotOutput( game.cpuShot ) }
+				</div>
+			</div>
+
+			{/* <div className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">
+				<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> CPU Shot: { getShotOutput( game.cpuShot ) }
+			</div> */}
 		</div>
 
-		{/* <RPSPageBreak text={<><FaRegHandScissors/></>}/> */}
 		<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 
 		<div className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
