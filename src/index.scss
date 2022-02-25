@@ -65,7 +65,6 @@ button.player-shoot {
 			top: 13px;
 			right: calc(50% - 24px);
 			//fill: #603485;
-			fill: yellow;
 			z-index: 1;
 		}
 	}
@@ -95,6 +94,10 @@ button.player-shoot {
 }
 
 .rps-page-break {
+	svg {
+		display: inline;
+	}
+
 	svg.rock {
 		transform: rotate(90deg) scaleY(1);
 		&.opposite {
@@ -119,7 +122,6 @@ button.player-shoot {
 
 svg.rock {
 	transform: rotate(90deg) scaleY(-1);
-
 	&.opposite {
 		transform: rotate(90deg) scaleY(1);
 	}
@@ -127,15 +129,12 @@ svg.rock {
 
 svg.paper {
 	transform: rotate(90deg) scaleY(-1);
-
 	&.opposite {
 		transform: rotate(90deg);
 	}
 }
 
 svg.scissors {
-	//transform: rotate(90deg) scaleY(-1);
-
 	&.opposite {
 		transform: rotate(180deg) scaleY(-1);
 	}
@@ -145,21 +144,18 @@ svg.react-icon {
 	display: inline;
 }
 
-// Prevent icons from triggering events.
-// https://stackoverflow.com/a/54430159/3059883
+
 button {
 	svg.icon {
 		display: inline;
 	}
 
+	// Prevent icons from triggering events.
+	// https://stackoverflow.com/a/54430159/3059883
 	.icon,
 	.button-text {
 	  pointer-events: none;
 	}
-}
-
-.rps-page-break svg {
-	display: inline;
 }
 
 .lcd {
