@@ -1,27 +1,6 @@
-import React from 'react'
-import {
-	FaUser,
-	FaRobot,
-	FaRegHandRock, // Stroke
-	FaRegHandPaper, // Stroke
-	FaRegHandScissors, // Stroke
-	FaHandRock, // Fill
-	FaHandPaper, // Fill
-	FaHandScissors, // Fill
-	FaGithub,
-
-	FaMedal,
-	FaAward,
-	FaTrophy,
-	FaRegSadCry,
-	FaCat,
-	FaRegWindowClose,
-	FaWindowClose,
-} from "react-icons/fa";
-import { MdDoubleArrow } from "react-icons/md";
-import { GiCrossedSwords, GiCrossedPistols } from "react-icons/gi";
-
-import Sparkles from 'react-sparkle'
+import WinnerPlayer from './RPSComponents/WinnerPlayer';
+import WinnerCPU from './RPSComponents/WinnerCPU';
+import WinnerDraw from './RPSComponents/WinnerDraw';
 
 // The possible shot choices.
 export const shots = [
@@ -318,51 +297,32 @@ export const updateChartShotPctOptions = ( chartOptions, theme ) => {
 	return chartOptions;
 }
 
-export const getWinnerText = ( winner ) => {
+export const getShotResultText = ( shot ) => {
+	if ( 'rock' === shot ) {
+		return 'Rock';
+	}
+
+	if ( 'paper' === shot ) {
+		return 'Paper';
+	}
+
+	if ( 'scissors' === shot ) {
+		return 'Scissors';
+	}
+}
+
+export const getWinnerComponent = ( winner ) => {
 	if ( 'player' === winner ) {
-		return <span className="winner player inline-block relative">
-			<FaTrophy className="text-[#f3d014] relative top-[-4px] back-and-forth"/>
-			<span className="text-[#25d5f4cc]"> You Win! </span>
-			<FaTrophy className="text-[#f3d014] relative top-[-4px] back-and-forth-opposite"/>
-			<Sparkles color={"#f3d014"} fadeOutSpeed={50} flicker={true} flickerSpeed={'slowest'} count={35}/>
-		</span>;
+		return <WinnerPlayer />;
 	}
 
 	if ( 'cpu' === winner ) {
-		return <span className="winner cpu ">
-			<FaRobot className="laugh text-[#FF7003ee]"/>
-			<span className=""> You Lose </span>
-			<FaRobot className="laugh text-[#FF7003ee]"/>
-		</span>;
+		return <WinnerCPU />;
 	}
 
 	if ( 'draw' === winner ) {
-		return <span className="winner draw">
-			<GiCrossedPistols className="relative top-[-4px]"/>
-			<span className=""> Draw </span>
-			<GiCrossedPistols className="relative top-[-4px]"/>
-		</span>;
+		return <WinnerDraw />
 	}
 }
 
-export const getShotOutput = ( shot ) => {
-	if ( 'rock' === shot ) {
-		return <span className="shot-output font-brand">
-			<span className="font-brand pt-2">Rock </span>
-			<FaRegHandRock className="rock relative top-[-2px]"/>
-		</span>;
-	}
-	if ( 'paper' === shot ) {
-		return <span className="shot-output font-brand">
-			<span className="font-brand pt-2">Paper </span>
-			<FaRegHandPaper className="paper relative top-[-2px]"/>
-		</span>;
-	}
-	if ( 'scissors' === shot ) {
-		return <span className="shot-output font-brand">
-			<span className="font-brand pt-2">Scissors </span>
-			<FaRegHandScissors className="scissors relative top-[-2px]"/>
-		</span>;
-	}
-}
 

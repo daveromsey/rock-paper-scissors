@@ -39,10 +39,10 @@ import {
 	getShotPercentage,
 	formatPercentage,
 	updateChartShotPctOptions,
-	getWinnerText,
-	getShotOutput
+	getWinnerComponent,
 } from '../RPSFunctions.js';
 import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
+import ShotResult from './ShotResult';
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
 
@@ -267,14 +267,16 @@ const RockPaperScissors = () => {
 					<div className="player">
 						<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> Your Shot
 					</div>
-					{ getShotOutput( game.playerShot ) }
+					<ShotResult shot={game.playerShot} />
+					{/* { getShotResultComponent( game.playerShot ) } */}
 				</div>
 			</div>
+			{/* simple layout */}
 			{/* <div className="player-shot order-1 mx-auto sm:mx-0">
 				<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> Player Shot: { getShotOutput( game.playerShot ) }
 			</div> */}
 			<div className="game-winner xs:text-center justify-center order-3 xs:order-2 text-2xl font-brand mx-auto sm:mx-0 xs:text-3xl xs:min-h-[56px] mt-2">
-				{ getWinnerText( game.winner ) }
+				{ getWinnerComponent( game.winner ) }
 			</div>
 
 			<div className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">
@@ -282,10 +284,11 @@ const RockPaperScissors = () => {
 					<div className="cpu">
 						<FaUser className="relative text-[22px] top-[-4px] text-[#FF7003ee]"/> CPU Shot
 					</div>
-					{ getShotOutput( game.cpuShot ) }
+					<ShotResult shot={game.cpuShot} />
+					{/* { getShotResultComponent( game.cpuShot ) } */}
 				</div>
 			</div>
-
+			{/* simple layout */}
 			{/* <div className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">
 				<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> CPU Shot: { getShotOutput( game.cpuShot ) }
 			</div> */}
