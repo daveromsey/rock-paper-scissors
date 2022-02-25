@@ -22,7 +22,7 @@ import {
 	FaHandRock, // Fill
 	FaHandPaper, // Fill
 	FaHandScissors, // Fill
-	FaGithub,
+	// FaGithub,
 	// FaMedal,
 	// FaAward,
 	// FaTrophy,
@@ -59,7 +59,7 @@ const RockPaperScissors = () => {
 	const shotIconFillSize = 48;
 
 	// Update charts using new options when the theme is changed.
-	useEffect(() => {
+	useEffect( () => {
 		let options = updateChartShotPctOptions( ChartShotPctOptions, getTheme(), false );
 
 		playerChartReference.current.options = options;
@@ -67,7 +67,7 @@ const RockPaperScissors = () => {
 
 		cpuChartReference.current.options = options;
 		cpuChartReference.current.update();
-  }, [theme] );
+  }, [theme, ChartShotPctOptions, getTheme] );
 
 	const {
 		playerShoot,
