@@ -132,7 +132,7 @@ const RockPaperScissors = () => {
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandRock className="rock"/></>}
 			textAfter={<><FaRegHandRock className="rock opposite"/></>}
-			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
 		<div className="stats">
@@ -142,7 +142,7 @@ const RockPaperScissors = () => {
 				<div className="player-stats xs:pr-2 md:pr-8">
 					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
 						<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
-							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4ee]"/> Player Stats
+							<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4ee]"/> <span className="name-label font-brand">Player</span>
 						</span>
 					</h2>
 					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
@@ -187,7 +187,7 @@ const RockPaperScissors = () => {
 				<div className="cpu-stats xs:pl-2 md:pl-8">
 					<h2 className="player-stats-heading text-2xl text-center pb-4 mb-4">
 						<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
-							<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> CPU Stats
+							<FaRobot className="relative text-[26px] top-[-4px] text-[#FF7003ee]"/> <span className="name-label font-brand">CPU</span>
 						</span>
 					</h2>
 					<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2">
@@ -247,14 +247,14 @@ const RockPaperScissors = () => {
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandPaper className="paper"/></>}
 			textAfter={<><FaRegHandPaper className="paper opposite"/></>}
-			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
 		{/* <RPSPageBreak text={<><FaRegHandRock/></>}/> */}
 
 		<div className="scoreboard py-3">
 
-			<div className="games-results flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl ">
+			<div className="games-results flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl md:text-3xl">
 				<p className="games-played sm:text-center">
 					<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
 				</p>
@@ -275,7 +275,7 @@ const RockPaperScissors = () => {
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandScissors className="scissors"/></>}
 			textAfter={<><FaRegHandScissors className="scissors opposite"/></>}
-			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl"
+			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
 		{/* <RPSPageBreak text={<><FaRegHandPaper/></>}/> */}

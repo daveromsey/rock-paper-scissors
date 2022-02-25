@@ -14,7 +14,7 @@ const RPSPageBreak = ( {
 				? <></>
 				: <span className={`flex-shrink mx-4 flex items-center ${extraContentClassName}`}>
 						{textBefore}
-						<span className={`text ${extraTextClassName}`}>{text}</span>
+						<span className={`text font-brand ${extraTextClassName}`}>{text}</span>
 						{textAfter}
 					</span>
 		}
