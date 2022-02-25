@@ -3,7 +3,7 @@ import { getShotResultText } from '../RPSFunctions.js';
 
 const ShotResult = ( {shot} ) => {
 	let shotIcon;
-	const classNames = `${shot} relative top-[-2px] `;
+	const classNames = `${shot} relative top-[-2px]`;
 
 	if ( 'rock' === shot ) {
 		shotIcon = <FaRegHandRock className={classNames}/>

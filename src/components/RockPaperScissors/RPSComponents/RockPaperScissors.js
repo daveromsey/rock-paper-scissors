@@ -261,8 +261,9 @@ const RockPaperScissors = () => {
 		/>
 
 		<div className="results py-3 grid grid-cols-1 sm:grid-cols-3 text-xl ">
+
 			<div className="player-shot order-1 mx-auto sm:mx-0">
-				<div className="flex flex-col text-center ">
+				<div className="flex flex-col text-center">
 					<div className="player">
 						<FaUser className="relative text-[22px] top-[-4px] text-[#25d5f4cc]"/> Your Shot
 					</div>
@@ -275,13 +276,14 @@ const RockPaperScissors = () => {
 			</div>
 
 			<div className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">
-				<div className="flex flex-col text-center ">
+				<div className="flex flex-col text-center">
 					<div className="cpu">
 						<FaRobot className="relative text-[22px] top-[-4px] text-[#FF7003ee]"/> CPU Shot
 					</div>
 					<ShotResult shot={game.cpuShot} />
 				</div>
 			</div>
+
 		</div>
 
 		<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
