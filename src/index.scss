@@ -175,6 +175,7 @@ button {
 	}
 }
 
+// Used to make the CPU robot icon laugh when player loses.
 .laugh {
   animation-direction: alternate;
 	animation-duration: 140ms;
@@ -183,14 +184,7 @@ button {
 	bottom: rem-calc(4px);
 	position: relative;
 }
-@keyframes laugh {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2px);
-  }
-}
+
 @keyframes laugh {
   from {
     transform: translateY(0px);
@@ -200,6 +194,7 @@ button {
   }
 }
 
+// Used for rocking the trophy icon when player wins.
 .back-and-forth {
 	animation: backandforth 2500ms infinite linear;
 }
@@ -225,6 +220,7 @@ button {
 .back-and-forth-reverse {
 	animation: backandforthreverse 2500ms infinite linear;
 }
+
 @keyframes backandforthreverse  {
   0% {
     transform: rotate(0deg);
@@ -242,11 +238,12 @@ button {
     transform: rotate(0deg);
   }
 }
+
+// Not used. Just here for previewing colors.
 .colors{
 	color: #d9abf3;
 	color: #25d4f3;
 	color: rgba(37, 213, 244, 0.424);
-	color: rgb(255, 255, 0);
 	color: #FFDFFC;
 	color: #E6C1E3;
 	color: #E0A6DB;
