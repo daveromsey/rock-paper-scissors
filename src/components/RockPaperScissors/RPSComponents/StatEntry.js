@@ -2,7 +2,7 @@ const StatEntry = ( {
 	label,
 	value,
 	titleAttr = null,
-	containerClassName = false,
+	containerClassName = null,
 	extraLabelClasses = '',
 	extraValueClasses = '',
 } ) => {
