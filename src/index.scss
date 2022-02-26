@@ -178,8 +178,8 @@ button {
 // Used to make the CPU robot icon laugh when player loses.
 .laugh {
   animation-direction: alternate;
-	animation-duration: 140ms;
-	animation-iteration-count: 10;
+	animation-duration: 90ms;
+	animation-iteration-count: 12;
 	animation-name: laugh;
 	bottom: rem-calc(4px);
 	position: relative;
