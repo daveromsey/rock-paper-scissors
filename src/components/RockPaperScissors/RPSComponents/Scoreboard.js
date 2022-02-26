@@ -1,14 +1,14 @@
 import StatEntry from './StatEntry';
 
-const Scoreboard = ( {gamesPlayed, stats} ) => {
+const Scoreboard = ( { gamesPlayed, stats } ) => {
 
 	return (
-		<div className="scoreboard py-3 flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl md:text-3xl">
+		<section className="scoreboard flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl md:text-3xl py-3">
 			<StatEntry label="Games Played " value={gamesPlayed} />
 			<StatEntry label="Wins " value={stats.player.winTotal} />
 			<StatEntry label="Losses " value={stats.player.lossTotal} />
 			<StatEntry label="Draws " value={stats.player.drawTotal} />
-		</div>
+		</section>
 	);
 }
 

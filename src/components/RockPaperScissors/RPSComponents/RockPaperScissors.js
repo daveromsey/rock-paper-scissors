@@ -51,7 +51,7 @@ const RockPaperScissors = () => {
 				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 			/>
 
-			<Scoreboard gamesPlayed={gamesPlayed} stats={stats} />
+			<Scoreboard stats={stats} gamesPlayed={gamesPlayed} />
 
 			<RPSPageBreak
 				text="Results"
@@ -69,7 +69,7 @@ const RockPaperScissors = () => {
 
 			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 
-			<div className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
+			<section className="player-shot-controls pt-2 xs:pt-8 grid grid-cols-3 gap-4 sm:gap-8 items-center max-w-2xl mx-auto">
 				<button
 					className="rock
 					player-shoot items-center
@@ -126,9 +126,9 @@ const RockPaperScissors = () => {
 					<FaHandScissors size={shotIconFillSize} className="fill inline-block scissors"/>
 					<span className="button-text font-brand block pt-2">Scissors</span>
 				</button>
-			</div>
+			</section>
 
-			<div className="game-actions flex flex-row mx-auto max-w-[60%] xs:max-w-[40%] items-center justify-center">
+			<section className="game-actions flex flex-row mx-auto max-w-[60%] xs:max-w-[40%] items-center justify-center">
 				<button onClick={ () => resetGame() } className="play-again invisible flex-grow mt-8 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-center border rounded-md
 					text-retropurple-600 border-retropurple-600
 					hover:text-retropurple-100 hover:bg-retropurple-600
@@ -138,7 +138,7 @@ const RockPaperScissors = () => {
 					>
 					<span className="button-text">Play Again</span> <span className="button-icon relative top-[-2px]"><MdDoubleArrow size={20} /></span>
 				</button>
-			</div>
+			</section>
 
 			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
 	 </article>

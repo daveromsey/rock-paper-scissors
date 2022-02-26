@@ -2,8 +2,7 @@ import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa
 import { getShotResultText } from '../RPSFunctions.js';
 
 const ShotResult = ( {shot} ) => {
-	let icon;
-	let iconReverse;
+	let icon, iconReverse;
 	const reverseClassName = 'reverse';
 	const classNames = `${shot} relative top-[-2px]`;
 

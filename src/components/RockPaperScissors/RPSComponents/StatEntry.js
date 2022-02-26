@@ -3,8 +3,8 @@ const StatEntry = ( {
 	value,
 	titleAttr = null,
 	containerClassName = null,
-	extraLabelClasses = '',
-	extraValueClasses = '',
+	extraLabelClasses = null,
+	extraValueClasses = null,
 } ) => {
 	return (
 		<p className={`stat ${containerClassName}`} title={titleAttr}>
