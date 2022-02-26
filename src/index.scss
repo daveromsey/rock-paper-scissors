@@ -99,21 +99,21 @@ button.player-shoot {
 
 	svg.rock {
 		transform: rotate(90deg) scaleY(1);
-		&.opposite {
+		&.reverse {
 			transform: rotate(90deg) scaleY(-1);
 		}
 	}
 
 	svg.paper {
 		transform: rotate(90deg);
-		&.opposite {
+		&.reverse {
 			transform: rotate(90deg) scaleY(-1);
 		}
 	}
 
 	svg.scissors {
 		transform: rotate(180deg) scaleY(-1);
-		&.opposite {
+		&.reverse {
 			transform: scaleY(1);
 		}
 	}
@@ -121,20 +121,20 @@ button.player-shoot {
 
 svg.rock {
 	transform: rotate(90deg) scaleY(-1);
-	&.opposite {
+	&.reverse {
 		transform: rotate(90deg) scaleY(1);
 	}
 }
 
 svg.paper {
 	transform: rotate(90deg) scaleY(-1);
-	&.opposite {
+	&.reverse {
 		transform: rotate(90deg);
 	}
 }
 
 svg.scissors {
-	&.opposite {
+	&.reverse {
 		transform: rotate(180deg) scaleY(-1);
 	}
 }
@@ -222,10 +222,10 @@ button {
   }
 }
 
-.back-and-forth-opposite {
-	animation: backandforthopposite 2500ms infinite linear;
+.back-and-forth-reverse {
+	animation: backandforthreverse 2500ms infinite linear;
 }
-@keyframes backandforthopposite  {
+@keyframes backandforthreverse  {
   0% {
     transform: rotate(0deg);
   }

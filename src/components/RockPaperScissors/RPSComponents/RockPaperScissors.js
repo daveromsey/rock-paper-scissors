@@ -133,7 +133,7 @@ const RockPaperScissors = () => {
 			text="Statistics"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandRock className="rock"/></>}
-			textAfter={<><FaRegHandRock className="rock opposite"/></>}
+			textAfter={<><FaRegHandRock className="rock reverse"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
@@ -230,7 +230,7 @@ const RockPaperScissors = () => {
 			text="Scoreboard"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandPaper className="paper"/></>}
-			textAfter={<><FaRegHandPaper className="paper opposite"/></>}
+			textAfter={<><FaRegHandPaper className="paper reverse"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
@@ -256,7 +256,7 @@ const RockPaperScissors = () => {
 			text="Results"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandScissors className="scissors"/></>}
-			textAfter={<><FaRegHandScissors className="scissors opposite"/></>}
+			textAfter={<><FaRegHandScissors className="scissors reverse"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
@@ -271,7 +271,7 @@ const RockPaperScissors = () => {
 				</div>
 			</div>
 
-			<div className="game-winner xs:text-center justify-center order-3 xs:order-2 text-2xl font-brand mx-auto sm:mx-0 xs:text-3xl xs:min-h-[56px] mt-2">
+			<div className="game-winner xs:text-center justify-center order-3 xs:order-2 text-2xl font-brand mx-auto sm:mx-0 xs:text-3xl xs:min-h-[56px] mt-3">
 				{ getWinnerComponent( game.winner ) }
 			</div>
 
