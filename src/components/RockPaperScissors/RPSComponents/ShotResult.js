@@ -25,7 +25,7 @@ const ShotResult = ( {shot} ) => {
 	return (
 		<span className="shot-output font-brand mt-1">
 			{icon}
-				<span className="font-brand pt-2"> {getShotResultText( shot )} </span>
+				<span className="font-brand pt-2 mx-1"> {getShotResultText( shot )} </span>
 			{iconReverse}
 		</span>
 	);
