@@ -45,6 +45,7 @@ import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
 
 import RPSHeading from './RPSHeading';
 import RPSPageBreak from './RPSPageBreak';
+import Scoreboard from './Scoreboard';
 import Results from './Results';
 
 const RockPaperScissors = () => {
@@ -235,23 +236,7 @@ const RockPaperScissors = () => {
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 
-		<div className="scoreboard py-3">
-
-			<div className="games-results flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl md:text-3xl">
-				<p className="games-played sm:text-center">
-					<span className="stat-label">Games Played: </span><span className="font-digital-italic lcd">{gamesPlayed}</span>
-				</p>
-				<p className="wins sm:text-center">
-					<span className="stat-label">Wins: </span><span className="font-digital-italic lcd">{stats.player.winTotal}</span>
-				</p>
-				<p className="losses sm:text-center">
-					<span className="stat-label">Losses: </span><span className="font-digital-italic lcd">{stats.player.lossTotal}</span>
-				</p>
-				<p className="draws sm:text-center">
-					<span className="stat-label">Draws: </span><span className="font-digital-italic lcd">{stats.player.drawTotal}</span>
-				</p>
-			</div>
-		</div>
+		<Scoreboard gamesPlayed={gamesPlayed} stats={stats} />
 
 		 <RPSPageBreak
 			text="Results"
