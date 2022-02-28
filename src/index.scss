@@ -127,25 +127,6 @@ button.player-shoot {
 	}
 }
 
-// Used to make the CPU robot icon laugh when player loses.
-.laugh {
-  animation-direction: alternate;
-	animation-duration: 90ms;
-	animation-iteration-count: 12;
-	animation-name: laugh;
-	bottom: rem-calc(4px);
-	position: relative;
-}
-
-@keyframes laugh {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2px);
-  }
-}
-
 // Used for rocking the trophy icon back and forth when player wins.
 .back-and-forth {
 	animation: backandforth 2500ms infinite linear;
@@ -188,6 +169,25 @@ button.player-shoot {
 		}
 		100% {
 			transform: rotate(0deg);
+		}
+	}
+}
+
+// Used to make the CPU robot icon laugh when player loses.
+.laugh {
+  animation-direction: alternate;
+	animation-duration: 90ms;
+	animation-iteration-count: 12;
+	animation-name: laugh;
+	bottom: rem-calc(4px);
+	position: relative;
+
+	@keyframes laugh {
+		from {
+			transform: translateY(0px);
+		}
+		to {
+			transform: translateY(-2px);
 		}
 	}
 }
