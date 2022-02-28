@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "version": "0.1.0",
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@fontsource/open-sans": "^4.5.5",
