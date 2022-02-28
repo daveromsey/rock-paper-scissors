@@ -17,11 +17,11 @@ export const shots = [
 ];
 
 /**
- * Gets the human readable version of a shot name.
+ * Gets the human-readable version of a shot name.
  *
  * @param {string} shot The name of the shot, 'rock'|'paper'|scissors.
  *
- * @return {string} The human readable version of a shot name.
+ * @return {string} The human-readable version of a shot name.
  */
  export const getShotNiceName = ( shot ) => {
 	if ( 'rock' === shot ) {
