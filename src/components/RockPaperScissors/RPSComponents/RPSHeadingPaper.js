@@ -8,8 +8,8 @@ const RPSHeadingPaper = ( { text } ) => {
 		<RPSHeading
 			text={text}
 			extraTextClassName="px-4"
-			textBefore={<><FaRegHandPaper className="paper"/></>}
-			textAfter={<><FaRegHandPaper className="paper reverse"/></>}
+			textBefore={<><FaRegHandPaper className="paper reverse"/></>}
+			textAfter={<><FaRegHandPaper className="paper"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 	);

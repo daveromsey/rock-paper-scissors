@@ -31,10 +31,50 @@
 @import "./assets/sass/fonts.scss";
 @import "./assets/sass/utilities.scss";
 
+// Prevent icons from triggering events.
+// https://stackoverflow.com/a/54430159/3059883
+button {
+	.icon,
+	.button-text {
+	  pointer-events: none;
+	}
+}
+
+// Adjust Rock, Paper, and Scissor icons to desired orientations.
+svg {
+	&.react-icon {
+		display: inline;
+	}
+
+	&.rock {
+		transform: rotate(90deg) scaleY(-1);
+		&.reverse {
+			transform: rotate(90deg) scaleY(1);
+		}
+	}
+
+	&.paper {
+		transform: rotate(90deg) scaleY(-1);
+		&.reverse {
+			transform: rotate(90deg);
+		}
+	}
+
+	&.scissors {
+		&.reverse {
+			transform: rotate(180deg) scaleY(-1);
+		}
+	}
+}
+
+// Player shoot buttons .clicked (added by JS) styles.
 button.player-shoot {
-	min-width: 90px;
-	padding: rem-calc( 14px 10px 10px 10px );
-	position: relative;
+	.icon {
+		&.fill {
+			display: none; // Hide fill for now.
+			right: calc(50% - 24px); // For 48px fill, 55px stroke
+		}
+	}
 
 	&.clicked {
 		background-color: #341C47;
@@ -47,125 +87,34 @@ button.player-shoot {
 		}
 	}
 
-	.icon {
-
-		&.stroke {
-			position: relative;
-			z-index: 10;
-		}
-
-		&.fill {
-			display: none;
-			//fill: #603485;
-			// For 58px fill, 70px stroke
-			//top: 16px;
-			//right: calc(50% - 29px);
-			// For 48px fill, 55px stroke
-			top: 13px;
-			right: calc(50% - 24px);
-			position: absolute;
-			z-index: 1;
-		}
+	&:active {
+		transform: translateY(rem-calc(4px)); // Press effect.
 	}
 
-	&:hover {
-		.icon {
-			&.stroke {
-				//color: #341C47;
+	.dark & {
+		&.clicked {
+			background-color: #341C47;
+			color: #E6C1E3;
+
+			&:hover {
+				background-color: #341C47;
 			}
 		}
 	}
-
-	&:active {
-		transform: translateY(rem-calc(4px));
-	}
 }
 
-.dark button.player-shoot {
-	&.clicked {
-		background-color: #341C47;
-		color: #E6C1E3;
-
-		&:hover {
-			background-color: #341C47;
-		}
-	}
-}
-
-.rps-heading {
-	svg {
-		display: inline;
-	}
-
-	svg.rock {
-		transform: rotate(90deg) scaleY(1);
-		&.reverse {
-			transform: rotate(90deg) scaleY(-1);
-		}
-	}
-
-	svg.paper {
-		transform: rotate(90deg);
-		&.reverse {
-			transform: rotate(90deg) scaleY(-1);
-		}
-	}
-
-	svg.scissors {
-		transform: rotate(180deg) scaleY(-1);
-		&.reverse {
-			transform: scaleY(1);
-		}
-	}
-}
-
-svg.rock {
-	transform: rotate(90deg) scaleY(-1);
-	&.reverse {
-		transform: rotate(90deg) scaleY(1);
-	}
-}
-
-svg.paper {
-	transform: rotate(90deg) scaleY(-1);
-	&.reverse {
-		transform: rotate(90deg);
-	}
-}
-
-svg.scissors {
-	&.reverse {
-		transform: rotate(180deg) scaleY(-1);
-	}
-}
-
-svg.react-icon {
-	display: inline;
-}
-
-button {
-	svg.icon {
-		display: inline;
-	}
-
-	// Prevent icons from triggering events.
-	// https://stackoverflow.com/a/54430159/3059883
-	.icon,
-	.button-text {
-	  pointer-events: none;
-	}
-}
-
+// LCD styles.
 .lcd {
 	background-color: #000;
 	color: yellow;
 	padding: 1px 5px;
+
+	.dark & {
+		color: #ff0000cc;
+	}
 }
 
-.dark .lcd {
-	color: #ff0000cc;
-}
-
+// ChartJS styles.
 .react-chartjs {
 	canvas {
 		// Fix extra space at bottom of radar chart when grid is not circular.
@@ -193,73 +142,75 @@ button {
   }
 }
 
-// Used for rocking the trophy icon when player wins.
+// Used for rocking the trophy icon back and forth when player wins.
 .back-and-forth {
 	animation: backandforth 2500ms infinite linear;
+
+	@keyframes backandforth {
+		0% {
+			transform: rotate(0deg);
+		}
+		25% {
+			transform: rotate(6deg);
+		}
+		50% {
+			transform: rotate(0deg);
+		}
+		75% {
+			transform: rotate(-6deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 }
 
-@keyframes backandforth {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(6deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-6deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
+// Used for rocking the trophy icon back and forth when player wins.
 .back-and-forth-reverse {
 	animation: backandforthreverse 2500ms infinite linear;
+
+	@keyframes backandforthreverse  {
+		0% {
+			transform: rotate(0deg);
+		}
+		25% {
+			transform: rotate(-6deg);
+		}
+		50% {
+			transform: rotate(0deg);
+		}
+		75% {
+			transform: rotate(6deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 }
 
-@keyframes backandforthreverse  {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-6deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(6deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
+// Spin the guns when the game is a draw.
 .spin {
 	animation-name: spin;
 	animation-duration: 700ms;
 	animation-iteration-count: 1;
 	animation-timing-function: ease;
-	transition: cubic-bezier(0.76, 0.09, 0.42, 0.69)
-}
+	transition: cubic-bezier(0.76, 0.09, 0.42, 0.69);
 
-@keyframes spin {
-	from {
-		transform:rotate(0deg);
-	}
-	to {
-		transform:rotate(2160deg);
+	@keyframes spin {
+		from {
+			transform:rotate(0deg);
+		}
+		to {
+			transform:rotate(2160deg);
+		}
 	}
 }
 
 // Not used. Just here for previewing colors.
 .colors{
 	color: #d9abf3;
-	color: #25d4f3;
-	color: rgba(37, 213, 244, 0.424);
+	color: #25d4f3; // Player
+	color: rgba(37, 213, 244, 0.424); // Player fill
 	color: #FFDFFC;
 	color: #E6C1E3;
 	color: #E0A6DB;

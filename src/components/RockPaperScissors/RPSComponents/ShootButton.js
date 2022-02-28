@@ -17,29 +17,29 @@ const ShootButton = ( { shot } ) => {
 
 	if ( 'rock' === shot ) {
 		icons = <>
-			<FaRegHandRock size={iconSize} className={`stroke inline-block ${shot}`} />
-			<FaHandRock size={iconFillSize} className={`fill inline-block ${shot}`} />
+			<FaRegHandRock size={iconSize} className={`stroke relative inline-block z-10 ${shot}`} />
+			<FaHandRock size={iconFillSize} className={`fill absolute inline-block ${shot}`} />
 		</>;
 	}
 
 	if ( 'paper' === shot ) {
 		icons = <>
-			<FaRegHandPaper size={iconSize} className={`stroke inline-block ${shot}`} />
-			<FaHandPaper size={iconFillSize} className={`fill inline-block ${shot}`} />
+			<FaRegHandPaper size={iconSize} className={`stroke relative inline-block z-10 ${shot}`} />
+			<FaHandPaper size={iconFillSize} className={`fill absolute inline-block ${shot}`} />
 		</>;
 	}
 
 	if ( 'scissors' === shot ) {
 		icons = <>
-			<FaRegHandScissors size={iconSize} className={`stroke inline-block ${shot}`} />
-			<FaHandScissors size={iconFillSize} className={`fill inline-block ${shot}`} />
+			<FaRegHandScissors size={iconSize} className={`stroke relative inline-block z-10 ${shot}`} />
+			<FaHandScissors size={iconFillSize} className={`fill absolute inline-block ${shot}`} />
 		</>;
 	}
 
   return (
 		<button
 			className={`${shot}
-			player-shoot items-center
+			player-shoot items-center relative min-w-[90px] pt-3.5 px-2.5 pb-2.5
 			border rounded-md text-center disabled:cursor-not-allowed disabled:opacity-50
 			text-retropurple-600 border-retropurple-600
 			hover:text-retropurple-100 hover:bg-retropurple-600

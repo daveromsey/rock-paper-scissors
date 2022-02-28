@@ -8,8 +8,8 @@ const RPSHeadingRock = ( { text } ) => {
 		<RPSHeading
 			text={text}
 			extraTextClassName="px-4"
-			textBefore={<><FaRegHandRock className="rock"/></>}
-			textAfter={<><FaRegHandRock className="rock reverse"/></>}
+			textBefore={<><FaRegHandRock className="rock reverse"/></>}
+			textAfter={<><FaRegHandRock className="rock"/></>}
 			extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
 		/>
 	);
