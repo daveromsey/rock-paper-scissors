@@ -1,6 +1,15 @@
-import isEmpty from "lodash/isEmpty"
+/**
+ * @file Various functions used by Rock Paper Scissors components.
+ */
 
-// The possible shot choices.
+// Bring in Lodash functions individually.
+import isEmpty from "lodash/isEmpty";
+
+/**
+ * The possible shot choices.
+ *
+ * @var {array} shots
+ */
 export const shots = [
 	'rock',
 	'paper',
@@ -8,11 +17,30 @@ export const shots = [
 ];
 
 /**
+ * Gets the human readable version of a shot name.
+ *
+ * @param {string} shot The name of the shot, 'rock'|'paper'|scissors.
+ *
+ * @return {string} The human readable version of a shot name.
+ */
+ export const getShotNiceName = ( shot ) => {
+	if ( 'rock' === shot ) {
+		return 'Rock';
+	}
+
+	if ( 'paper' === shot ) {
+		return 'Paper';
+	}
+
+	if ( 'scissors' === shot ) {
+		return 'Scissors';
+	}
+}
+
+/**
  * Generate a random shot for the CPU.
  *
- * @author Dave Romsey <david.romsey@webdevstudios.com>
- *
- * @return string rock|paper|scissors
+ * @returns {string} Random selection of 'rock'|'paper'|'scissors'.
  */
 export const cpuShoot = () => {
 	return shots[ Math.floor( Math.random() * shots.length ) ];
@@ -21,12 +49,10 @@ export const cpuShoot = () => {
 /**
  * Determine who won the game based on each player's shot.
  *
- * @author Dave Romsey <david.romsey@webdevstudios.com>
+ * @param {string} playerShot The player's shot.
+ * @param {string} cpuShot    The CPU's shot.
  *
- * @param string playerShot The player's shot.
- * @param string cpuShot    The CPU's shot.
- *
- * @return string|null player|cpu|draw or null on error.
+ * @return {string|null} The name of the winner: 'player'|'cpu'|'draw' or null on error.
  */
 export const getGameResult = ( playerShot, cpuShot ) => {
 	// Handle a draw.
@@ -59,11 +85,9 @@ export const getGameResult = ( playerShot, cpuShot ) => {
 /**
  * Calculate stats for the Player and CPU.
  *
- * @author Dave Romsey <david.romsey@webdevstudios.com>
-
- * @param array games Games data
-
- * @return object stats Stats for both player and CPU.
+ * @param {array} games Games data.
+ *
+ * @return {object} Stats for both player and CPU.
  */
 export const getStats = ( games ) => {
 
@@ -216,8 +240,14 @@ export const getStats = ( games ) => {
 	return stats;
 };
 
-// Calculate win percentage based on wins and losses only.
-// Value 0-1.
+/**
+ * Calculate win percentage based on wins and losses, ignoring draws.
+ *
+ * @param {number} wins   The number of wins.
+ * @param {number} losses The number of losses.
+ *
+ * @return {number} Win percentage as a decimal from 0 to 1.
+ */
 export const getWinPercentage = ( wins, losses ) =>  {
 	let winPct = wins / ( wins + losses );
 
@@ -232,6 +262,15 @@ export const getWinPercentage = ( wins, losses ) =>  {
 	return winPct;
 }
 
+/**
+ * Calculate shot percentage based on number of uses of the shot
+ * and the number of games played.
+ *
+ * @param {number} shots The number of times a particular shot was used.
+ * @param {number} total The number of games played.
+ *
+ * @return {number} Shot usage percentage as a decimal from 0 to 1.
+ */
 export const getShotPercentage = ( shots, total ) =>  {
 	if ( 0 === shots ) {
 		return 0;
@@ -240,6 +279,13 @@ export const getShotPercentage = ( shots, total ) =>  {
 	return shots / total;
 }
 
+/**
+ * Formats a percentage expressed as a number of 0 to 1 as a percentage.
+ *
+ * @param {number} percentage The percentage to format.
+ *
+ * @return {string} The formatted percentage value.
+ */
 export const formatPercentage = ( percentage ) => {
 	const formatter = Intl.NumberFormat('en-US', {
 		style: 'percent',
@@ -249,6 +295,20 @@ export const formatPercentage = ( percentage ) => {
 	return formatter.format( percentage );
 }
 
+/**
+ * Prepends a space to the specified class name when necessary.
+ *
+ * @param {string} className The class name, or multiple class names separated by spaces.
+ *
+ * @return {string} The class name string prepended with a space, when necessary.
+ */
+ export const formatClassName = ( className ) => {
+	return ( isEmpty( className ) ) ? '' : ' ' + className;
+}
+
+/**
+ * Resets the state of the Shoot buttons.
+ */
 export const resetShootButtonStates = () => {
 	// Reset shoot buttons.
 	const playerShootButtons = document.querySelectorAll('.player-shoot');
@@ -262,6 +322,14 @@ export const resetShootButtonStates = () => {
 	playAgainButton.classList.add('invisible');
 }
 
+/**
+ * Formats a percentage expressed as a number of 0 to 1 as a percentage.
+ *
+ * @param {string} chartPiece The percentage to format.
+ * @param {string} theme The name of the theme, 'light'|'dark'.
+ *
+ * @return {string} The color used for the chartPiece based on the specified theme.
+ */
 export const getChartPieceColor = (chartPiece, theme ) => {
 	switch (chartPiece) {
 		case 'angleLines':
@@ -286,6 +354,14 @@ export const getChartPieceColor = (chartPiece, theme ) => {
 	}
 }
 
+/**
+ * Returns updated chartOptions based on the specified theme.
+ *
+ * @param {array} chartOptions The current ChartJS Radar chart options.
+ * @param {string} theme       The name of the theme, 'light'|'dark'.
+ *
+ * @return {array} The updated ChartJS Radar chart options based on the specified theme.
+ */
 export const updateChartShotPctOptions = ( chartOptions, theme ) => {
 	chartOptions.scales.r.angleLines.color = getChartPieceColor('angleLines', theme );
 	chartOptions.scales.r.pointLabels.color = getChartPieceColor('pointLabels', theme );
@@ -293,22 +369,4 @@ export const updateChartShotPctOptions = ( chartOptions, theme ) => {
 	chartOptions.scales.r.ticks.color = getChartPieceColor('ticks', theme );
 
 	return chartOptions;
-}
-
-export const getShotNiceName = ( shot ) => {
-	if ( 'rock' === shot ) {
-		return 'Rock';
-	}
-
-	if ( 'paper' === shot ) {
-		return 'Paper';
-	}
-
-	if ( 'scissors' === shot ) {
-		return 'Scissors';
-	}
-}
-
-export const formatClassName = ( className ) => {
-	return ( isEmpty( className ) ) ? '' : ' ' + className;
 }
