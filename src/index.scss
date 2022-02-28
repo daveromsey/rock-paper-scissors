@@ -1,222 +1,24 @@
 /**
- * @file The main stylesheet.
+ * The main stylesheet.
  */
 
+// Tailwind stuff.
 @tailwind base;
-
 // Extend Preflight styles.
-@layer base {
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-  h3 {
-    @apply text-lg;
-  }
-  a {
-    @apply text-retropurple-600
-  }
-	a:hover {
-    @apply text-retropurple-500
-  }
-	.dark a {
-    @apply text-retropurple-100
-  }
-	.dark a:hover {
-    @apply text-retropurple-50
-  }
-}
-
+@import "./assets/sass/tailwind-preflight.scss";
 @tailwind components;
 @tailwind utilities;
 
 @import "./assets/sass/fonts.scss";
 @import "./assets/sass/utilities.scss";
 
-// Prevent icons from triggering events.
-// https://stackoverflow.com/a/54430159/3059883
-button {
-	.icon,
-	.button-text {
-	  pointer-events: none;
-	}
-}
-
-// Adjust Rock, Paper, and Scissor icons to desired orientations.
-svg {
-	&.react-icon {
-		display: inline;
-	}
-
-	&.rock {
-		transform: rotate(90deg) scaleY(-1);
-		&.reverse {
-			transform: rotate(90deg) scaleY(1);
-		}
-	}
-
-	&.paper {
-		transform: rotate(90deg) scaleY(-1);
-		&.reverse {
-			transform: rotate(90deg);
-		}
-	}
-
-	&.scissors {
-		&.reverse {
-			transform: rotate(180deg) scaleY(-1);
-		}
-	}
-}
-
-// Player shoot buttons .clicked (added by JS) styles.
-button.player-shoot {
-	.icon {
-		&.fill {
-			display: none; // Hide fill for now.
-			right: calc(50% - 24px); // For 48px fill, 55px stroke
-		}
-	}
-
-	&.clicked {
-		background-color: #341C47;
-		color: #E0A6DB;
-		opacity: .67;
-
-		&:hover {
-			background-color: #341C47;
-			color: #E0A6DB;
-		}
-	}
-
-	&:active {
-		transform: translateY(rem-calc(4px)); // Press effect.
-	}
-
-	.dark & {
-		&.clicked {
-			background-color: #341C47;
-			color: #E6C1E3;
-
-			&:hover {
-				background-color: #341C47;
-			}
-		}
-	}
-}
-
-// LCD styles.
-.lcd {
-	background-color: #000;
-	color: yellow;
-	padding: 1px 5px;
-
-	.dark & {
-		color: #ff0000cc;
-	}
-}
-
-// ChartJS styles.
-.react-chartjs {
-	canvas {
-		// Fix extra space at bottom of radar chart when grid is not circular.
-		margin-bottom: -20%;
-		margin-top: -5%;
-	}
-}
-
-// Used for rocking the trophy icon back and forth when player wins.
-.back-and-forth {
-	animation: backandforth 2500ms infinite linear;
-
-	@keyframes backandforth {
-		0% {
-			transform: rotate(0deg);
-		}
-		25% {
-			transform: rotate(6deg);
-		}
-		50% {
-			transform: rotate(0deg);
-		}
-		75% {
-			transform: rotate(-6deg);
-		}
-		100% {
-			transform: rotate(0deg);
-		}
-	}
-}
-
-// Used for rocking the trophy icon back and forth when player wins.
-.back-and-forth-reverse {
-	animation: backandforthreverse 2500ms infinite linear;
-
-	@keyframes backandforthreverse  {
-		0% {
-			transform: rotate(0deg);
-		}
-		25% {
-			transform: rotate(-6deg);
-		}
-		50% {
-			transform: rotate(0deg);
-		}
-		75% {
-			transform: rotate(6deg);
-		}
-		100% {
-			transform: rotate(0deg);
-		}
-	}
-}
-
-// Used to make the CPU robot icon laugh when player loses.
-.laugh {
-  animation-direction: alternate;
-	animation-duration: 90ms;
-	animation-iteration-count: 12;
-	animation-name: laugh;
-	bottom: rem-calc(4px);
-	position: relative;
-
-	@keyframes laugh {
-		from {
-			transform: translateY(0px);
-		}
-		to {
-			transform: translateY(-2px);
-		}
-	}
-}
-
-// Spin the guns when the game is a draw.
-.spin {
-	animation-name: spin;
-	animation-duration: 700ms;
-	animation-iteration-count: 1;
-	animation-timing-function: ease;
-	transition: cubic-bezier(0.76, 0.09, 0.42, 0.69);
-
-	@keyframes spin {
-		from {
-			transform:rotate(0deg);
-		}
-		to {
-			transform:rotate(2160deg);
-		}
-	}
-}
-
 // Not used. Just here for previewing colors.
 .colors{
-	color: #d9abf3;
 	color: #25d4f3; // Player
 	color: rgba(37, 213, 244, 0.424); // Player fill
 	color: #FFDFFC;
 	color: #E6C1E3;
+	color: #d9abf3;
 	color: #E0A6DB;
 	color: #BDA5BB;
 	color: #AC93AA;
