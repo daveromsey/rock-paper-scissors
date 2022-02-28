@@ -7,6 +7,7 @@ const RPSHeadingPaper = ( { text } ) => {
 	return (
 		<RPSHeading
 			text={text}
+			extraContainerClassName="RPSHeadingPaper"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandPaper className="paper reverse"/></>}
 			textAfter={<><FaRegHandPaper className="paper"/></>}

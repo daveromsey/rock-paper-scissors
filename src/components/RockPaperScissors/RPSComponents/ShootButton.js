@@ -39,6 +39,7 @@ const ShootButton = ( { shot } ) => {
   return (
 		<button
 			className={`${shot}
+			ShootButton
 			player-shoot items-center relative min-w-[90px] pt-3.5 px-2.5 pb-2.5
 			border rounded-md text-center disabled:cursor-not-allowed disabled:opacity-50
 			text-retropurple-600 border-retropurple-600

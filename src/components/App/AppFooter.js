@@ -1,14 +1,13 @@
-import { useRPSContext } from '../RockPaperScissors/RPSContext';
 import { FaGithub } from "react-icons/fa";
-
-
 import { BsTrash } from "react-icons/bs";
+
+import { useRPSContext } from '../RockPaperScissors/RPSContext';
 
 const AppFooter = () => {
 	const { resetAllRpsData } = useRPSContext();
 
 	return (
-		<footer className="app-footer sm:flex">
+		<footer className="AppFooter sm:flex">
 			<section className="footer-left flex my-8 sm:my-2 flex-shrink justify-center sm:max-w-sm sm:flex sm:flex-1 sm:justify-start sm:items-start">
 				<button className="reset-rpstext-center hover:text-red-600 dark:text-retropurple-100 dark:hover:text-red-600 "
 					onClick={() => {

@@ -99,7 +99,7 @@ const Statistics = ( {stats, gamesPlayed} ) => {
 	};
 
 	return (
-		<section className="statistics">
+		<section className="Statistics">
 			<RPSHeadingRock text="Statistics" />
 			<div className="statistics-grid grid grid-cols-1 sm:grid-cols-2 text-xl">
 				<section className="player-stats xs:pr-2 md:pr-8">

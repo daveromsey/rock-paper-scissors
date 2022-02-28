@@ -12,7 +12,7 @@ const StatsPlayerHeading = ( { playerName, playerNiceName } ) => {
 	}
 
 	return (
-		<h3 className="stats-player-heading text-2xl text-center pb-4 mb-4">
+		<h3 className="StatsPlayerHeading text-2xl text-center pb-4 mb-4">
 			<span className="border-b border-retropurple-600/25 dark:border-retropurple-100/50 pb-1">
 				{icon} <span className="name-label font-brand">{playerNiceName}</span>
 			</span>

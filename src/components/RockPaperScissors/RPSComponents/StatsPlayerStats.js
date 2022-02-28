@@ -4,7 +4,7 @@ import StatEntry from './StatEntry';
 
 const StatsPlayerStats = ( { stats } ) => {
 	return (
-		<div className="stats-wrap grid grid-cols-1 xs:grid-cols-2">
+		<div className="StatsPlayerStats grid grid-cols-1 xs:grid-cols-2">
 		<div className="player-stats-1">
 			<StatEntry label="Win Streak " title="Ties are ignored" value={stats.winStreak} extraValueClasses="text-2xl"/>
 			<StatEntry label="Top Streak " title="Ties are ignored" value={stats.longestStreak} extraValueClasses="text-2xl"/>

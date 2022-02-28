@@ -7,6 +7,7 @@ const RPSHeadingRock = ( { text } ) => {
 	return (
 		<RPSHeading
 			text={text}
+			extraContainerClassName="RPSHeadingRock"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandRock className="rock reverse"/></>}
 			textAfter={<><FaRegHandRock className="rock"/></>}

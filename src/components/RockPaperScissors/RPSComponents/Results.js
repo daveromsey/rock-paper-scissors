@@ -8,7 +8,7 @@ import ShotResult from './ShotResult';
 const Results = ( { playerShot, cpuShot, winner } ) => {
 
 	return (
-		<section className="results">
+		<section className="Results">
 			<RPSHeadingScissors text="Results" />
 			<div className="results-layout py-3 grid grid-cols-1 sm:grid-cols-3 text-xl">
 				<section className="player-shot order-1 mx-auto sm:mx-0">

@@ -5,7 +5,7 @@ import StatEntry from './StatEntry';
 const Scoreboard = ( { gamesPlayed, stats } ) => {
 
 	return (
-		<section className="scoreboard">
+		<section className="Scoreboard">
 			<RPSHeadingPaper text="Scoreboard" />
 			<div className="scoreboard-items flex flex-col xs:flex-row xs:justify-between text-lg sm:text-2xl md:text-3xl py-3">
 				<StatEntry label="Games Played " value={gamesPlayed} />

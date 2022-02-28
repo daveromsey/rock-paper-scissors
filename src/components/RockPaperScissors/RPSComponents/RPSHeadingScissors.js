@@ -7,6 +7,7 @@ const RPSHeadingScissors = ( { text } ) => {
 	return (
 		<RPSHeading
 			text={text}
+			extraContainerClassName="RPSHeadingScissors"
 			extraTextClassName="px-4"
 			textBefore={<><FaRegHandScissors className="scissors reverse"/></>}
 			textAfter={<><FaRegHandScissors className="scissors"/></>}

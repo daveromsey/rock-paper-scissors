@@ -10,6 +10,7 @@ const RPSBreak = () => {
 	return (
 		<RPSHeading
 			containerTag='div'
+			extraContainerClassName='RPSBreak'
 			text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}
 		/>
 	);

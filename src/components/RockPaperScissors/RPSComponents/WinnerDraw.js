@@ -5,7 +5,7 @@ const WinnerDraw = () => {
 	const drawIcon = <GiCrossedPistols className="relative spin top-[-4px]"/>;
 
 	return (
-		<span className="winner draw">
+		<span className="WinnerDraw">
 			{drawIcon}<span> Draw </span>{drawIcon}
 		</span>
 	);

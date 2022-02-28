@@ -6,9 +6,11 @@ const RPSHeading = ( {
 	extraTextClassName = '',
 	textBefore = false,
 	textAfter = false,
+	extraContainerClassName = '',
 	extraContentClassName = 'text-retropurple-600 dark:text-retropurple-100',
 	extraLineClassName = 'border-retropurple-600 dark:border-retropurple-100'
 } ) => {
+	extraContainerClassName = formatClassName(extraContainerClassName);
 	extraTextClassName = formatClassName(extraTextClassName);
 	extraContentClassName = formatClassName(extraContentClassName);
 	extraLineClassName = formatClassName(extraLineClassName);
@@ -16,7 +18,7 @@ const RPSHeading = ( {
 	return (
 		React.createElement(
 		`${containerTag}`,
-		{ className: "rps-heading relative flex py-5 items-center" },
+		{ className: `RPSHeading relative flex py-5 items-center${extraContainerClassName}` },
 		<>
 			<div className={`flex-grow border-t${extraLineClassName}`}></div>
 			{

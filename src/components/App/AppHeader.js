@@ -6,7 +6,7 @@ const AppHeader = () => {
 	const { getTheme, getThemeBool, getOppositeTheme, updateTheme } = useAppContext();
 
 	return (
-		<header className="app-header flex">
+		<header className="AppHeader flex">
 			<section className="header-left flex flex-1 justify-start items-start"></section>
 
 			<section className="header-center flex flex-1 justify-center items-center"></section>

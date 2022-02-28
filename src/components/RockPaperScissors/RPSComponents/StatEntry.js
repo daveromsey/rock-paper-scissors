@@ -13,7 +13,7 @@ const StatEntry = ( {
 	extraValueClasses = formatClassName( extraValueClasses );
 
 	return (
-		<p className={`stat${containerClassName}`} title={titleAttr}>
+		<p className={`StatEntry stat${containerClassName}`} title={titleAttr}>
 			<span className={`stat-label${extraLabelClasses}`}>{label}</span>
 			<span className={`stat-value font-digital-italic lcd${extraValueClasses}`}>{value}</span>
 		</p>

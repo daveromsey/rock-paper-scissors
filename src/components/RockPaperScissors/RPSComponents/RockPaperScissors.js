@@ -1,3 +1,5 @@
+import '../../../assets/sass/RockPaperScissors.scss';
+
 import { useRPSContext } from '../RPSContext';
 
 import RPSTitle from './RPSTitle';
@@ -17,7 +19,7 @@ const RockPaperScissors = () => {
 	} = useRPSContext();
 
   return (
-		<article className="rock-paper-scissors">
+		<article className="RockPaperScissors">
 			<RPSTitle />
 			<Statistics stats={stats} gamesPlayed={gamesPlayed} />
 			<Scoreboard stats={stats} gamesPlayed={gamesPlayed} />
