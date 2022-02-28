@@ -61,14 +61,14 @@ const Statistics = ( {stats, gamesPlayed} ) => {
 
 	// Shot use percentages radar chart data.
 	const playerDataChartJS = {
-		labels: ['Rock', 'Paper', 'Scissors'],
+		labels: ['Rock', 'Scissors', 'Paper'],
 		datasets: [
 			{
 				label: 'Player',
 				data: [
 					getShotPercentage( stats.player.shotCounts.rock, gamesPlayed ),
-					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.player.shotCounts.scissors, gamesPlayed ),
+					getShotPercentage( stats.player.shotCounts.paper, gamesPlayed ),
 				],
 				borderColor: '#25d4f3',
 				backgroundColor: 'rgba(37, 213, 244, 0.424)',
@@ -80,14 +80,14 @@ const Statistics = ( {stats, gamesPlayed} ) => {
 
 	// Shot use percentages radar chart data.
 	const cpuDataChartJS = {
-		labels: ['Rock', 'Paper', 'Scissors'],
+		labels: ['Rock', 'Scissors', 'Paper'],
 		datasets: [
 			{
 				label: 'CPU',
 				data: [
 					getShotPercentage( stats.cpu.shotCounts.rock, gamesPlayed ),
-					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
 					getShotPercentage( stats.cpu.shotCounts.scissors, gamesPlayed ),
+					getShotPercentage( stats.cpu.shotCounts.paper, gamesPlayed ),
 				],
 				borderColor: '#ff9b00',
 				backgroundColor: '#FF700377',
