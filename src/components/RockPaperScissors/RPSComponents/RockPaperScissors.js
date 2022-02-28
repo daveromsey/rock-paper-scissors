@@ -1,12 +1,7 @@
 import { useRPSContext } from '../RPSContext';
 
 import RPSTitle from './RPSTitle';
-
-import RPSHeadingRock from './RPSHeadingRock';
-import RPSHeadingPaper from './RPSHeadingPaper';
-import RPSHeadingScissors from './RPSHeadingScissors';
 import RPSBreak from './RPSBreak';
-
 import Statistics from './Statistics';
 import Scoreboard from './Scoreboard';
 import Results from './Results';
@@ -23,28 +18,17 @@ const RockPaperScissors = () => {
 
   return (
 		<article className="rock-paper-scissors">
-
 			<RPSTitle />
-
-			<RPSHeadingRock text="Statistics" />
 			<Statistics stats={stats} gamesPlayed={gamesPlayed} />
-
-			<RPSHeadingPaper text="Scoreboard" />
 			<Scoreboard stats={stats} gamesPlayed={gamesPlayed} />
-
-			<RPSHeadingScissors text="Results" />
 			<Results
 				playerShot={game.playerShot}
 				cpuShot={game.cpuShot}
 				winner={game.winner}
 			/>
-
 			<RPSBreak />
-
 			<ShotActions />
-
 			<GameActions />
-
 			<RPSBreak />
 	 </article>
   )

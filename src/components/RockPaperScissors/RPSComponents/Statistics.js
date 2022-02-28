@@ -23,6 +23,7 @@ import { getShotPercentage, updateChartShotPctOptions } from '../RPSFunctions.js
 import ChartShotPctOptionDefaults from '../ChartShotPctOptionsDefaults';
 
 // Component dependencies.
+import RPSHeadingRock from './RPSHeadingRock';
 import StatsPlayerHeading from './StatsPlayerHeading';
 import StatsPlayerStats from './StatsPlayerStats';
 import StatsPlayerShotCountChart from './StatsPlayerShotCountChart';
@@ -98,25 +99,28 @@ const Statistics = ( {stats, gamesPlayed} ) => {
 	};
 
 	return (
-		<section className="statistics grid grid-cols-1 sm:grid-cols-2 text-xl">
-			<section className="player-stats xs:pr-2 md:pr-8">
-				<StatsPlayerHeading playerName="player" playerNiceName="Player" />
-				<StatsPlayerStats playerName="player" stats={stats.player} />
-				<StatsPlayerShotCountChart
-					options={ChartShotPctOptions}
-					data={playerDataChartJS}
-					chartRef={playerChartReference}
-				/>
-			</section>
-			<section className="cpu-stats xs:pl-2 md:pl-8">
-				<StatsPlayerHeading playerName="cpu" playerNiceName="CPU" />
-				<StatsPlayerStats playerName="cpu" stats={stats.cpu} />
-				<StatsPlayerShotCountChart
-					options={ChartShotPctOptions}
-					data={cpuDataChartJS}
-					chartRef={cpuChartReference}
-				/>
-			</section>
+		<section className="statistics">
+			<RPSHeadingRock text="Statistics" />
+			<div className="statistics-grid grid grid-cols-1 sm:grid-cols-2 text-xl">
+				<section className="player-stats xs:pr-2 md:pr-8">
+					<StatsPlayerHeading playerName="player" playerNiceName="Player" />
+					<StatsPlayerStats playerName="player" stats={stats.player} />
+					<StatsPlayerShotCountChart
+						options={ChartShotPctOptions}
+						data={playerDataChartJS}
+						chartRef={playerChartReference}
+					/>
+				</section>
+				<section className="cpu-stats xs:pl-2 md:pl-8">
+					<StatsPlayerHeading playerName="cpu" playerNiceName="CPU" />
+					<StatsPlayerStats playerName="cpu" stats={stats.cpu} />
+					<StatsPlayerShotCountChart
+						options={ChartShotPctOptions}
+						data={cpuDataChartJS}
+						chartRef={cpuChartReference}
+					/>
+				</section>
+			</div>
 		</section>
 	);
 }
