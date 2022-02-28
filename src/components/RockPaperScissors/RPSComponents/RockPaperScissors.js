@@ -6,7 +6,7 @@ import {
 
 import { useRPSContext } from '../RPSContext';
 
-import RPSHeading from './RPSHeading';
+import RPSTitle from './RPSTitle';
 import RPSPageBreak from './RPSPageBreak';
 import Statistics from './Statistics';
 import Scoreboard from './Scoreboard';
@@ -25,7 +25,7 @@ const RockPaperScissors = () => {
   return (
 		<article className="rock-paper-scissors">
 
-			<RPSHeading />
+			<RPSTitle />
 
 			<RPSPageBreak
 				text="Statistics"
