@@ -310,9 +310,5 @@ export const getShotNiceName = ( shot ) => {
 }
 
 export const formatClassName = ( className ) => {
-	if ( isEmpty() ) {
-		return '';
-	}
-
-	return ' ' + className;
+	return ( isEmpty( className ) ) ? '' : ' ' + className;
 }

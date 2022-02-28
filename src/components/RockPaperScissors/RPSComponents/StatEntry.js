@@ -1,4 +1,5 @@
 import { formatClassName } from '../RPSFunctions.js';
+
 const StatEntry = ( {
 	label,
 	value,
@@ -10,6 +11,7 @@ const StatEntry = ( {
 	containerClassName = formatClassName( containerClassName );
 	extraLabelClasses = formatClassName( extraLabelClasses );
 	extraValueClasses = formatClassName( extraValueClasses );
+
 	return (
 		<p className={`stat${containerClassName}`} title={titleAttr}>
 			<span className={`stat-label${extraLabelClasses}`}>{label}</span>

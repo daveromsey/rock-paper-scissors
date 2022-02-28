@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { formatClassName } from '../RPSFunctions.js';
 const RPSHeading = ( {
 	containerTag = 'h2',
 	text = false,
@@ -9,22 +9,26 @@ const RPSHeading = ( {
 	extraContentClassName = 'text-retropurple-600 dark:text-retropurple-100',
 	extraLineClassName = 'border-retropurple-600 dark:border-retropurple-100'
 } ) => {
+	extraTextClassName = formatClassName(extraTextClassName);
+	extraContentClassName = formatClassName(extraContentClassName);
+	extraLineClassName = formatClassName(extraLineClassName);
+
 	return (
 		React.createElement(
 		`${containerTag}`,
 		{ className: "rps-heading relative flex py-5 items-center" },
 		<>
-			<div className={`flex-grow border-t ${extraLineClassName}`}></div>
+			<div className={`flex-grow border-t${extraLineClassName}`}></div>
 			{
 				( false === text && false === textBefore && false === textAfter )
 					? <></>
-					: <span className={`flex-shrink mx-4 flex items-center ${extraContentClassName}`}>
+					: <span className={`flex-shrink mx-4 flex items-center${extraContentClassName}`}>
 							{textBefore}
-							<span className={`text font-brand ${extraTextClassName}`}>{text}</span>
+							<span className={`text font-brand${extraTextClassName}`}>{text}</span>
 							{textAfter}
 						</span>
 			}
-			<div className={`flex-grow border-t ${extraLineClassName}`}></div>
+			<div className={`flex-grow border-t${extraLineClassName}`}></div>
 		</>
 		)
 	);

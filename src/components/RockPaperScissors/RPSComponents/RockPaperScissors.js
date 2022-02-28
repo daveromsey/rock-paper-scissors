@@ -31,7 +31,7 @@ const RockPaperScissors = () => {
 			<GameActions />
 			<RPSBreak />
 	 </article>
-  )
+  );
 }
 
 export default RockPaperScissors;
