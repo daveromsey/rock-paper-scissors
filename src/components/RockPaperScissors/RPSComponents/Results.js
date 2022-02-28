@@ -1,5 +1,7 @@
 import { FaUser, FaRobot } from "react-icons/fa";
-import { getWinnerComponent } from '../RPSFunctions.js';
+import WinnerPlayer from './WinnerPlayer';
+import WinnerCPU from './WinnerCPU';
+import WinnerDraw from './WinnerDraw';
 import ShotResult from './ShotResult';
 
 const Results = ( { playerShot, cpuShot, winner } ) => {
@@ -17,7 +19,9 @@ const Results = ( { playerShot, cpuShot, winner } ) => {
 			</section>
 
 			<section className="game-winner xs:text-center justify-center order-3 xs:order-2 text-2xl font-brand mx-auto sm:mx-0 xs:text-3xl xs:min-h-[56px] mt-3">
-				{ getWinnerComponent( winner ) }
+				{ ( 'player' === winner ) && <WinnerPlayer /> }
+				{ ( 'cpu' === winner ) && <WinnerCPU /> }
+				{ ( 'draw' === winner ) && <WinnerDraw /> }
 			</section>
 
 			<section className="cpu-shot xs:text-right order-2 xs:order-3 mx-auto sm:mx-0">

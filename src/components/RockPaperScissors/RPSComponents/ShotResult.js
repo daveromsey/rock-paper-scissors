@@ -1,5 +1,5 @@
 import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
-import { getShotResultText } from '../RPSFunctions.js';
+import { getShotNiceName } from '../RPSFunctions.js';
 
 const ShotResult = ( {shot} ) => {
 	let icon, iconReverse;
@@ -24,7 +24,7 @@ const ShotResult = ( {shot} ) => {
 	return (
 		<span className="shot-output font-brand mt-1">
 			{icon}
-				<span className="font-brand pt-2 mx-1"> {getShotResultText( shot )} </span>
+				<span className="font-brand pt-2 mx-1"> {getShotNiceName( shot )} </span>
 			{iconReverse}
 		</span>
 	);

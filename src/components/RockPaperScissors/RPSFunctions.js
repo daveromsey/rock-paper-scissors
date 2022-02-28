@@ -1,6 +1,4 @@
-import WinnerPlayer from './RPSComponents/WinnerPlayer';
-import WinnerCPU from './RPSComponents/WinnerCPU';
-import WinnerDraw from './RPSComponents/WinnerDraw';
+import isEmpty from "lodash/isEmpty"
 
 // The possible shot choices.
 export const shots = [
@@ -297,7 +295,7 @@ export const updateChartShotPctOptions = ( chartOptions, theme ) => {
 	return chartOptions;
 }
 
-export const getShotResultText = ( shot ) => {
+export const getShotNiceName = ( shot ) => {
 	if ( 'rock' === shot ) {
 		return 'Rock';
 	}
@@ -311,18 +309,10 @@ export const getShotResultText = ( shot ) => {
 	}
 }
 
-export const getWinnerComponent = ( winner ) => {
-	if ( 'player' === winner ) {
-		return <WinnerPlayer />;
+export const formatClassName = ( className ) => {
+	if ( isEmpty() ) {
+		return '';
 	}
 
-	if ( 'cpu' === winner ) {
-		return <WinnerCPU />;
-	}
-
-	if ( 'draw' === winner ) {
-		return <WinnerDraw />
-	}
+	return ' ' + className;
 }
-
-
