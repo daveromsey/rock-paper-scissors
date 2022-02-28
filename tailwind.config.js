@@ -1,5 +1,5 @@
 /**
- * @file Tailwind configuration.
+ * Tailwind configuration.
  */
 
 const defaultTheme = require( 'tailwindcss/defaultTheme' );
