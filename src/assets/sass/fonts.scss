@@ -1,4 +1,5 @@
 @import "../../~@fontsource/paytone-one/index.css"; // Defaults to weight 400 with all styles included.
+@import "../../~@fontsource/open-sans/index.css"; // Defaults to weight 400 with all styles included.
 
 // https://www.1001fonts.com/digital-7-font.html
 @font-face {
@@ -8,6 +9,7 @@
 	src: local(''),
 	url('../fonts/digital-7/digital-7.mono.ttf') format('truetype'), /* Safari, Android, iOS */
 }
+
 @font-face {
 	font-family: 'Digital-7-Italic';
 	font-style: normal;
