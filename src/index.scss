@@ -238,6 +238,23 @@ button {
   }
 }
 
+.spin {
+	animation-name: spin;
+	animation-duration: 700ms;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+	transition: cubic-bezier(0.76, 0.09, 0.42, 0.69)
+}
+
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(2160deg);
+	}
+}
+
 // Not used. Just here for previewing colors.
 .colors{
 	color: #d9abf3;
