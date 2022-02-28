@@ -6,13 +6,16 @@ import { IconContext } from 'react-icons';
 import './index.scss';
 import App from './App';
 import { AppProvider } from './global/AppContext';
+import { RPSProvider } from './components/RockPaperScissors/RPSContext';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
 		<AppProvider>
 			<IconContext.Provider value={{ className: "react-icon icon" }}>
-   	 		<App />
+				<RPSProvider>
+   	 			<App />
+				</RPSProvider>
 			</IconContext.Provider>
 		</AppProvider>
   </React.StrictMode>,
