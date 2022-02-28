@@ -1,11 +1,7 @@
+import { FaCircle } from "react-icons/fa";
 const RPSTitleDot = () => {
 	return (
-		<span className="title-dot
-			font-sans text-5xl sm:text-8xl leading-[0] sm:leading-[0]
-			relative top-[8px] sm:top-[15px]"
-		>
-			&#183;
-		</span>
+		<FaCircle  className="relative h-1.5 w-1.5 mx-1 top-[-1px] sm:h-3 sm:w-3 sm:mx-2 sm:top-[-2px]" />
 	);
 }
 
