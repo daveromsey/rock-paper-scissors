@@ -23,9 +23,9 @@ module.exports = {
       }
 		},
 		fontFamily: {
-			sans: [ "open-sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ],
+			sans: [ "Open Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ],
 			serif: [ "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif" ],
-			mono: [ "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace" ],
+			mono: [ "Consolas", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Liberation Mono", "Courier New", "monospace" ],
 			brand: [ "Paytone One", "sans-serif"],
 			digital: [ "Digital-7", "monospace"],
 			'digital-italic': [ "Digital-7-Italic", "monospace"],
