@@ -1,13 +1,12 @@
-import {
-	FaRegHandRock, // Stroke
-	FaRegHandPaper, // Stroke
-	FaRegHandScissors, // Stroke
-} from "react-icons/fa";
-
 import { useRPSContext } from '../RPSContext';
 
 import RPSTitle from './RPSTitle';
-import RPSPageBreak from './RPSPageBreak';
+
+import RPSHeadingRock from './RPSHeadingRock';
+import RPSHeadingPaper from './RPSHeadingPaper';
+import RPSHeadingScissors from './RPSHeadingScissors';
+import RPSBreak from './RPSBreak';
+
 import Statistics from './Statistics';
 import Scoreboard from './Scoreboard';
 import Results from './Results';
@@ -27,47 +26,26 @@ const RockPaperScissors = () => {
 
 			<RPSTitle />
 
-			<RPSPageBreak
-				text="Statistics"
-				extraTextClassName="px-4"
-				textBefore={<><FaRegHandRock className="rock"/></>}
-				textAfter={<><FaRegHandRock className="rock reverse"/></>}
-				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
-			/>
-
+			<RPSHeadingRock text="Statistics" />
 			<Statistics stats={stats} gamesPlayed={gamesPlayed} />
 
-			<RPSPageBreak
-				text="Scoreboard"
-				extraTextClassName="px-4"
-				textBefore={<><FaRegHandPaper className="paper"/></>}
-				textAfter={<><FaRegHandPaper className="paper reverse"/></>}
-				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
-			/>
-
+			<RPSHeadingPaper text="Scoreboard" />
 			<Scoreboard stats={stats} gamesPlayed={gamesPlayed} />
 
-			<RPSPageBreak
-				text="Results"
-				extraTextClassName="px-4"
-				textBefore={<><FaRegHandScissors className="scissors"/></>}
-				textAfter={<><FaRegHandScissors className="scissors reverse"/></>}
-				extraContentClassName="text-retropurple-600 dark:text-retropurple-100 text-2xl xs:text-3xl"
-			/>
-
+			<RPSHeadingScissors text="Results" />
 			<Results
 				playerShot={game.playerShot}
 				cpuShot={game.cpuShot}
 				winner={game.winner}
 			/>
 
-			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
+			<RPSBreak />
 
 			<ShotActions />
 
 			<GameActions />
 
-			<RPSPageBreak text={<><FaRegHandRock/> <FaRegHandPaper/> <FaRegHandScissors/></>}/>
+			<RPSBreak />
 	 </article>
   )
 }
