@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/rock-paper-scissors/static/css/main.a79e26c6.css",
+    "main.js": "/rock-paper-scissors/static/js/main.289d8927.js",
+    "static/js/787.c8ffd4a8.chunk.js": "/rock-paper-scissors/static/js/787.c8ffd4a8.chunk.js",
+    "static/media/open-sans-all-400-normal.woff": "/rock-paper-scissors/static/media/open-sans-all-400-normal.fd1a30188fbba33c1971.woff",
+    "static/media/paytone-one-all-400-normal.woff": "/rock-paper-scissors/static/media/paytone-one-all-400-normal.83742105168536edd10c.woff",
+    "static/media/digital-7.mono.ttf": "/rock-paper-scissors/static/media/digital-7.mono.ae951a188b593952b384.ttf",
+    "static/media/digital-7.monoitalic.ttf": "/rock-paper-scissors/static/media/digital-7.monoitalic.3576385aa1d294b9c795.ttf",
+    "static/media/paytone-one-latin-400-normal.woff2": "/rock-paper-scissors/static/media/paytone-one-latin-400-normal.ab46dc2bfbc7a5ec6cea.woff2",
+    "static/media/open-sans-cyrillic-ext-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-cyrillic-ext-400-normal.432abaf385d938750963.woff2",
+    "static/media/open-sans-latin-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-latin-400-normal.a2d02404d087c7c068d4.woff2",
+    "static/media/paytone-one-latin-ext-400-normal.woff2": "/rock-paper-scissors/static/media/paytone-one-latin-ext-400-normal.aa97b75801f0da964790.woff2",
+    "static/media/open-sans-latin-ext-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-latin-ext-400-normal.0950a0dbc206706736db.woff2",
+    "static/media/open-sans-cyrillic-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-cyrillic-400-normal.8c8b009e2308cfd36674.woff2",
+    "static/media/open-sans-greek-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-greek-400-normal.f4df5aa87d97ffdd65c4.woff2",
+    "static/media/open-sans-hebrew-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-hebrew-400-normal.c4e6d354894703317c0c.woff2",
+    "static/media/open-sans-vietnamese-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-vietnamese-400-normal.1970138327ca2599f2c5.woff2",
+    "static/media/paytone-one-vietnamese-400-normal.woff2": "/rock-paper-scissors/static/media/paytone-one-vietnamese-400-normal.c5eff476b49ded969361.woff2",
+    "static/media/open-sans-greek-ext-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-greek-ext-400-normal.7f0c7c378a3ca829b189.woff2",
+    "index.html": "/rock-paper-scissors/index.html",
+    "main.a79e26c6.css.map": "/rock-paper-scissors/static/css/main.a79e26c6.css.map",
+    "main.289d8927.js.map": "/rock-paper-scissors/static/js/main.289d8927.js.map",
+    "787.c8ffd4a8.chunk.js.map": "/rock-paper-scissors/static/js/787.c8ffd4a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a79e26c6.css",
+    "static/js/main.289d8927.js"
+  ]
+}
