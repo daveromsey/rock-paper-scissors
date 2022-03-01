@@ -8,15 +8,21 @@ const AppFooter = () => {
 
 	return (
 		<footer className="AppFooter sm:flex">
-			<section className="footer-left flex my-8 sm:my-2 flex-shrink justify-center sm:max-w-sm sm:flex sm:flex-1 sm:justify-start sm:items-start">
-				<button className="reset-rpstext-center hover:text-red-600 dark:text-retropurple-100 dark:hover:text-red-600 "
+			<section className="footer-left
+				flex flex-shrink my-8 justify-center
+				sm:my-2 sm:max-w-sm sm:flex sm:flex-1 sm:justify-start sm:items-start">
+				<button className="reset-rps text-center
+					hover:text-red-600 dark:text-retropurple-100 dark:hover:text-red-600"
 					onClick={() => {
 						if ( window.confirm( 'Delete all game data?' ) ) {
 							resetAllRpsData();
 						}
 					}}
 				>
-					<span className="button-text">Clear Game Data</span> <span className="button-icon"><BsTrash size={16} /></span>
+					<span className="button-text">Clear Game Data </span>
+					<span className="button-icon">
+						<BsTrash size={16} className="inline-block" />
+					</span>
 				</button>
 			</section>
 
