@@ -15,7 +15,7 @@ const StatEntry = ( {
 	return (
 		<p className={`StatEntry stat${containerClassName}`} title={titleAttr}>
 			<span className={`stat-label${extraLabelClasses}`}>{label}</span>
-			<span className={`stat-value font-digital-italic lcd${extraValueClasses}`}>{value}</span>
+			<span className={`stat-value font-digital-italic lcd bg-black text-[yellow] dark:text-[#ff0000cc] px-[5px] py-px  ${extraValueClasses}`}>{value}</span>
 		</p>
 	);
 }

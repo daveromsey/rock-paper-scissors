@@ -8,6 +8,7 @@ const StatsPlayerShotCountChart = ( { options, data, chartRef } ) => {
 				options={options}
 				data={data}
 				ref={chartRef}
+				className="mt-[-5%] mb-[-20%]"
 			/>
 		</div>
 	);
