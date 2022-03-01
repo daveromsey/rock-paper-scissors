@@ -1,5 +1,7 @@
 # Rock Paper Scissors in React
 
+**[Demo](https://daveromsey.github.io/rock-paper-scissors/)**
+
 This is a Rock Paper Scissors game implemented in React. I created it as a learning exercise for for JavaScript, React, Tailwind, and other front-endy stuff.
 
 In the future, this app may be expanded to provide [new features](#possible-future-enhancements) and gameplay options.
