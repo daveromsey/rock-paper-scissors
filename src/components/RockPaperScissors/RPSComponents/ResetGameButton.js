@@ -6,7 +6,7 @@ const ResetGameButton = () => {
 	const { resetGame } = useRPSContext();
 
   return (
-		<button onClick={ () => resetGame() } className="ResetGameButton play-again
+		<button onClick={ () => resetGame() } className="ResetGameButton
 			invisible border rounded-md flex-grow mt-8 mr-2 mb-2 px-5 py-2.5 font-medium text-sm text-center
 			text-retropurple-600 border-retropurple-600
 			hover:text-retropurple-100 hover:bg-retropurple-600

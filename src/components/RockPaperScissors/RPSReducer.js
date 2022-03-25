@@ -28,13 +28,13 @@ const RPSReducer = ( state, action ) => {
 
 			action.payload.event.target.classList.add('clicked');
 
-			const playerShootButtons = document.querySelectorAll('.player-shoot');
+			const playerShootButtons = document.querySelectorAll('.ShootButton');
 
 			playerShootButtons.forEach((button) => {
 				button.disabled = true;
 			});
 
-			const playAgainButton = document.querySelector('.play-again');
+			const playAgainButton = document.querySelector('.ResetGameButton');
 			playAgainButton.classList.remove( 'invisible');
 
 			return {
@@ -57,7 +57,7 @@ const RPSReducer = ( state, action ) => {
 
 			return {
 				...state,
-				game: { // Re-initailize game state.
+				game: { // Re-initialize game state.
 					startTime: null,
 					endTime: null,
 					cpuShot: null,

@@ -39,7 +39,7 @@ svg {
 }
 
 // Player shoot buttons .clicked (added by JS) styles.
-button.player-shoot {
+button.ShootButton {
 	.icon {
 		&.fill {
 			display: none; // Hide fill for now.
