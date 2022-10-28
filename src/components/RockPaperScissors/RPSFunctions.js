@@ -90,7 +90,7 @@ export const getGameResult = ( playerShot, cpuShot ) => {
  * @return {object} Stats for both player and CPU.
  */
 export const getStats = ( games ) => {
-
+	// Structure for the stats.
 	let stats = {
 		player: {
 			winTotal: 0,
@@ -120,40 +120,238 @@ export const getStats = ( games ) => {
 		}
 	}
 
-	// Get various counts.
+	// Get the stats from the game history.
+
+	// Calculate and set the shot count stats.
+	let shotCounts          = getShotCounts( games );
+	stats.player.shotCounts = shotCounts.player;
+	stats.cpu.shotCounts    = shotCounts.cpu;
+
+	// Calculate and set the win/lose/draw counts.
+	let winLoseDrawCounts  = getWinLoseDrawCounts( games );
+	stats.player.winTotal  = winLoseDrawCounts.player.winTotal;
+	stats.player.lossTotal = winLoseDrawCounts.player.lossTotal;
+	stats.player.drawTotal = winLoseDrawCounts.player.drawTotal;
+	stats.cpu.winTotal     = winLoseDrawCounts.cpu.winTotal;
+	stats.cpu.lossTotal    = winLoseDrawCounts.cpu.lossTotal;
+	stats.cpu.drawTotal    = winLoseDrawCounts.cpu.drawTotal;
+
+	// Calculate and set the win percentages.
+	stats.player.winPercentage = getWinPercentages( stats.player.winTotal, stats.player.lossTotal );
+	stats.cpu.winPercentage    = getWinPercentages( stats.cpu.winTotal, stats.cpu.lossTotal );
+
+	// Calculate and set the current streak stats.
+	let currentStreaks     = getCurrentStreaks( games );
+	stats.player.winStreak = currentStreaks.player;
+	stats.cpu.winStreak    = currentStreaks.cpu;
+
+	// Calculate and set the longest streak stats.
+	let longestStreaks         = getLongestStreaks( games );
+	stats.player.longestStreak = longestStreaks.player;
+	stats.cpu.longestStreak    = longestStreaks.cpu;
+
+	return stats;
+};
+
+/**
+ * Calculate shot counts (number of times Rock/Paper/Scissors was used)
+ * for the Player and CPU.
+ *
+ * @param {array} games Games data.
+ *
+ * @return {object} Shot counts for both player and CPU.
+ */
+ export const getShotCounts = ( games ) => {
+
+	let player = {
+		rock: 0,
+		paper: 0,
+		scissors: 0,
+	};
+
+	let cpu = {
+		rock: 0,
+		paper: 0,
+		scissors: 0,
+	};
+
+	let shotCounts = {};
+
+	// Get shot counts.
 	games.forEach( (game) => {
-		const { playerShot, cpuShot, winner } = game;
+		const { playerShot, cpuShot } = game;
 
 		// Handle shot counts.
-		stats.player.shotCounts[playerShot] += 1;
-		stats.cpu.shotCounts[cpuShot] += 1;
+		player[playerShot] += 1;
+		cpu[cpuShot] += 1;
+	});
+
+	shotCounts.player = player;
+	shotCounts.cpu    = cpu;
+
+	return shotCounts;
+};
+
+/**
+ * Calculate shot percentage based on number of uses of the shot
+ * and the number of games played.
+ *
+ * @param {number} shots The number of times a particular shot was used.
+ * @param {number} total The number of games played.
+ *
+ * @return {number} Shot usage percentage as a decimal from 0 to 1.
+ */
+ export const getShotPercentage = ( shots, total ) =>  {
+	if ( 0 === shots ) {
+		return 0;
+	}
+
+	return shots / total;
+}
+
+/**
+ * Calculate the win/lose/draw counts for each player.
+ * for the Player and CPU.
+ *
+ * @param {array} games Games data.
+ *
+ * @return {object} Win/Lose/Draw counts both player and CPU.
+ */
+ export const getWinLoseDrawCounts = ( games ) => {
+
+	let player = {
+		winTotal: 0,
+		lossTotal: 0,
+		drawTotal: 0,
+	};
+
+	let cpu = {
+		winTotal: 0,
+		lossTotal: 0,
+		drawTotal: 0,
+	};
+
+	let winLoseDrawTotals = {};
+
+	games.forEach( (game) => {
+		const { winner } = game;
 
 		// Handle win/lose/draw counts.
 		if ( 'player' === winner ) {
-			stats.player.winTotal += 1;
-			stats.cpu.lossTotal += 1;
+			player.winTotal += 1;
+			cpu.lossTotal += 1;
 		}
 
 		if ( 'cpu' === winner ) {
-			stats.cpu.winTotal += 1;
-			stats.player.lossTotal += 1;
+			cpu.winTotal += 1;
+			player.lossTotal += 1;
 		}
 
 		if ( 'draw' === winner ) {
-			stats.player.drawTotal += 1;
-			stats.cpu.drawTotal += 1;
+			player.drawTotal += 1;
+			cpu.drawTotal += 1;
 		}
 	});
 
-	// Calculate Win Percentages.
-	stats.player.winPercentage = getWinPercentage( stats.player.winTotal, stats.player.lossTotal );
-	stats.cpu.winPercentage = getWinPercentage( stats.cpu.winTotal, stats.cpu.lossTotal );
+	winLoseDrawTotals.player = player;
+	winLoseDrawTotals.cpu    = cpu;
 
-	// Calculate longest streak.
-	let playerStreak = 0;
-	let cpuStreak = 0;
+	return winLoseDrawTotals;
+};
+
+/**
+ * Calculate win percentage based on wins and losses, ignoring draws.
+ *
+ * @param {number} wins   The number of wins.
+ * @param {number} losses The number of losses.
+ *
+ * @return {number} Win percentage as a decimal from 0 to 1.
+ */
+ export const getWinPercentages = ( wins, losses ) =>  {
+	let winPct = wins / ( wins + losses );
+
+	if ( 0 === wins && 0 === losses ) {
+		winPct = 0;
+	}
+
+	if ( ! isFinite( winPct ) ) {
+		winPct = 1;
+	}
+
+	return winPct;
+}
+
+/**
+ * Calculate the current streak for each player.
+ *
+ * @param {array} games Games data.
+ *
+ * @return {object} Current streak data for each player.
+ */
+export const getCurrentStreaks = ( games ) => {
+	let currentStreakData = {};
+	let playerStreak      = 0;
+	let cpuStreak         = 0;
+
+	// Reverse order without modifying original array.
+	// For performance, we want to look at the most recent games first.
+	// https://stackoverflow.com/a/30610528/3059883
+	const gamesSorted = games.slice().reverse();
+
+	// Player.
+	for ( let i = 0; i < gamesSorted.length; i++ ) {
+		const { winner } = gamesSorted[i];
+
+		// Ignore draws.
+		if ( 'draw' === winner ) {
+			continue;
+		}
+
+		// Bail if the opponent won. The streak is over.
+		if ( 'player' !== winner ) {
+			break;
+		}
+
+		playerStreak +=1;
+	}
+
+	// CPU.
+	for ( let i = 0; i < gamesSorted.length; i++ ) {
+		const { winner } = gamesSorted[i];
+
+		// Ignore draws.
+		if ( 'draw' === winner ) {
+			continue;
+		}
+
+		// Bail if the opponent won. The streak is over.
+		if ( 'cpu' !== winner ) {
+			break;
+		}
+
+		cpuStreak +=1;
+	}
+
+	currentStreakData.player = playerStreak;
+	currentStreakData.cpu    = cpuStreak;
+
+	return currentStreakData;
+};
+
+/**
+ * Calculate the longest streak for each player.
+ *
+ * @param {array} games Games data.
+ *
+ * @return {object} Longest streak data for each player.
+ */
+ export const getLongestStreaks = ( games ) => {
+	let longestStreakData   = {};
 	let playerLongestStreak = 0;
-	let cpuLongestStreak = 0;
+	let cpuLongestStreak    = 0;
+	let playerStreak        = 0;
+	let cpuStreak           = 0;
+
 	games.forEach( (game) => {
 		const { winner } = game;
 
@@ -189,95 +387,11 @@ export const getStats = ( games ) => {
 		}
 	});
 
-	// Update each player's longest streak.
-	stats.player.longestStreak = playerLongestStreak;
-	stats.cpu.longestStreak = cpuLongestStreak;
+	longestStreakData.player = playerLongestStreak;
+	longestStreakData.cpu    = cpuLongestStreak;
 
-	// Reverse order without modifying original array.
-	// We want to look at the most recent games first.
-	// https://stackoverflow.com/a/30610528/3059883
-	const gamesSorted = games.slice().reverse();
-
-	// Current streak
-	let playerCurrentStreak = 0;
-	let cpuCurrentStreak = 0;
-	for ( let i = 0; i < gamesSorted.length; i++ ) {
-		const { winner } = gamesSorted[i];
-
-		// Ignore draws.
-		if ( 'draw' === winner ) {
-			continue;
-		}
-
-		// Bail if the opponent won. The streak is over.
-		if ( 'player' !== winner ) {
-			break;
-		}
-
-		playerCurrentStreak +=1;
-	}
-
-	for ( let i = 0; i < gamesSorted.length; i++ ) {
-		const { winner } = gamesSorted[i];
-
-		// Ignore draws.
-		if ( 'draw' === winner ) {
-			continue;
-		}
-
-		// Bail if the opponent won. The streak is over.
-		if ( 'cpu' !== winner ) {
-			break;
-		}
-
-		cpuCurrentStreak +=1;
-	}
-
-	// Update each player's current streak.
-	stats.player.winStreak = playerCurrentStreak;
-	stats.cpu.winStreak = cpuCurrentStreak;
-
-	return stats;
+	return longestStreakData;
 };
-
-/**
- * Calculate win percentage based on wins and losses, ignoring draws.
- *
- * @param {number} wins   The number of wins.
- * @param {number} losses The number of losses.
- *
- * @return {number} Win percentage as a decimal from 0 to 1.
- */
-export const getWinPercentage = ( wins, losses ) =>  {
-	let winPct = wins / ( wins + losses );
-
-	if ( 0 === wins && 0 === losses ) {
-		winPct = 0;
-	}
-
-	if ( ! isFinite( winPct ) ) {
-		winPct = 1;
-	}
-
-	return winPct;
-}
-
-/**
- * Calculate shot percentage based on number of uses of the shot
- * and the number of games played.
- *
- * @param {number} shots The number of times a particular shot was used.
- * @param {number} total The number of games played.
- *
- * @return {number} Shot usage percentage as a decimal from 0 to 1.
- */
-export const getShotPercentage = ( shots, total ) =>  {
-	if ( 0 === shots ) {
-		return 0;
-	}
-
-	return shots / total;
-}
 
 /**
  * Formats a percentage expressed as a number of 0 to 1 as a percentage.
