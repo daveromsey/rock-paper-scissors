@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { IconContext } from 'react-icons';
 
@@ -9,17 +9,20 @@ import { AppProvider } from './global/AppContext';
 import { RPSProvider } from './components/RockPaperScissors/RPSContext';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
+// React 18: https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis
+const container = document.getElementById('root');
+const root      = createRoot(container);
+
+root.render(
+	<React.StrictMode>
 		<AppProvider>
 			<IconContext.Provider value={{ className: "react-icon icon" }}>
 				<RPSProvider>
-   	 			<App />
+					<App />
 				</RPSProvider>
 			</IconContext.Provider>
 		</AppProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
