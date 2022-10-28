@@ -85,3 +85,9 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 Built with Create React APP. View [readme.md](create-react-app-readme.md) file.
+
+# Changelog
+
+1.1.0 - Update packages
+
+1.0.0 - Initial release
