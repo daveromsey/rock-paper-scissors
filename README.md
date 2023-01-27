@@ -14,7 +14,7 @@ In the future, this app may be expanded to provide [new features](#possible-futu
   - [react-chartjs2](https://github.com/reactchartjs/react-chartjs-2/)
   - [React Sparkle](https://github.com/kmjennison/react-sparkle/)
 - **Dependencies:**
-  - [ChartJS v3](https://www.chartjs.org/docs/latest/)
+  - [ChartJS v4](https://www.chartjs.org/docs/latest/)
   - [Dart Sass](https://github.com/sass/dart-sass/)
   - [Fontsource](https://fontsource.org/)
   - [gh-pages](https://github.com/tschaub/gh-pages/)
@@ -87,6 +87,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Built with Create React APP. View [readme.md](create-react-app-readme.md) file.
 
 # Changelog
+1.2.0 - Update to ChartJS to v4
 
 1.1.0 - Update packages
 
