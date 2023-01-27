@@ -87,6 +87,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Built with Create React APP. View [readme.md](create-react-app-readme.md) file.
 
 # Changelog
+1.3.0 - Update various packages
+
 1.2.0 - Update to ChartJS to v4
 
 1.1.0 - Update packages
