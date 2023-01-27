@@ -35,7 +35,7 @@ const RPSReducer = ( state, action ) => {
 			});
 
 			const playAgainButton = document.querySelector('.ResetGameButton');
-			playAgainButton.classList.remove( 'invisible');
+			playAgainButton.classList.remove('invisible');
 
 			return {
 				...state,
