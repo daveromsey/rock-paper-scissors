@@ -1,8 +1,16 @@
 {
   "name": "rock-paper-scissors",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "homepage": "https://daveromsey.github.io/rock-paper-scissors/",
   "private": true,
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@fontsource/open-sans": "^4.5.5",
     "@fontsource/paytone-one": "^4.5.1",
@@ -17,18 +25,16 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
     "react-scripts": "5.0.1",
-    "react-sparkle": "^1.0.9",
+    "react-sparkle": "^2.0.0",
     "react-toggle-dark-mode": "^1.0.4",
     "sass": "^1.49.7",
     "web-vitals": "^3.0.4"
   },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.22"
   },
   "eslintConfig": {
     "extends": [
@@ -47,11 +53,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "gh-pages": "^4.0.0",
-    "postcss": "^8.4.6",
-    "tailwindcss": "^3.0.22"
   }
 }
