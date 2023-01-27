@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rock-paper-scissors/static/css/main.ae2a2e44.css",
-    "main.js": "/rock-paper-scissors/static/js/main.cdaf2a9b.js",
+    "main.css": "/rock-paper-scissors/static/css/main.2c4fbaec.css",
+    "main.js": "/rock-paper-scissors/static/js/main.1ff43429.js",
     "static/js/496.39461949.chunk.js": "/rock-paper-scissors/static/js/496.39461949.chunk.js",
     "static/media/open-sans-all-400-normal.woff": "/rock-paper-scissors/static/media/open-sans-all-400-normal.cb2542fccedadc68d737.woff",
     "static/media/paytone-one-all-400-normal.woff": "/rock-paper-scissors/static/media/paytone-one-all-400-normal.83742105168536edd10c.woff",
@@ -19,12 +19,12 @@
     "static/media/paytone-one-vietnamese-400-normal.woff2": "/rock-paper-scissors/static/media/paytone-one-vietnamese-400-normal.c5eff476b49ded969361.woff2",
     "static/media/open-sans-greek-ext-400-normal.woff2": "/rock-paper-scissors/static/media/open-sans-greek-ext-400-normal.1ed998a42083750e175e.woff2",
     "index.html": "/rock-paper-scissors/index.html",
-    "main.ae2a2e44.css.map": "/rock-paper-scissors/static/css/main.ae2a2e44.css.map",
-    "main.cdaf2a9b.js.map": "/rock-paper-scissors/static/js/main.cdaf2a9b.js.map",
+    "main.2c4fbaec.css.map": "/rock-paper-scissors/static/css/main.2c4fbaec.css.map",
+    "main.1ff43429.js.map": "/rock-paper-scissors/static/js/main.1ff43429.js.map",
     "496.39461949.chunk.js.map": "/rock-paper-scissors/static/js/496.39461949.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae2a2e44.css",
-    "static/js/main.cdaf2a9b.js"
+    "static/css/main.2c4fbaec.css",
+    "static/js/main.1ff43429.js"
   ]
 }
