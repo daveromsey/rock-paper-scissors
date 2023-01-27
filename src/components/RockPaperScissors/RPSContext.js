@@ -27,6 +27,13 @@ const RPSProvider = ({ children }) => {
 		});
 	};
 
+	// Update games array, games played counter, and stats array.
+	const updateGameData = () => {
+		dispatch( { type: 'UPDATE_GAMES' } );
+		dispatch( { type: 'UPDATE_GAMES_PLAYED' } );
+		dispatch( { type: 'UPDATE_STATS' } );
+	};
+
 	// Reset the game state.
 	const resetGame = () => {
 		dispatch({
@@ -64,9 +71,8 @@ const RPSProvider = ({ children }) => {
 			return;
 		}
 
-		dispatch( { type: 'UPDATE_GAMES' } );
-		dispatch( { type: 'UPDATE_GAMES_PLAYED' } );
-		dispatch( { type: 'UPDATE_STATS' } );
+		// Update game history, stats, etc.
+		updateGameData();
 	}, [ state.game.endTime ] );
 
   return (
@@ -74,6 +80,7 @@ const RPSProvider = ({ children }) => {
       value={{
 				...state,
 				playerShoot,
+				updateGameData,
 				resetGame,
 				resetAllRpsData
       }}
