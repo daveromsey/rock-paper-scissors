@@ -62,9 +62,9 @@ const AppProvider = ({ children }) => {
 			case 'light':
 				return false;
 
-				case 'dark':
-					default:
-						return true;
+			case 'dark':
+			default:
+				return true;
     }
 	};
 
