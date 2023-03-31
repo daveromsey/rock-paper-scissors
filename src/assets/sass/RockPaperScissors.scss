@@ -58,7 +58,7 @@ button.ShootButton {
 		}
 	}
 
-	&:active {
+	&:active:enabled {
 		transform: translateY(4px); // Press effect.
 	}
 
