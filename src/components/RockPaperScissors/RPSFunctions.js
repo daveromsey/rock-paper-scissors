@@ -90,35 +90,26 @@ export const getGameResult = ( playerShot, cpuShot ) => {
  * @return {object} Stats for both player and CPU.
  */
 export const getStats = ( games ) => {
-	// Structure for the stats.
-	let stats = {
-		player: {
-			winTotal: 0,
-			lossTotal: 0,
-			drawTotal: 0,
-			winStreak: 0,
-			longestStreak: 0,
-			winPercentage: 0,
-			shotCounts: {
-				rock: 0,
-				paper: 0,
-				scissors: 0,
-			}
-		},
-		cpu: {
-			winTotal: 0,
-			lossTotal: 0,
-			drawTotal: 0,
-			winStreak: 0,
-			longestStreak: 0,
-			winPercentage: 0,
-			shotCounts: {
-				rock: 0,
-				paper: 0,
-				scissors: 0,
-			}
+	// Object to hold combined player and CPU stats.
+	let stats = {};
+
+	// Default structure for the stats.
+	let defaults = {
+		winTotal: 0,
+		lossTotal: 0,
+		drawTotal: 0,
+		winStreak: 0,
+		longestStreak: 0,
+		winPercentage: 0,
+		shotCounts: {
+			rock: 0,
+			paper: 0,
+			scissors: 0,
 		}
-	}
+	};
+
+	stats.player = Object.assign({}, defaults);
+	stats.cpu = Object.assign({}, defaults);
 
 	// Get the stats from the game history.
 
@@ -162,20 +153,15 @@ export const getStats = ( games ) => {
  * @return {object} Shot counts for both player and CPU.
  */
  export const getShotCounts = ( games ) => {
-
-	let player = {
-		rock: 0,
-		paper: 0,
-		scissors: 0,
-	};
-
-	let cpu = {
-		rock: 0,
-		paper: 0,
-		scissors: 0,
-	};
-
 	let shotCounts = {};
+	let defaults = {
+		rock: 0,
+		paper: 0,
+		scissors: 0,
+	};
+
+	let player = Object.assign({}, defaults);
+	let cpu = Object.assign({}, defaults);
 
 	// Get shot counts.
 	games.forEach( (game) => {
@@ -218,20 +204,15 @@ export const getStats = ( games ) => {
  * @return {object} Win/Lose/Draw counts both player and CPU.
  */
  export const getWinLoseDrawCounts = ( games ) => {
-
-	let player = {
-		winTotal: 0,
-		lossTotal: 0,
-		drawTotal: 0,
-	};
-
-	let cpu = {
-		winTotal: 0,
-		lossTotal: 0,
-		drawTotal: 0,
-	};
-
 	let winLoseDrawTotals = {};
+	let defaults = {
+		winTotal: 0,
+		lossTotal: 0,
+		drawTotal: 0,
+	};
+
+	let player = Object.assign({}, defaults);
+	let cpu = Object.assign({}, defaults);
 
 	games.forEach( (game) => {
 		const { winner } = game;
