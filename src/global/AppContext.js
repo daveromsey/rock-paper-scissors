@@ -106,11 +106,10 @@ const AppProvider = ({ children }) => {
         document.querySelector('html').classList.remove( 'dark' );
         break;
     }
-  }, [state.theme] );
 
-	useEffect(() => {
-    localStorage.setItem( "AppState", JSON.stringify(state) );
-  }, [state] );
+		// Save the selected theme to local storage.
+		localStorage.setItem( "AppState", JSON.stringify(state) );
+  }, [state, state.theme] );
 
   return (
     <AppContext.Provider
