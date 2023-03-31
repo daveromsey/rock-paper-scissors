@@ -14,6 +14,7 @@ const container = document.getElementById('root');
 const root      = createRoot(container);
 
 root.render(
+	// See https://reactjs.org/docs/strict-mode.html
 	<React.StrictMode>
 		<AppProvider>
 			<IconContext.Provider value={{ className: "react-icon icon" }}>
