@@ -87,6 +87,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Built with Create React APP. View [readme.md](create-react-app-readme.md) file.
 
 # Changelog
+1.3.2 - Refactor reducer functions to remove duplicated code
+      - Update dependencies
+      - Don't apply press down effect to buttons when they are disabled
+
 1.3.1 - Bugfix - Reset game state on reload
 
 1.3.0 - Update various packages
