@@ -1,6 +1,6 @@
 {
   "name": "rock-paper-scissors",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "homepage": "https://daveromsey.github.io/rock-paper-scissors/",
   "private": true,
   "scripts": {
