@@ -87,6 +87,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Built with Create React APP. View [readme.md](create-react-app-readme.md) file.
 
 # Changelog
+1.3.5 - Update dependencies
+
 1.3.4 - Update dependencies
 
 1.3.3 - Update dependencies
